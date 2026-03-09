@@ -22,6 +22,8 @@ All documentation and results written in English.
 
 Code is Python. Dependencies managed by `uv` in project `.venv`. Run code using `uv run`.
 
+If local tooling expects a project `.env`, create it from `.env.example` before running `uv run`.
+
 Before running or creating Jupyter notebooks, ensure JupyterLab is running:
 
 ```bash
@@ -38,7 +40,7 @@ Use `docs/project_context.md` for GRIMP/MOACC context and `docs/controlled_vocab
 
 ### Research
 
-Gather quotes and claims from documents (papers, web sources, knowledge base) to describe the dataset's variables, methodology, and file structure. The output serves as context for README drafting and quality control.
+Gather quotes and claims from documents (papers, web sources, knowledge base) to describe the dataset's variables, methodology, and file structure. The output serves as context for README drafting and quality control, so it must capture the non-tabular information required by the FRDR README template.
 
 **Sources to use:**
 
@@ -52,11 +54,32 @@ Gather quotes and claims from documents (papers, web sources, knowledge base) to
 Save results to `datasets/{id}/artifacts/research.md` with sections:
 
 - **Dataset overall description** — Scope, research objective, organizational context, umbrella initiative
-- **Glossary** — Key terms tagged as `instrument`, `variable`, `technique`, `acquisition`, `processing`, `initiative`, or `organization`
+- **README input capture** — Candidate title, people/institutions/roles, collection dates, geographic coverage, instruments, standards, processing stages, related publications/datasets/software, file-relationship notes, and unresolved README fields
+- **Glossary** — Key terms tagged as `instrument`, `variable`, `technique`, `acquisition`, `processing`, `initiative`, `organization`, or `standard`
+- **Source notes** — Brief claim-to-source mapping for later README drafting
+
+The research artifact should answer as many FRDR README sections as possible before file parsing begins, especially:
+
+- General information
+- Sharing/access context
+- Methodological context
+- Standards and software context
+- Related identifiers and ancillary-resource context
 
 ### Explore data files
 
-Inspect data files using pandas in a Jupyter notebook. For each file, document:
+Inspect data files using pandas in a Jupyter notebook. Save the notebook to `notebooks/` with dataset name in filename and save a summary to `datasets/{id}/artifacts/data_exploration.md`.
+
+Inspect the dataset by real file subtype, not only by extension. For example, a single dataset may contain:
+
+- reference snowpit workbooks
+- mapping/linkage workbooks
+- instrument exports (CSV, TXT, binary)
+- GNSS point files
+- shapefiles or zipped shapefiles
+- context/support files mixed into raw data
+
+For each scientific file type, document:
 
 - Column names and data types
 - Enum/categorical fields and their values
@@ -64,10 +87,18 @@ Inspect data files using pandas in a Jupyter notebook. For each file, document:
 - Missing value encoding (NA, NaN, empty string, sentinel values)
 - Case uniformity across text fields
 - File encoding and delimiter
+- Row counts / record counts where applicable
+- Relationships between files when one file maps measurement IDs to another
+- Software or Python packages required to read the format
 
-Use Anthropic xlsx/pdf skills for Excel and PDF files.
+Prefer available xlsx/pdf skills for Excel and PDF files when they exist in the current environment. If they are unavailable, fall back to local Python tooling such as `pandas`, `openpyxl`, `pypdf`, `pdfplumber`, and format-specific parsers.
 
-Save notebook to `notebooks/` with dataset name in filename.
+The data exploration outputs should provide the file-derived facts needed for the FRDR README sections:
+
+- Data & file overview
+- Methodological information tied to actual stored formats
+- Data-specific variable/codebook sections
+- Missing-data and unit documentation
 
 ### Draft FRDR README
 
@@ -79,7 +110,15 @@ Generate the dataset README from `docs/FRDR-template_README.txt`, filling in:
 - Methodological information (acquisition methods, processing steps, instruments, software)
 - Data-specific sections (variable lists, missing data codes, units)
 
-Use the research artifact (`artifacts/research.md`) and data exploration notebook as sources. Use `datasets/example/README.txt` as a reference for tone and level of detail.
+Make sure the draft also accounts for:
+
+- Relationship between files and folders
+- Ancillary or excluded files
+- Standards and calibration notes
+- Quality-assurance notes
+- Any format-specific software requirements
+
+Use the research artifact (`artifacts/research.md`) and data exploration outputs (`artifacts/data_exploration.md` + notebook) as sources. Use `datasets/example/README.txt` as a reference for tone and level of detail.
 
 Save output to `datasets/{id}/README.txt`.
 
@@ -92,5 +131,10 @@ Explore data files and validate integrity. Check for:
 - Value range outliers
 - Filename/folder naming consistency
 - Typos in column/sheet names (fix when found)
+- Inconsistent site spelling, date formatting, or extension casing
+- Placeholder/template values that look like real observations
+- Truncated or suspiciously short sensor files
+- Missing spatial metadata or broken links between instrument files and GPS/linkage files
+- Repeated data blocks or other format quirks that must be documented for reuse
 
 Save QC report to `datasets/{id}/artifacts/qc_report.md`.
