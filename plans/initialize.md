@@ -24,13 +24,17 @@ Output to single md in `docs/`
 
 From project research.
 
-Agent skills and tasks do not need to be refined at this point.
+Agent skills and tasks do not need to be refined at this point, just clarified.
 
 2. Initialize project environment
 
-* Setup mcp servers and skills
+* Setup python environment (`pyproject.toml`) with relevant packages (pandas, jupyter, etc.)
 
-* Setup python environment with relevant package
+* Setup MCP servers and skills (datalayer/jupyter-mcp-server). Make sure all skills and mcp are well setup and configured to be used in repo codex settings, github copilot settings and claude settings.
+
+* Add relevant gitignores.
+
+* Create a launcher script (`uv run jupyter-mcp`) that starts both the Jupyter server and the related MCP server
 
 3. Test research
 

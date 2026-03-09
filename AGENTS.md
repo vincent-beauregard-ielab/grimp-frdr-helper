@@ -1,79 +1,88 @@
-# Agent.md
+# AGENTS.md
 
-Agents will assist in archiving and documenting research datasets to be deposited on FRDR. Assist in documenting, writing metadata artifacts, structure files from data files, litterature, web sources and helper modules and docs in package.
-
+Agents assist GRIMP researchers in archiving and documenting research datasets for deposit on FRDR. They generate metadata artifacts, inspect data files, and retrieve relevant information from literature, web sources, and helper modules.
 
 ## Project organization
 
-* **datasets** First class. This is what will be uploaded to the FRDR repository. Also contains artifacts relevant to document and generate FRDR metadata. All contain in individual dataset dir `datasets/{id}`
+* **`datasets/{id}/`** — First class. Each directory is one dataset to be uploaded to FRDR. Contains data files, the FRDR README, `about.yaml` (dataset identity), and `artifacts/` (research notes, extracted metadata, QC reports). `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
 
-* **notebooks** First class. All data exploration and manipulation should be done in a reproducible manner in 
+* **`notebooks/`** — First class. All data exploration and manipulation must be done reproducibly in Jupyter notebooks.
 
-* **helper files** Agents/skills/modules/docs that are there to assist and guide.
+* **`docs/`** — Project-level documentation: `project_context.md` (GRIMP/MOACC/FRDR context), `FRDR-template_README.txt` (README template), `controlled_vocabulary.md` (keywords).
 
-* **knowledge base** Papers and docs relevant to grimp team research.
+* **`papers/`** — Domain literature (PDFs) relevant to GRIMP research.
 
-## Contraints
+* **`utils/`** — Python helper modules (e.g. `frdr_metadata.py` for fetching metadata from published FRDR datasets).
 
-All documentation and results written in english.
+## Constraints
 
-Code is python and dependencies managed by `uv` in project `.venv`
+All documentation and results written in English.
 
-Run code using `uv run`
+Code is Python. Dependencies managed by `uv` in project `.venv`. Run code using `uv run`.
 
 ## Agent tasks
 
 ### Elicitation
 
-Ask question to the user to better understand the data structure, how shoult it be organized.
+Ask questions to understand the dataset: what data was collected, how it is structured, what instruments were used, what processing was applied, and how files should be organized for deposit.
+
+Use `docs/project_context.md` for GRIMP/MOACC context and `docs/controlled_vocabulary.md` for standard terminology.
 
 ### Research
 
-TODO : Improve section from project context and README.md
+Gather quotes and claims from documents (papers, web sources, knowledge base) to describe the dataset's variables, methodology, and file structure. The output serves as context for README drafting and quality control.
 
-Gather quotes + claims from document and web to describe the dataset variables, methodology and file structure. Output `research.md` document will serve as context for other tasks.
+**Sources to use:**
 
-#### Output format
+- Papers in `papers/`
+- Web searches for instrument specs, standards (CAAML, OGRS), and related publications
+- `docs/project_context.md` for organizational context
+- `datasets/example/` as a reference for format and content
 
-Save results to `{dataset_key}/artifacts/research.md`
+**Output format:**
 
-#### Output
+Save results to `datasets/{id}/artifacts/research.md` with sections:
 
-## Dataset overall description
-
-Scope ? Research objective ? Organisational context – umbrella initiative ?
-
-## Glossary
-
-Also add relevant tags each term as `instrument`, `variable`, `technique`, `acquisition`, `processing`, `initiative`, `organization`
-
-**Term** – *Definition*
+- **Dataset overall description** — Scope, research objective, organizational context, umbrella initiative
+- **Glossary** — Key terms tagged as `instrument`, `variable`, `technique`, `acquisition`, `processing`, `initiative`, or `organization`
 
 ### Explore data files
 
-* Use pandas to synthesize data files :
+Inspect data files using pandas in a Jupyter notebook. For each file, document:
 
-    * Are there enums for certain fields ?
-    * What are the range of values ?
-    * Does it support N/A values ? How are they encoded
-    * Is there a case uniformity for the whole document
+- Column names and data types
+- Enum/categorical fields and their values
+- Value ranges for numeric fields
+- Missing value encoding (NA, NaN, empty string, sentinel values)
+- Case uniformity across text fields
+- File encoding and delimiter
 
-* Use excel file skill from anthropic to parse xlsx files
+Use Anthropic xlsx/pdf skills for Excel and PDF files.
 
-### Draft FRDR README.md
+Save notebook to `notebooks/` with dataset name in filename.
 
-* Template is docs/README.md
+### Draft FRDR README
 
-* Use document search to document variables captured by data files
+Generate the dataset README from `docs/FRDR-template_README.txt`, filling in:
 
-* Use document search to document data acquisiton methodology
+- General information (title, authors, dates, geographic location, funding)
+- Sharing/access (license, citation, related datasets)
+- Data & file overview (file list with descriptions, naming conventions)
+- Methodological information (acquisition methods, processing steps, instruments, software)
+- Data-specific sections (variable lists, missing data codes, units)
+
+Use the research artifact (`artifacts/research.md`) and data exploration notebook as sources. Use `datasets/example/README.txt` as a reference for tone and level of detail.
+
+Save output to `datasets/{id}/README.txt`.
 
 ### Quality control
 
-Explore data file and control for data integrity
+Explore data files and validate integrity. Check for:
 
-Outcomes
+- Consistent column names and data types across files
+- Unexpected missing values or encoding issues
+- Value range outliers
+- Filename/folder naming consistency
+- Typos in column/sheet names (fix when found)
 
-* The 
-
-* You can edit column/sheet names for typos 
+Save QC report to `datasets/{id}/artifacts/qc_report.md`.
