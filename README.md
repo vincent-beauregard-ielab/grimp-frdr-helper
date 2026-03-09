@@ -112,5 +112,12 @@ Agent instructions are defined in `AGENTS.md`. Agents can:
 
 ### Local references
 
-- [MOACC Data Synthesis](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/work/MOACC_synthese_des_donnees_20250923)
-- [MOACC Data Management Plan](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/work/MOACC_data_management_plan_20250129)
+[**MOACC Data Synthesis**](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/work/MOACC_synthese_des_donnees_20250923)
+
+[**MOACC Data Management Plan**](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/work/MOACC_data_management_plan_20250129)
+
+**Meeting Notes**
+- [MOACC Rencontre FRDR (2025-11-26)](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/notes/MOACC%20Rencontre%20FRDR%2020251126.md)
+- [MOACC Rencontre d'information avec FRDR](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/notes/MOACC%20Rencontre%20d'information%20avec%20FRDR.md)
+- [MOACC Présentation FRDR (2025-09-03)](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/notes/MOACC_Presentation_FRDR_20250903.md)
+- [MOACC Rencontre Jean-Benoit nouveau dataset](file:///C:/Users/beav3503/OneDrive%20-%20USherbrooke/notes/MOACC%20Rencontre%20Jean-Benoit%20nouveau%20dataset.md)

@@ -1,0 +1,11 @@
+responsible: Jean-Benoît Madore
+id: rogers_pass_snow_profile
+dataset_name: "{Recommend}"
+data_for_sites:
+  - Fidelity
+  - Hermit
+  - Round Hill
+raw_data_path: "GDrive:GRIMP_Avalanche/Data from field trip/Rogers Pass March 2024-2025"
+raw_data_url: "https://drive.google.com/drive/folders/1oy6SXQ46p_26UHZ9T0brljAAUzdKyMlJ?usp=drive_link"
+raw_data_file_pattern: null
+notes: "When available data acquired by IRIS, Snow scope and SNP - Snow Macro Pene {Needs improvement, might add or remove}"

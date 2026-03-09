@@ -1,5 +1,6 @@
 # Domain data — papers are large PDFs tracked separately
 papers/*
+datasets/*/raw_data/*
 
 # Python
 __pycache__/
