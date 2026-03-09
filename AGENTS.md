@@ -14,11 +14,19 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
 
 * **`utils/`** — Python helper modules (e.g. `frdr_metadata.py` for fetching metadata from published FRDR datasets).
 
+* **`scripts/`** — Utility scripts. `jupyter_mcp.py` starts JupyterLab with the token expected by the MCP server.
+
 ## Constraints
 
 All documentation and results written in English.
 
 Code is Python. Dependencies managed by `uv` in project `.venv`. Run code using `uv run`.
+
+Before running or creating Jupyter notebooks, ensure JupyterLab is running:
+
+```bash
+uv run scripts/jupyter_mcp.py
+```
 
 ## Agent tasks
 

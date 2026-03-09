@@ -54,9 +54,36 @@ Claude Code skills (`~/.claude/plugins/`):
 
 ## Setup
 
+**1. Install dependencies**
+
 ```bash
 uv sync
 ```
+
+**2. Configure environment**
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` if you need to change the token or port. The defaults work for local development. The token must match in three places — `.env`, `.claude/settings.json`, and `.vscode/mcp.json` — so change all three together if you deviate from the default.
+
+**3. Start JupyterLab**
+
+```bash
+uv run scripts/jupyter_mcp.py
+```
+
+This starts JupyterLab at `http://localhost:8888`. The MCP server (`jupyter-mcp-server`) is launched automatically by Claude Code and GitHub Copilot when needed — you do not start it manually.
+
+**MCP configuration files**
+
+| File | Purpose |
+|---|---|
+| `.claude/settings.json` | MCP server config for Claude Code |
+| `.vscode/mcp.json` | MCP server config for GitHub Copilot (VSCode) |
+
+Both point to `uvx jupyter-mcp-server@latest`, which is fetched and run on demand — no separate install needed.
 
 ## Usage
 

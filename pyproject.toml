@@ -1,0 +1,17 @@
+[project]
+name = "grimp-frdr-helper"
+version = "0.1.0"
+description = "Agent-assisted toolkit for preparing GRIMP research datasets for FRDR deposit"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+    "pypdf>=4.0",
+    "pdfplumber>=0.10",
+    "jupyterlab>=4.0",
+    "jupyter-collaboration>=3.0",
+    "ipykernel>=6.0",
+    "jupyter-mcp-server>=0.4",
+    "pyyaml>=6.0",
+]
+
