@@ -1,0 +1,105 @@
+{
+  "title": "Snow profile observation datasets, Glacier National Park, British Columbia, Canada.",
+  "description": "This dataset contains snow profile observation taken by the Glacier National Park avalanche forecasting operation. The dataset is saved in CAAML format (http://caaml.org/index.html) as it is widely used for avalanche related information. Each snow profile is saved as its unique caaml file, and shared in either the \"Full\" folder for snow profile to the ground, or \"Test\" folder for partial snow profiles. For more details, please refer to the README file. The name of each folder provide insight on the date of the first and last snow profile in this specific folder.",
+  "creators": [
+    {
+      "name": "Imbach, Benjamin",
+      "affiliations": [
+        "Université du Québec à Rimouski",
+        "Université de Sherbrooke"
+      ],
+      "orcid": "0009-0009-1002-9900",
+      "orcid_url": "https://orcid.org/0009-0009-1002-9900"
+    },
+    {
+      "name": "Madore, Jean-Benoit",
+      "affiliations": [
+        "Université de Sherbrooke"
+      ],
+      "orcid": "0000-0002-9336-7615",
+      "orcid_url": "https://orcid.org/0000-0002-9336-7615"
+    },
+    {
+      "name": "Jones, Andrew",
+      "affiliations": [
+        "Parks Canada"
+      ]
+    },
+    {
+      "name": "Brown, Catherine",
+      "affiliations": [
+        "Parks Canada"
+      ]
+    }
+  ],
+  "keywords": [
+    "avalanche hazard assessment",
+    "snow profile",
+    "stability test",
+    "Mountain hazard",
+    "Winter hazard"
+  ],
+  "publisher": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+  "publication_date": "2025-11-27",
+  "license": {
+    "name": "Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "doi": "10.20383/103.01523",
+  "files": [
+    {
+      "path": "submitted_data/CITATION.txt",
+      "type": "file",
+      "size_bytes": 208,
+      "last_modified": "2025-11-27 19:26:48+00:00"
+    },
+    {
+      "path": "submitted_data/LICENSE.txt",
+      "type": "file",
+      "size_bytes": 14187,
+      "last_modified": "2025-11-27 19:26:40+00:00"
+    },
+    {
+      "path": "submitted_data/README.txt",
+      "type": "file",
+      "size_bytes": 4310,
+      "last_modified": "2025-11-27 19:25:19+00:00"
+    },
+    {
+      "path": "submitted_data/frdr-dfdr-checksums.txt",
+      "type": "file",
+      "size_bytes": 156482,
+      "last_modified": "2025-11-27 19:27:18+00:00"
+    },
+    {
+      "path": "submitted_data/20150207_20240411",
+      "type": "folder",
+      "children_count": 2,
+      "last_modified": "2025-11-24 20:41:39+00:00",
+      "children": [
+        {
+          "path": "submitted_data/20150207_20240411/Full",
+          "type": "folder",
+          "children_count": 564,
+          "last_modified": "2025-11-24 20:43:06+00:00"
+        },
+        {
+          "path": "submitted_data/20150207_20240411/Test",
+          "type": "folder",
+          "children_count": 261,
+          "last_modified": "2025-11-24 20:42:20+00:00"
+        }
+      ]
+    }
+  ],
+  "related_identifiers": [
+    {
+      "relation_type": "isPartOf",
+      "identifier": "https://www.frdr-dfdr.ca/repo/collection/glaciernationalpark",
+      "title": "Glacier National Park Weather, Snow, and Avalanche Collection, British Columbia, Canada"
+    }
+  ],
+  "source": {
+    "frdr_landing_page": "https://www.frdr-dfdr.ca/repo/dataset/b334ee4a-be51-4e78-adbc-86bf4d6f7fef"
+  }
+}

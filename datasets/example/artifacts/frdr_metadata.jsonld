@@ -1,0 +1,56 @@
+{
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "doi",
+        "value": "https://doi.org/10.20383/103.01523"
+    },
+    "keywords": [
+        "avalanche hazard assessment",
+        "snow profile",
+        "stability test",
+        "Mountain hazard",
+        "Winter hazard"
+    ],
+    "@type": "Dataset",
+    "author": [
+        {
+            "affiliation": "Université du Québec à Rimouski;Université de Sherbrooke",
+            "@type": "Person",
+            "name": "Imbach, Benjamin",
+            "url": "https://orcid.org/0009-0009-1002-9900"
+        },
+        {
+            "affiliation": "Université de Sherbrooke",
+            "@type": "Person",
+            "name": "Madore, Jean-Benoit",
+            "url": "https://orcid.org/0000-0002-9336-7615"
+        },
+        {
+            "affiliation": "Parks Canada",
+            "@type": "Person",
+            "name": "Jones, Andrew"
+        },
+        {
+            "affiliation": "Parks Canada",
+            "@type": "Person",
+            "name": "Brown, Catherine"
+        }
+    ],
+    "description": "This dataset contains snow profile observation taken by the Glacier National Park avalanche forecasting operation. The dataset is saved in CAAML format (http://caaml.org/index.html) as it is widely used for avalanche related information. Each snow profile is saved as its unique caaml file, and shared in either the &quot;Full&quot; folder for snow profile to the ground, or &quot;Test&quot; folder for partial snow profiles. For more details, please refer to the README file. The name of each folder provide insight on the date of the first and last snow profile in this specific folder.",
+    "@context": "http://schema.org",
+    "url": "https://www.frdr-dfdr.ca/repo/dataset/b334ee4a-be51-4e78-adbc-86bf4d6f7fef",
+    "datePublished": "2025-11-27",
+    "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+        "url": "https://www.frdr-dfdr.ca/"
+    },
+    "name": "Snow profile observation datasets, Glacier National Park, British Columbia, Canada.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+        "url": "https://www.frdr-dfdr.ca/"
+    },
+    "@id": "https://doi.org/10.20383/103.01523"
+}
