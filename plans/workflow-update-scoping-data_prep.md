@@ -9,7 +9,7 @@ Also add a new Data preparation step before deposit. Basically permform data man
 
 All data preparation steps should be captured in a Jupyter notebook for reproducibility.
 
-**IMPORTANT** This step should be non-destructive to the original data.
+IMPORTANT: This step should be non-destructive to the original data.
 
 **Human-in-the-loop**
 Human in the loop is hard. Recommend 4 different levels of integration that could be planned and make recommendations.

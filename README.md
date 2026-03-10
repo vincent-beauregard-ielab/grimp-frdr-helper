@@ -30,11 +30,13 @@ plans/              # Project planning documents
 
 Each dataset follows this pipeline:
 
-1. **Research** — Gather context from literature, web sources, and knowledge base to describe the dataset.
-2. **Explore** — Inspect data files (structure, variables, ranges, missing values) in a notebook.
-3. **Draft README** — Generate the FRDR README from the template using research and exploration outputs.
-4. **Quality control** — Validate data integrity and flag issues.
-5. **Deposit** — Upload to FRDR with metadata form + README + data files.
+1. **Scope definition** — Define temporal, spatial, measurement, and data boundaries for the deposit. Iterative — refined as later steps reveal new information.
+2. **Research** — Gather context from literature, web sources, and knowledge base to describe the dataset.
+3. **Explore** — Inspect data files (structure, variables, ranges, missing values) in a notebook.
+4. **Quality control** — Validate data integrity and flag issues with recommended actions.
+5. **Data preparation** — Act on QC findings: copy, rename, transform, and subset files from `raw_data/` to `frdr_data/`. Non-destructive. Captured in a Jupyter notebook.
+6. **Draft README** — Generate the FRDR README from the template using research, exploration, and data preparation outputs.
+7. **Deposit** — Upload to FRDR with metadata form + README + data files.
 
 ## Dependencies
 
@@ -97,10 +99,12 @@ uv run python utils/frdr_metadata.py datasets/example/about.yaml
 
 Agent instructions are defined in `AGENTS.md`. Agents can:
 
+- Define dataset scope and boundaries (`artifacts/scope.md`)
 - Research dataset context and generate `artifacts/research.md`
 - Explore data files and summarize structure in notebooks
-- Draft FRDR README files from the template
 - Run quality control checks on data files
+- Prepare deposit-ready data in `frdr_data/` via reproducible notebooks
+- Draft FRDR README files from the template
 
 ## Resources
 
