@@ -1,0 +1,76 @@
+{
+  "title": "Fortress Mountain Snow Laboratory, Blowing Snow Camera Measurements, and Wind Velocity Data",
+  "description": "These data files include airborne blowing snow density measurements using a portable highspeed camera and 432 nm wavelength laser light plane apparatus.  Blowing snow measurements were taken in the first 30 mm above the snow surface. Approx 30 cm away in the spanwise direction across the mean wind direction were two Campbell Scientific CSAT3 sonic anemometers situated on a single mast. The anemometers sampled raw measurements at 50 Hz. The height about snow for the two anemometers (Upper=U, Lower=L) varied throughout the season: 20 Nov 2015: U=150 cm L=20 cm ; 4 Dec 2015: U=170 cm L=40 cm ; Dec 7 2015: U=170 cm L=40 cm ; Feb 3 2016: U=155 cm L=25 cm ; Mar 3 2016: U=140 cm L=10 cm\r\n\r\nThe basin is located in the headwater of Saskatchewan River Basin that provides vital water supplies to the Canadian Prairie Provinces.",
+  "creators": [
+    {
+      "name": "Aksamit, Nikolas",
+      "affiliations": [
+        "University of Saskatchewan"
+      ]
+    },
+    {
+      "name": "Pomeroy, John",
+      "affiliations": [
+        "University of Saskatchewan"
+      ]
+    }
+  ],
+  "keywords": [
+    "Hydrology",
+    "Hydrometeorology",
+    "Turbulence",
+    "Boundary Layers",
+    "Canadian Rocky Mountains"
+  ],
+  "publisher": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+  "publication_date": "2017-12-08",
+  "license": {
+    "name": "Creative Commons Public Domain Dedication (CC0 1.0)",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "doi": "10.20383/101.010",
+  "files": [
+    {
+      "path": "submitted_data/CITATION.txt",
+      "type": "file",
+      "size_bytes": 194,
+      "last_modified": "2024-03-27 23:16:09+00:00"
+    },
+    {
+      "path": "submitted_data/LICENSE.txt",
+      "type": "file",
+      "size_bytes": 6976,
+      "last_modified": "2021-04-09 21:51:43+00:00"
+    },
+    {
+      "path": "submitted_data/frdr-dfdr-checksums.txt",
+      "type": "file",
+      "size_bytes": 8578,
+      "last_modified": "2025-11-03 20:19:47+00:00"
+    },
+    {
+      "path": "submitted_data/FortressMountain_2017",
+      "type": "folder",
+      "children_count": 1,
+      "last_modified": "2021-04-09 21:00:37+00:00",
+      "children": [
+        {
+          "path": "submitted_data/FortressMountain_2017/FortressMountainLab_SnowDensity_Wind",
+          "type": "folder",
+          "children_count": 6,
+          "last_modified": "2021-04-09 21:51:43+00:00"
+        }
+      ]
+    }
+  ],
+  "related_identifiers": [
+    {
+      "relation_type": "isPartOf",
+      "identifier": "https://www.frdr-dfdr.ca/repo/collection/globalwaterfutures",
+      "title": "Global Water Futures"
+    }
+  ],
+  "source": {
+    "frdr_landing_page": "https://www.frdr-dfdr.ca/repo/dataset/5a8b9561-caf5-1dd7-b4ef-e852a609bb97"
+  }
+}

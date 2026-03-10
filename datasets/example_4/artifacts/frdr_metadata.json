@@ -1,0 +1,63 @@
+{
+  "title": "OSM Snow Survey Data",
+  "description": "Snow survey data collected by Alberta Environment and Protected Areas in the oil sands region (boreal plains) under Oil Sands Monitoring Program. Various snow properties, including snow depth, density and snow water equivalent across four different watersheds and four different land cover types (i.e., Open, Flat Low Lying, Coniferous and Mixed Deciduous) are provided. This dataset also includes snow data collected under the Regional Aquatics Monitoring Program from 2009 to 2017.",
+  "creators": [
+    {
+      "name": "Rokaya, Prabin",
+      "affiliations": [
+        "Alberta Environment and Protected Areas"
+      ],
+      "orcid": "0000-0003-1999-495X",
+      "orcid_url": "https://orcid.org/0000-0003-1999-495X"
+    }
+  ],
+  "keywords": [
+    "Manual survey",
+    "Meteorology",
+    "Snow",
+    "Standard federal sampler"
+  ],
+  "publisher": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+  "publication_date": "2025-10-03",
+  "license": {
+    "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "doi": "10.20383/103.01458",
+  "files": [
+    {
+      "path": "submitted_data/CITATION.txt",
+      "type": "file",
+      "size_bytes": 111,
+      "last_modified": "2025-10-03 16:33:01+00:00"
+    },
+    {
+      "path": "submitted_data/LICENSE.txt",
+      "type": "file",
+      "size_bytes": 13308,
+      "last_modified": "2025-10-03 16:32:52+00:00"
+    },
+    {
+      "path": "submitted_data/README.txt",
+      "type": "file",
+      "size_bytes": 7035,
+      "last_modified": "2025-10-03 16:14:10+00:00"
+    },
+    {
+      "path": "submitted_data/frdr-dfdr-checksums.txt",
+      "type": "file",
+      "size_bytes": 1116,
+      "last_modified": "2025-10-03 16:33:08+00:00"
+    },
+    {
+      "path": "submitted_data/osm_snow_survey_data.csv",
+      "type": "file",
+      "size_bytes": 65155,
+      "last_modified": "2025-09-25 19:12:33+00:00"
+    }
+  ],
+  "related_identifiers": [],
+  "source": {
+    "frdr_landing_page": "https://www.frdr-dfdr.ca/repo/dataset/35e4396d-44d9-44f6-8bdc-4ca68d4a2b63"
+  }
+}

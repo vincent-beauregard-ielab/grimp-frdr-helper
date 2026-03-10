@@ -1,0 +1,73 @@
+# Dataset metadata — reference example (OSM Snow Survey)
+# Source: Published FRDR dataset, used for README comparison.
+# NOTE: README.txt exists (7 KB) but FRDR files are in backup mode — download when available.
+
+# --- Identity ---
+id: example_4
+title: "OSM Snow Survey Data"
+doi: "10.20383/103.01458"
+doi_url: "https://doi.org/10.20383/103.01458"
+frdr_url: "https://www.frdr-dfdr.ca/repo/dataset/35e4396d-44d9-44f6-8bdc-4ca68d4a2b63"
+
+# --- FRDR required fields ---
+description: >
+  Snow survey data collected by Alberta Environment and Protected Areas in the oil sands region
+  (boreal plains) under Oil Sands Monitoring Program. Various snow properties, including snow
+  depth, density and snow water equivalent across four different watersheds and four different
+  land cover types (i.e., Open, Flat Low Lying, Coniferous and Mixed Deciduous) are provided.
+  This dataset also includes snow data collected under the Regional Aquatics Monitoring Program
+  from 2009 to 2017.
+keywords:
+  - Manual survey
+  - Meteorology
+  - Snow
+  - Standard federal sampler
+field_of_research: "Earth and related environmental sciences > Cryosphere processes > Physics of snow and ice"
+authors:
+  - last_name: Rokaya
+    first_name: Prabin
+    affiliations:
+      - Alberta Environment and Protected Areas
+    orcid: "0000-0003-1999-495X"
+contact:
+  name: ""
+  email: ""
+license: "CC BY 4.0"
+
+# --- FRDR recommended fields ---
+time_period:
+  start: "2009-01-01"
+  end: "2017-12-31"
+collection_period:
+  start: "2009-01-01"
+  end: "2017-12-31"
+funding:
+  - funder: "Oil Sands Monitoring Program"
+    award_number: ""
+    award_title: ""
+contributors: []
+related_identifiers: []
+geographic_coverage:
+  place_name: "Lower Athabasca Region"
+  country: "Canada"
+  province: "Alberta"
+  city: ""
+  point:
+    latitude: ""
+    longitude: ""
+  bounding_box:
+    west: ""
+    east: ""
+    north: ""
+    south: ""
+
+# --- Workflow state ---
+workflow:
+  scope_definition: null
+  research: null
+  explore_data: null
+  quality_control: null
+  data_preparation: null
+  draft_readme: null
+  preflight_validation: null
+  deposit: null

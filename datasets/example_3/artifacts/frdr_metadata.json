@@ -1,0 +1,431 @@
+{
+  "title": "High-Resolution Arctic Vegetation Maps and Photogrammetry Data from Drone Surveys at Trail Valley Creek, Northwest Territories (2023)",
+  "description": "This dataset provides high-resolution vegetation maps, labeled training data, and supporting photogrammetric products derived from drone-based surveys conducted in Arctic upland tundra at the Trail Valley Creek research station (Northwest Territories, Canada) between July 24 and July 29, 2023. Using a DJI Mavic 3 Multispectral drone equipped with RTK, multiple missions were flown at different altitudes to acquire RGB imagery at ground sampling distances (GSD) of 2.5 mm, 8 mm, and 1.6 cm, supporting detailed vegetation classification across various spatial scales.\r\n\r\nThe dataset includes orthomosaics, digital surface and terrain models (DSM, DTM), canopy height models (CHM), and dense point clouds for 38 missions. Field-verified species identifications were used to create labeled geopackages with species-level annotations over 25 × 25 cm grids. These annotations were used to train convolutional neural network models, and the resulting vegetation map predictions (at low, medium, and high resolution) are shared as raster and vector products.\r\n\r\nVegetation classification distinguishes between functional groups such as graminoids, lichens, and dwarf or tall shrubs. All predictions are georeferenced and aligned with their respective drone-derived photogrammetric inputs. Quality assurance was performed through visual inspections of orthomosaics and vector layers in ArcGIS Pro. The dataset supports research in Arctic ecology, biodiversity monitoring, remote sensing, and machine learning applications in tundra vegetation mapping.",
+  "creators": [
+    {
+      "name": "Caron-Guay, Antoine",
+      "affiliations": [
+        "University of Montreal",
+        "Institut de recherche en biologie végétale"
+      ],
+      "orcid": "0009-0000-6197-8625",
+      "orcid_url": "https://orcid.org/0009-0000-6197-8625"
+    },
+    {
+      "name": "Laliberté, Etienne",
+      "affiliations": [
+        "University of Montreal",
+        "Institut de recherche en biologie végétale"
+      ],
+      "orcid": "0000-0002-3167-2622",
+      "orcid_url": "https://orcid.org/0000-0002-3167-2622"
+    },
+    {
+      "name": "Sonnentag, Oliver",
+      "affiliations": [
+        "University of Montreal"
+      ],
+      "orcid": "0000-0001-9333-9721",
+      "orcid_url": "https://orcid.org/0000-0001-9333-9721"
+    }
+  ],
+  "keywords": [
+    "Trail Valley Creek",
+    "Arctic vegetation",
+    "Northwest Territories",
+    "Drone imagery",
+    "UAV RGB imagery",
+    "Photogrammetry",
+    "High-resolution orthomosaic",
+    "Vegetation classification",
+    "Tundra ecosystems",
+    "Remote sensing",
+    "Plant ecology",
+    "Digital surface model"
+  ],
+  "publisher": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+  "publication_date": "2025-10-21",
+  "license": {
+    "name": "Creative Commons Public Domain Dedication (CC0 1.0)",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "doi": "10.20383/103.01418",
+  "files": [
+    {
+      "path": "submitted_data/CITATION.txt",
+      "type": "file",
+      "size_bytes": 259,
+      "last_modified": "2025-10-21 20:06:52+00:00"
+    },
+    {
+      "path": "submitted_data/LICENSE.txt",
+      "type": "file",
+      "size_bytes": 6976,
+      "last_modified": "2025-10-21 20:06:43+00:00"
+    },
+    {
+      "path": "submitted_data/README.txt",
+      "type": "file",
+      "size_bytes": 11695,
+      "last_modified": "2025-10-21 20:00:45+00:00"
+    },
+    {
+      "path": "submitted_data/frdr-dfdr-checksums.txt",
+      "type": "file",
+      "size_bytes": 35927,
+      "last_modified": "2025-10-21 20:28:14+00:00"
+    },
+    {
+      "path": "submitted_data/labels",
+      "type": "folder",
+      "children_count": 3,
+      "last_modified": "2025-10-20 02:04:02+00:00",
+      "children": [
+        {
+          "path": "submitted_data/labels/2023_tvc_grid.gpkg",
+          "type": "file",
+          "size_bytes": 1642496,
+          "last_modified": "2025-10-20 02:04:02+00:00"
+        },
+        {
+          "path": "submitted_data/labels/2023_tvc_labels.gpkg",
+          "type": "file",
+          "size_bytes": 5210112,
+          "last_modified": "2025-10-20 02:04:02+00:00"
+        },
+        {
+          "path": "submitted_data/labels/2023_tvc_labels_aoi.gpkg",
+          "type": "file",
+          "size_bytes": 479232,
+          "last_modified": "2025-10-20 02:04:02+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/photogrammetry",
+      "type": "folder",
+      "children_count": 39,
+      "last_modified": "2025-10-20 14:14:42+00:00",
+      "children": [
+        {
+          "path": "submitted_data/photogrammetry/2023_tvc_drone_missions_aoi.gpkg",
+          "type": "file",
+          "size_bytes": 114688,
+          "last_modified": "2025-10-20 03:03:20+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_alder25_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_alder39_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_alder43_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_alder4_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_birch24_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_birch26_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_birch30_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_birch33_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_birch54_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_lichentundra17_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_lichentundra21_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_lichentundra35_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_lichentundra41_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_lichentundra45_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_polygon29_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_riparianshrub20_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_riparianshrub23_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_riparianshrub32_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_riparianshrub36_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_sedge_mosstundra16_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_sedge_mosstundra22_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_sedge_mosstundra34_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230724_sedge_mosstundra38_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_alder3_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_birch2_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_sedge_mosstundra10_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_sedge_mosstundra19_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_tussockfield_m3m",
+          "type": "folder",
+          "children_count": 8,
+          "last_modified": "2025-10-20 02:36:35+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230725_tussockfieldsub_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:15+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230726_lichentundra9_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230726_polygon5_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230726_smalltowerfpsub_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230728_birch42_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:12+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230728_lichentundra44_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:12+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230728_tussockfield46_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230728_tussockfield51_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:13+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230728_tussockfield53_m3m",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2025-10-20 01:35:14+00:00"
+        },
+        {
+          "path": "submitted_data/photogrammetry/20230729_smalltowerfp_m3m",
+          "type": "folder",
+          "children_count": 8,
+          "last_modified": "2025-10-20 02:46:50+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/vegetation_map_models",
+      "type": "folder",
+      "children_count": 11,
+      "last_modified": "2025-10-20 03:43:42+00:00",
+      "children": [
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_highres_model.pth",
+          "type": "file",
+          "size_bytes": 536161402,
+          "last_modified": "2025-10-20 03:38:42+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_lowres_model.pth",
+          "type": "file",
+          "size_bytes": 536160126,
+          "last_modified": "2025-10-20 03:41:32+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_medres_model.pth",
+          "type": "file",
+          "size_bytes": 536160126,
+          "last_modified": "2025-10-20 03:42:08+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_plots_highres_vegetation_map.gpkg",
+          "type": "file",
+          "size_bytes": 406245376,
+          "last_modified": "2025-10-20 03:43:29+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_smalltowerfp_lowres_vegetation_map.gpkg",
+          "type": "file",
+          "size_bytes": 260685824,
+          "last_modified": "2025-10-20 03:43:33+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_smalltowerfp_lowres_vegetation_map.tif",
+          "type": "file",
+          "size_bytes": 4172353,
+          "last_modified": "2025-10-20 03:43:42+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_smalltowerfp_vegetation_map.png",
+          "type": "file",
+          "size_bytes": 708836321,
+          "last_modified": "2025-10-20 03:39:26+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_subsample_medres_vegetation_map.gpkg",
+          "type": "file",
+          "size_bytes": 92295168,
+          "last_modified": "2025-10-20 03:43:49+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_test_aoi.gpkg",
+          "type": "file",
+          "size_bytes": 106496,
+          "last_modified": "2025-10-20 03:43:42+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_tussockfield_lowres_vegetation_map.gpkg",
+          "type": "file",
+          "size_bytes": 17805312,
+          "last_modified": "2025-10-20 03:43:40+00:00"
+        },
+        {
+          "path": "submitted_data/vegetation_map_models/2023_tvc_tussockfield_lowres_vegetation_map.tif",
+          "type": "file",
+          "size_bytes": 451307,
+          "last_modified": "2025-10-20 03:43:42+00:00"
+        }
+      ]
+    }
+  ],
+  "related_identifiers": [
+    {
+      "relation_type": "isPartOf",
+      "identifier": "https://www.frdr-dfdr.ca/repo/collection/lefo",
+      "title": "LEFO"
+    }
+  ],
+  "source": {
+    "frdr_landing_page": "https://www.frdr-dfdr.ca/repo/dataset/ac6eac88-aac6-45ba-860b-fbf4228e4896"
+  }
+}

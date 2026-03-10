@@ -1,0 +1,81 @@
+# Dataset metadata — reference example (Fortress Mountain Snow Laboratory)
+# Source: Published FRDR dataset, used for README comparison.
+# NOTE: This is a 2017 dataset that predates FRDR's README requirement — no README.txt exists.
+
+# --- Identity ---
+id: example_2
+title: "Fortress Mountain Snow Laboratory, Blowing Snow Camera Measurements, and Wind Velocity Data"
+doi: "10.20383/101.010"
+doi_url: "https://doi.org/10.20383/101.010"
+frdr_url: "https://www.frdr-dfdr.ca/repo/dataset/5a8b9561-caf5-1dd7-b4ef-e852a609bb97"
+
+# --- FRDR required fields ---
+description: >
+  These data files include airborne blowing snow density measurements using a portable highspeed
+  camera and 432 nm wavelength laser light plane apparatus. Blowing snow measurements were taken
+  in the first 30 mm above the snow surface. Approx 30 cm away in the spanwise direction across
+  the mean wind direction were two Campbell Scientific CSAT3 sonic anemometers situated on a
+  single mast. The anemometers sampled raw measurements at 50 Hz. The height about snow for
+  the two anemometers (Upper=U, Lower=L) varied throughout the season:
+  20 Nov 2015: U=150 cm L=20 cm; 4 Dec 2015: U=170 cm L=40 cm; Dec 7 2015: U=170 cm L=40 cm;
+  Feb 3 2016: U=155 cm L=25 cm; Mar 3 2016: U=140 cm L=10 cm.
+  The basin is located in the headwater of Saskatchewan River Basin that provides vital water
+  supplies to the Canadian Prairie Provinces.
+keywords:
+  - Hydrology
+  - Hydrometeorology
+  - Turbulence
+  - Boundary Layers
+  - Canadian Rocky Mountains
+field_of_research: "Earth and related environmental sciences > Hydrology > Hydrometeorology"
+authors:
+  - last_name: Aksamit
+    first_name: Nikolas
+    affiliations:
+      - University of Saskatchewan
+  - last_name: Pomeroy
+    first_name: John
+    affiliations:
+      - University of Saskatchewan
+contact:
+  name: ""
+  email: ""
+license: "CC0 1.0"
+
+# --- FRDR recommended fields ---
+time_period:
+  start: "2015-11-20"
+  end: "2016-03-03"
+collection_period:
+  start: "2015-11-20"
+  end: "2016-03-03"
+funding: []
+contributors: []
+related_identifiers:
+  - identifier: "https://www.frdr-dfdr.ca/repo/collection/globalwaterfutures"
+    relation_type: "IsPartOf"
+    title: "Global Water Futures"
+geographic_coverage:
+  place_name: "Fortress Mountain Snow Laboratory, Kananaskis, Alberta"
+  country: "Canada"
+  province: "Alberta"
+  city: ""
+  point:
+    latitude: 50.823
+    longitude: -115.198
+  bounding_box:
+    west: ""
+    east: ""
+    north: ""
+    south: ""
+
+# --- Workflow state ---
+workflow:
+  scope_definition: null
+  research: null
+  explore_data: null
+  quality_control: null
+  data_preparation: null
+  draft_readme: null
+  preflight_validation: null
+  deposit: null

@@ -1,0 +1,102 @@
+# Dataset metadata — reference example (Arctic Drone Vegetation Maps)
+# Source: Published FRDR dataset, used for README comparison.
+# NOTE: README.txt exists (11 KB) but FRDR files are in backup mode — download when available.
+
+# --- Identity ---
+id: example_3
+title: "High-Resolution Arctic Vegetation Maps and Photogrammetry Data from Drone Surveys at Trail Valley Creek, Northwest Territories (2023)"
+doi: "10.20383/103.01418"
+doi_url: "https://doi.org/10.20383/103.01418"
+frdr_url: "https://www.frdr-dfdr.ca/repo/dataset/ac6eac88-aac6-45ba-860b-fbf4228e4896"
+
+# --- FRDR required fields ---
+description: >
+  This dataset provides high-resolution vegetation maps, labeled training data, and supporting
+  photogrammetric products derived from drone-based surveys conducted in Arctic upland tundra
+  at the Trail Valley Creek research station (Northwest Territories, Canada) between July 24
+  and July 29, 2023. Using a DJI Mavic 3 Multispectral drone equipped with RTK, multiple
+  missions were flown at different altitudes to acquire RGB imagery at ground sampling distances
+  (GSD) of 2.5 mm, 8 mm, and 1.6 cm, supporting detailed vegetation classification across
+  various spatial scales. The dataset includes orthomosaics, digital surface and terrain models
+  (DSM, DTM), canopy height models (CHM), and dense point clouds for 38 missions.
+  Field-verified species identifications were used to create labeled geopackages with
+  species-level annotations over 25x25 cm grids. These annotations were used to train
+  convolutional neural network models, and the resulting vegetation map predictions (at low,
+  medium, and high resolution) are shared as raster and vector products. Vegetation
+  classification distinguishes between functional groups such as graminoids, lichens, and dwarf
+  or tall shrubs. All predictions are georeferenced and aligned with their respective
+  drone-derived photogrammetric inputs.
+keywords:
+  - Trail Valley Creek
+  - Arctic vegetation
+  - Northwest Territories
+  - Drone imagery
+  - UAV RGB imagery
+  - Photogrammetry
+  - High-resolution orthomosaic
+  - Vegetation classification
+  - Tundra ecosystems
+  - Remote sensing
+  - Plant ecology
+  - Digital surface model
+field_of_research: ""
+authors:
+  - last_name: Caron-Guay
+    first_name: Antoine
+    affiliations:
+      - University of Montreal
+      - Institut de recherche en biologie végétale
+    orcid: "0009-0000-6197-8625"
+  - last_name: Laliberté
+    first_name: Etienne
+    affiliations:
+      - University of Montreal
+      - Institut de recherche en biologie végétale
+    orcid: "0000-0002-3167-2622"
+  - last_name: Sonnentag
+    first_name: Oliver
+    affiliations:
+      - University of Montreal
+    orcid: "0000-0001-9333-9721"
+contact:
+  name: ""
+  email: ""
+license: "CC0 1.0"
+
+# --- FRDR recommended fields ---
+time_period:
+  start: "2023-07-24"
+  end: "2023-07-29"
+collection_period:
+  start: "2023-07-24"
+  end: "2023-07-29"
+funding: []
+contributors: []
+related_identifiers:
+  - identifier: "https://www.frdr-dfdr.ca/repo/collection/lefo"
+    relation_type: "IsPartOf"
+    title: "LEFO"
+geographic_coverage:
+  place_name: "Trail Valley Creek research station, Northwest Territories"
+  country: "Canada"
+  province: "Northwest Territories"
+  city: ""
+  point:
+    latitude: 68.7420508
+    longitude: -133.5018321
+  bounding_box:
+    west: ""
+    east: ""
+    north: ""
+    south: ""
+
+# --- Workflow state ---
+workflow:
+  scope_definition: null
+  research: null
+  explore_data: null
+  quality_control: null
+  data_preparation: null
+  draft_readme: null
+  preflight_validation: null
+  deposit: null
