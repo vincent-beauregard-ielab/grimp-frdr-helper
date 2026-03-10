@@ -159,7 +159,7 @@ Resolve the metadata fields that cannot be inferred safely from local files.
 ### Output
 
 - update `README.txt`
-- optionally update dataset `about.yaml` if a richer local metadata record is needed
+- optionally update dataset `metadata.yaml` if a richer local metadata record is needed
 
 ## Step 8 — Repo workflow cleanup
 

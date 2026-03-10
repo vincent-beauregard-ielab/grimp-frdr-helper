@@ -10,7 +10,7 @@ LLM agents automate metadata generation, data file inspection, and information r
 datasets/           # Dataset folders to be deposited on FRDR
   {id}/             #   One directory per dataset
     README.txt      #   FRDR README (from template)
-    about.yaml      #   Dataset identity (DOI, FRDR URL)
+    metadata.yaml      #   FRDR metadata fields + workflow state
     artifacts/      #   Research notes, extracted metadata, QC reports
   example/          #   Reference: published Rogers Pass snow profiles dataset (DOI: 10.20383/103.01523)
 
@@ -23,6 +23,7 @@ docs/               # Project-level documentation and templates
 
 papers/             # Domain literature (PDFs)
 utils/              # Python helper modules
+steps/              # Detailed instructions per workflow step
 plans/              # Project planning documents
 ```
 
@@ -30,13 +31,14 @@ plans/              # Project planning documents
 
 Each dataset follows this pipeline:
 
-1. **Scope definition** — Define temporal, spatial, measurement, and data boundaries for the deposit. Iterative — refined as later steps reveal new information.
-2. **Research** — Gather context from literature, web sources, and knowledge base to describe the dataset.
-3. **Explore** — Inspect data files (structure, variables, ranges, missing values) in a notebook.
+1. **Scope definition** — Initialize the dataset directory and define temporal, spatial, measurement, and data boundaries. Iterative — refined as later steps reveal new information.
+2. **Research** — Gather context from literature, web sources, and knowledge base to describe the dataset. *Runs in parallel with Explore.*
+3. **Explore** — Inspect data files (structure, variables, ranges, missing values) in a notebook. *Runs in parallel with Research.*
 4. **Quality control** — Validate data integrity and flag issues with recommended actions.
 5. **Data preparation** — Act on QC findings: copy, rename, transform, and subset files from `raw_data/` to `frdr_data/`. Non-destructive. Captured in a Jupyter notebook.
-6. **Draft README** — Generate the FRDR README from the template using research, exploration, and data preparation outputs.
-7. **Deposit** — Upload to FRDR with metadata form + README + data files.
+6. **Draft README** — Generate the FRDR README from the template, then validate against it section by section.
+7. **Preflight validation** — Automated check that all deliverables are complete, consistent, and ready for deposit.
+8. **Deposit** — Upload to FRDR with metadata form + README + data files. Researcher-driven, agent assists.
 
 ## Dependencies
 
@@ -92,12 +94,14 @@ Both point to `uvx jupyter-mcp-server@latest`, which is fetched and run on deman
 ### Fetch metadata from an existing FRDR dataset
 
 ```bash
-uv run python utils/frdr_metadata.py datasets/example/about.yaml
+uv run python utils/frdr_metadata.py datasets/example/metadata.yaml
 ```
+
+This fetches structured metadata from the published FRDR record and can bootstrap `research.md` and `metadata.yaml` for datasets that extend existing ones.
 
 ### Agent-assisted workflow
 
-Agent instructions are defined in `AGENTS.md`. Agents can:
+Agent orchestration is defined in `AGENTS.md`, with detailed step instructions in `steps/`. Agents can:
 
 - Define dataset scope and boundaries (`artifacts/scope.md`)
 - Research dataset context and generate `artifacts/research.md`

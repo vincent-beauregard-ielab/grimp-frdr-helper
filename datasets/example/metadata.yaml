@@ -1,0 +1,71 @@
+# Dataset metadata — mirrors FRDR required + recommended fields.
+# Populated incrementally during the workflow: Scope fills identity and extents,
+# Research fills people and context, Data Preparation fills file details.
+# The Deposit step reads this file to fill the FRDR submission form.
+
+# --- Identity ---
+id: example
+title: "Snow profile observation datasets, Glacier National Park, British Columbia, Canada"
+doi: "10.20383/103.01523"
+doi_url: "https://doi.org/10.20383/103.01523"
+frdr_url: "https://www.frdr-dfdr.ca/repo/api/datasets/:persistentId/?persistentId=doi:10.20383/103.01523"
+
+# --- FRDR required fields ---
+description: ""
+keywords: []
+field_of_research: ""          # CRDC 2020 v1.0 code
+authors:
+  # - last_name: ""
+  #   first_name: ""
+  #   affiliations: []
+  #   orcid: ""
+contact:
+  name: ""
+  email: ""
+license: ""                    # e.g. "CC BY 4.0", "CC BY-NC 4.0"
+
+# --- FRDR recommended fields ---
+time_period:                   # Date range the data addresses
+  start: ""                    # YYYY-MM-DD
+  end: ""
+collection_period:             # When data gathering occurred
+  start: ""
+  end: ""
+funding:
+  # - funder: ""
+  #   award_number: ""
+  #   award_title: ""
+contributors:
+  # - name: ""
+  #   role: ""                 # Data Collector | Data Manager | Project Manager | Research Group | Sponsor | Supervisor | Other
+related_identifiers:
+  # - identifier: ""           # DOI or URL
+  #   relation_type: ""        # e.g. "IsPartOf", "Cites", "IsDerivedFrom"
+geographic_coverage:
+  place_name: ""
+  country: ""
+  province: ""
+  city: ""
+  point:
+    latitude: ""               # decimal degrees, -90 to +90
+    longitude: ""              # decimal degrees, -180 to +180
+  bounding_box:
+    west: ""
+    east: ""
+    north: ""
+    south: ""
+
+# --- Workflow state ---
+# Tracks which steps have been completed. Updated by agents after human approval.
+workflow:
+  scope_definition: null       # null | "done" | "in_progress"
+  research: null
+  explore_data: null
+  quality_control: null
+  data_preparation: null
+  draft_readme: null
+  preflight_validation: null
+  deposit: null
+
+# --- Source paths ---
+# raw_data_source: ""          # e.g. OneDrive path, shared drive, external URL

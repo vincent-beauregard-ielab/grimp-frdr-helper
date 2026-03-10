@@ -327,7 +327,7 @@ def extract_metadata(about: dict[str, str]) -> dict[str, Any]:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Fetch structured dataset metadata from a public FRDR record.")
-    parser.add_argument("about_file", type=Path, help="Path to the dataset about.yaml file")
+    parser.add_argument("metadata_file", type=Path, help="Path to the dataset metadata.yaml file")
     parser.add_argument(
         "--output",
         type=Path,
@@ -338,7 +338,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
-    about = parse_simple_yaml(args.about_file)
+    about = parse_simple_yaml(args.metadata_file)
     metadata = extract_metadata(about)
 
     if args.output:
