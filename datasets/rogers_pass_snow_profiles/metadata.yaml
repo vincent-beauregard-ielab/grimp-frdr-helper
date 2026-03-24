@@ -1,0 +1,86 @@
+id: rogers_pass_snow_profiles
+title: Snow profile observation datasets, Rogers Pass, Glacier National Park, British
+  Columbia, Canada
+doi: ''
+doi_url: ''
+frdr_url: ''
+description: Multi-instrument snow profile observations from a six-day field campaign
+  (March 1-6, 2025) at Rogers Pass, Glacier National Park, British Columbia, Canada.
+  Includes manual snow stratigraphy profiles (StratiTemplate Excel), InfraRed Integrating
+  Sphere (IRIS) specific surface area measurements, SnowMicroPenetrometer (SMP) high-resolution
+  hardness profiles, and compact K-band (24 GHz) FMCW radar transects for snow depth
+  and snow water equivalent retrieval. Observations were collected at five study sites
+  (Fidelity, Jim Bay Corner, Hermit, Round Hill, Christiana Ridge) in collaboration
+  with Parks Canada's Avalanche Control Program. Data are raw as collected.
+keywords:
+- snow profile
+- avalanche hazard assessment
+- snow water equivalent
+- specific surface area
+- snow stratigraphy
+- SnowMicroPenetrometer
+- FMCW radar
+- IRIS
+- Rogers Pass
+- Glacier National Park
+- mountain hazard
+field_of_research: RDF10508
+authors:
+- last_name: Madore
+  first_name: Jean-Benoit
+  affiliations:
+  - Université de Sherbrooke, Dept. géomatique appliquée
+  - Centre d'études nordiques
+  orcid: 0000-0002-2292-1519
+- last_name: Langlois
+  first_name: Alexandre
+  affiliations:
+  - Université de Sherbrooke, Dept. géomatique appliquée
+  - GRIMP
+  - Centre d'études nordiques
+  orcid: 0000-0002-9966-205X
+contact:
+  name: Jean-Benoit Madore
+  email: jean-benoit.madore@usherbrooke.ca
+license: CC BY-NC 4.0
+time_period:
+  start: '2025-03-01'
+  end: '2025-03-06'
+collection_period:
+  start: '2025-03-01'
+  end: '2025-03-06'
+funding: null
+contributors:
+- name: Parks Canada — Avalanche Control Program, Glacier National Park
+  role: Sponsor
+related_identifiers: []
+geographic_coverage:
+  place_name: Rogers Pass, Glacier National Park
+  country: Canada
+  province: British Columbia
+  city: ''
+  point:
+    latitude: 51.278857
+    longitude: -117.622348
+  bounding_box:
+    west: -117.713247
+    east: -117.53145
+    north: 51.323627
+    south: 51.234087
+  elevation_range: 1832-2088 m
+workflow:
+  scope_definition: done
+  research: done
+  explore_data: done
+  quality_control: done
+  data_preparation: done
+  draft_readme: done
+  preflight_validation: null
+  deposit: null
+raw_data_source: datasets/rogers_pass_snow_profiles/raw_data/Rogers Pass March 2024-2025/
+prepared_package:
+  frdr_data_path: datasets/rogers_pass_snow_profiles/frdr_data/
+  prepared_file_count: 595
+  excluded_file_count: 38
+  documentation_language_note: Converted field notes remain in French.
+  readme_validation_issues: []

@@ -1,410 +1,280 @@
-# Rogers Pass Snow Profiles Data Exploration
-
-## Scope and method
-
-This summary was produced by inspecting the raw package under `datasets/rogers_pass_snow_profiles/raw_data/Rogers Pass March 2024-2025` with `pandas`, `openpyxl`, and `snowmicropyn`.
-
-The goal here is not to clean or rename the files yet. It is to document what is actually present, how it is structured, and which facts are ready for the FRDR README.
-
-## Inventory summary
-
-### Scientific data and directly related mapping files
-
-- `13` `.xlsx`
-- `322` `.csv`
-- `172` text files split into `166` lower-case `.txt` and `6` upper-case `.TXT`
-- `79` `.pnt`
-- `3` shapefile ZIP packages
-
-### Context or support material mixed into the raw package
-
-- `11` `.docx`
-- `17` `.pdf`
-- `25` HEIC images split across `.HEIC` and `.heic`
-
-### Top-level folders
-
-- `Jour 1 - Fidelity`
-- `Jour 2 - Jim Bay`
-- `Jour 3 - Hermit`
-- `Jour 4 - Fidelity`
-- `Jour 5 - Round Hill`
-- `Jour 6 - RoundHill and Christiana Ridge`
-- `AWP`
-- `Bouffe et infos`
-
-The day-based organization is useful for human navigation but means the FRDR README will need to explain relationships across folders by both `day` and `instrument`.
-
-## File relationships
-
-### Reference snowpit workbooks
-
-There are `8` stratigraphy workbooks sharing the same structure:
-
-- `StratiTemplate.xlsx` (blank template)
-- `Jour 1 - Fidelity/Strati_20250301_fidelity.xlsx`
-- `Jour 2 - Jim Bay/20250302_JimBay_StratiTemplate.xlsx`
-- `Jour 3 - Hermit/20250303_Hermit.xlsx`
-- `Jour 4 - Fidelity/20250304_StratiTemplate.xlsx`
-- `Jour 5 - Round Hill/20250305_Strati.xlsx`
-- `Jour 6 - RoundHill and Christiana Ridge/CRidge_Strati_20250306.xlsx`
-- `Jour 6 - RoundHill and Christiana Ridge/Fidelity_Strati_20250306.xlsx`
-
-These workbooks contain:
-
-- `AVY profile`
-- `Stability Tests`
-- `Density`
-- `IRIS`
-
-They are the most complete source for manual snowpit documentation.
-
-### Spatial-survey mapping files
-
-These single-sheet workbooks and GNSS CSV files map IDs across instruments:
-
-- `Jour 1 - Fidelity/Fidelity Radars and SMP/Radar Fidelity point information.xlsx`
-- `Jour 2 - Jim Bay/Spatial Survey - SMP and Radar K/20250302_JimBayCornerSpatial.xlsx`
-- `Jour 3 - Hermit/Spatial_Hermitt/20250303_HermitWX_RadarK.xlsx`
-- `Jour 5 - Round Hill/Spatial Survey/Spatial Survey notes.xlsx`
-- `Jour 1 - Fidelity/Fidelity Radars and SMP/Radar Fidelity.csv`
-- `Jour 2 - Jim Bay/Spatial Survey - SMP and Radar K/jimbaycorner_01032025.csv`
-- `Jour 5 - Round Hill/Spatial Survey/GPS information/ROUND HILL.csv`
-
-These files are essential for explaining which SMP, radar, SnowScope, and GPS records belong together.
-
-### Instrument subtypes found in the raw package
-
-- SnowScope profile CSV exports: `319`
-- GNSS CSV exports: `3`
-- Radar text exports in `radar_k` / `radar_ka`: `164`
-- IRIS plain-text exports: `6`
-- SMP binary profiles: `79`
-
-## Data type findings
-
-## 1. Stratigraphy workbooks (`.xlsx`)
-
-### Common structure
-
-Filled stratigraphy workbooks consistently use four sheets:
-
-- `AVY profile`
-- `Stability Tests`
-- `Density`
-- `IRIS`
-
-This is the core codebook structure for the manual snowpit portion of the dataset.
-
-### `AVY profile`
-
-Observed fields include:
-
-- date
-- time
-- elevation
-- aspect
-- incline
-- location
-- sky
-- precip
-- wind
-- layered snowpit rows with `HEIGHT`, `RESISTANCE`, `FORM`, `EXTENT`, `Ѳ (LWC)`, `WEIGHT`, `DENSITY`, and comments
-- temperature rows such as `AIR`, `SURFACE`, and successive depth labels
-
-Observed reference profile locations and metadata:
-
-- 2025-03-01, `Fidelity full profile`, elevation `1875`
-- 2025-03-02, `Jim Bay Corner`, elevation `1889`, aspect `ESE`, incline `27`
-- 2025-03-03, `Hermit wx station`, elevation `1950`, aspect `E`, incline `23`
-- 2025-03-04, `Fidelity study plot`, elevation `1875`, aspect `N`, incline `flat`
-- 2025-03-05, `Round Hill spatial survey`, elevation `2051`, aspect `N`
-- 2025-03-06, `Christiania Ridge`, elevation `2088`, aspect `N`, incline `30`
-
-### `Stability Tests`
-
-Columns are consistent:
-
-- `Test`
-- `Score`
-- `Grain Type`
-- `Down`
-- `Facture Char,`
-- `Comments`
-
-Observed content:
-
-- some files are empty
-- others include `CT`, `ECT`, and score strings such as `CTE5`, `ECTN23`, `H23`, `M14`
-- comments reference buried weak layers or dates such as `Jan 30th`
-
-### `Density`
-
-Typical columns:
-
-- `Height` or `Heigh`
-- `Weight (g)`
-- `Density (kg.m³)`
-
-Findings:
-
-- nominal sheet shape is around `61` rows
-- density values are numeric when populated
-- observed density ranges across filled workbooks run from `76` to `472 kg.m-3`
-- many rows alternate between a height row and a weight / density row
-- some `0` values appear in otherwise empty template-like rows, so zero is not always a true physical observation
-
-### `IRIS`
-
-Typical columns:
-
-- `Version`
-- `Spectralon (%)`
-- `Calibration Voltage 1 (V)`
-- `Calibration Voltage 2 (V)`
-- `Calibration Voltage 3 (V)`
-- `Height (cm)`
-- `Scan 1 (V)`
-- `Scan 2 (V)`
-- `Scan 3 (V)`
-- `Reflectance (%)`
-- `SSA (m².kg-1)`
-- `Ropt (mm)`
-- field-note columns
-
-Findings:
-
-- sheet sizes vary from `9` to `24` rows
-- calibration rows often use Spectralon references `99`, `60`, `40`, `20`, and `5`
-- many cells are blank in partially completed workbooks
-- `IRIS_1` and `IRIS_2` both appear in the `Version` field
-
-### Missing values and formatting issues
-
-- blanks dominate in template or partially filled rows
-- some files use `0` in density template rows
-- the day 6 Fidelity workbook has a likely date typo: `202500306`
-- location spelling is inconsistent: `Christiana` / `Christiania`
-- folder naming is inconsistent: `Round Hill` / `RoundHill`
-
-## 2. SnowScope profile CSVs (`319` files)
-
-### Structure
-
-SnowScope files are not flat CSV tables. They contain:
-
-1. a `GENERAL INFO` key-value block
-2. a `SCOPE PROFILE` key-value block
-3. a profile table beginning at:
-   - `depth (mm),hardness (kPa),optical Reflectance Avg`, or
-   - `depth (mm),hardness (kPa),`
-
-### Metadata fields observed
-
-- `elevation (m)`
-- `profilePrivacy`
-- `collectionTime`
-- `collectionTime (Unix Time)`
-- `creator name`
-- `Location`
-- `testNum`
-- `serialNum`
-- `profileDepth (mm)`
-- `batteryCapacity`
-- `errorCode`
-- `temperature`
-- `FW_version`
-- `PCB_version`
-
-### Consistency
-
-- file count inspected: `319`
-- creator name is always `Francis Gauthier`
-- firmware version is always `2.4.1`
-- error code is always `0`
-- serial numbers present: `00304`, `00322`, `00328`
-
-### Variable ranges
-
-- `depth (mm)`: `1` to `2266`
-- `hardness (kPa)`: `0.0` to `579.23`
-- `profileDepth (mm)` metadata: `81` to `2266`
-
-### Optical reflectance availability
-
-- SN00328 files include numeric `optical Reflectance Avg`
-- SN00322 files retain a third column but use literal `null`
-- across all parsed rows:
-  - rows with numeric optical reflectance: `334762`
-  - rows with missing optical reflectance: `268342`
-
-### Geographic coverage
-
-- files with valid `Location`: `311`
-- files with missing `Location`: `8`
-- latitude range from file metadata: `51.2341198` to `51.3236271`
-- longitude range from file metadata: `-117.7132470` to `-117.5314499`
-
-### Missing-value encoding
-
-- blank lines between metadata and profile table
-- literal `null` in metadata and optical-reflectance field
-
-## 3. GNSS CSV exports (`3` files)
-
-These are ordinary tabular CSV files with `37` columns such as:
-
-- `Name`
-- `Description`
-- `Longitude`
-- `Latitude`
-- `Ellipsoidal height`
-- RTK quality metrics
-- satellite counts
-- timestamps
-
-Observed row counts:
-
-- `Radar Fidelity.csv`: `18`
-- `jimbaycorner_01032025.csv`: `22`
-- `ROUND HILL.csv`: `43`
-
-These files are critical for geolocating radar, SMP, and SnowScope measurements because the `.pnt` files themselves do not carry usable coordinates.
-
-## 4. Radar text exports (`164` files)
-
-### Folder variants
-
-- `radar_k`
-- `radar_ka`
-- one small `Jour 4 - Fidelity/Radar K` folder with two readme-linked measurements
+# Data Exploration: Rogers Pass Snow Profiles
+
+**Date:** 2026-03-11
+**Notebook:** `notebooks/rogers_pass_snow_profiles_data_exploration.ipynb`
+
+## 1. File Inventory
+
+Total: **642 files**, **166.9 MB**
+
+| Extension | Count | Size (MB) | Description |
+|-----------|-------|-----------|-------------|
+| .csv | 322 | 10.03 | SnowScope profiles + GPS exports |
+| .txt | 172 | 17.83 | K-band radar (166) + IRIS (6) |
+| .pnt | 79 | 62.35 | SMP binary profiles |
+| .heic | 25 | 70.32 | Field photos (out of scope) |
+| .pdf | 17 | 3.92 | Hazard assessments (6) + AWP permits (9) + other (2) |
+| .xlsx | 13 | 2.10 | Stratigraphy (7) + spatial linkage (4) + other (2) |
+| .docx | 11 | 0.37 | Site ReadMes (6) + SMP/radar ReadMes (2) + planning (3) |
+| .zip | 3 | 0.01 | Zipped shapefiles |
+
+## 2. Snow Stratigraphy XLSX (StratiTemplate)
+
+**Files:** 7 workbooks (one per site-day, except Jour 6 has two: Christiana Ridge + Fidelity)
+**Software:** openpyxl, pandas
+
+Each workbook has 4 sheets (1000 rows x 26 cols per sheet template):
+
+### Sheet: AVY profile
+- **Structure:** Header rows 0-4 with site metadata; data starts row 5-6
+- **Header fields:** DATE, TIME, ELEVATION, ASPECT, INCLINE, FOOTPEN, ORG, OBSERVER, TYPE, SKY, PRECIP, WIND, LOCATION, SITE CARACT./OBJECTIVES
+- **Data columns:** HEIGHT (cm), RESISTANCE (hand hardness code), FORM (grain type code), EXTENT (grain size mm), LWC, WEIGHT, DENSITY, COMMENTS, TEMPERATURE (H, T, M, D sub-columns)
+- **Grain type codes observed:** RG, MFcl, SH, DH, FC, DF, PPgp, FCxr, RGxf, IFsc, MFpc, PP, RGlr
+- **Hardness codes:** F, 4F, 1F, P, K, I (standard hand hardness)
+- **Elevations:** 1875-2088 m
+- **Sites:** Fidelity full profile, Fidelity study plot, Jim Bay Corner, Hermit wx station, Round Hill spatial survey, Christiania Ridge, FIDELITY (Day 6)
+- **Missing values:** Empty cells (None), many trailing empty rows in template
+
+### Sheet: Stability Tests
+- **Columns:** Test, Score, Grain Type, Down (cm), Fracture Char, Comments
+- **Test types:** CT (Compression Test), ECT (Extended Column Test)
+- **Score format:** CTE5, CTM18, CTH24, ECTN23, etc.
+- **Fracture characters:** SP, RP, BRK, PC
+
+### Sheet: Density
+- **Columns:** Height (cm), Weight (g), Density (kg/m3)
+- **Notes:** Formula references ("Couteau 250CC * 4", "Couteau 100CC * 10")
+- **Missing:** Some density values are 0 (likely missing, not actual zero)
+
+### Sheet: IRIS
+- **Columns:** Version, Spectralon (%), Calibration Voltage 1-3 (V), Height (cm), Scan 1-3 (V), Reflectance (%), SSA (m2/kg), Ropt (mm), Field Notes
+- **Versions observed:** IRIS_1, IRIS_2
+- **Note:** Most IRIS sheets have only calibration data and Height/Scan 1 populated; Reflectance, SSA, Ropt columns are empty (computed post-processing needed)
+
+## 3. IRIS TXT Files
+
+**Files:** 6 (one per field day)
+**Format:** Comma-separated, no header, two columns: `time (HH:MM:SS), value (float)`
+**Encoding:** UTF-8
+**Software:** pandas
+
+| File | Day | Lines |
+|------|-----|-------|
+| IRIS_20250301.TXT | 2025-03-01 | 92 |
+| 20250302.TXT | 2025-03-02 | varies |
+| 20250303.TXT | 2025-03-03 | varies |
+| 20250304.TXT | 2025-03-04 | varies |
+| 20250305.TXT | 2025-03-05 | varies |
+| 20250306.TXT | 2025-03-06 | varies |
+
+- **Value range:** 0.118 to 1.988 (for Day 1 sample; represents voltage readings)
+- **Missing values:** None observed
+- **Note:** IRIS_20250301.TXT.docx companion document exists in Jour 1
+- **Naming inconsistency:** Day 1 uses `IRIS_YYYYMMDD.TXT`, Days 2-6 use `YYYYMMDD.TXT`
+
+## 4. SMP Binary .pnt Files (SnowMicroPen)
+
+**Files:** 79 total
+**Format:** Binary (SLF SnowMicroPenetrometer format)
+**Software:** snowmicropyn (v1.2+)
+
+| Day | Site | Count | Serial Range |
+|-----|------|-------|-------------|
+| Jour 1 - Fidelity | Fidelity | 4 | S35M0129-0132 |
+| Jour 2 - Jim Bay | Jim Bay Corner | 18 | S35M0133-0150 |
+| Jour 5 - Round Hill | Round Hill | 46 | S35M0151-0197 |
+| Jour 6 - Christiana Ridge | Christiana Ridge | 11 | S35M0198-0208 |
+
+- **SMP serial:** All serial 35 (single instrument)
+- **Columns:** distance (mm), force (N)
+- **Distance range:** 0 to 1700 mm
+- **Force range:** 0.02 to 41.92 N
+- **Samples per profile:** 3 to 411,400 (most ~400,000)
+- **GPS coordinates:** Embedded in some files; 7 files have invalid GPS (-99999 sentinel)
+- **Lat range (valid):** 51.234257 to 51.236523
+- **Lon range (valid):** -117.707436 to -117.698845
+- **Missing data:** No NaN in force values; some files have very few samples (likely aborted measurements)
+
+## 5. SnowScope CSV Profiles
+
+**Files:** 319 total (exported from SnowScope app)
+**Format:** CSV with metadata header + depth-resolved data
+**Encoding:** UTF-8
+**Software:** pandas
+
+| Directory | Day/Site | Count | Serial |
+|-----------|----------|-------|--------|
+| SS_SMP_20250301 | Jour 1 Jim Bay Corner | 8 | SN00328 |
+| SS_SS1_20250301 | Jour 1 Jim Bay Corner | 43 | SN00328 |
+| SS_SS2_hermitt_20250303 | Jour 3 Hermit | 59 | SN00328 |
+| SS_SN322_20250306 | Jour 5 Round Hill | 98 | SN00322 |
+| SS4_christridge_20240306 | Jour 6 Christiana Ridge | 111 | SN00322 + SN00304 |
+
+### Metadata header (21 fields)
+Key fields: `name`, `elevation (m)`, `collectionTime`, `collectionTime (Unix Time)`, `creator name`, `Location` (lat,lon), `serialNum`, `profileDepth (mm)`, `FW_version`, `PCB_version`, `temperature`
+
+- **Creator:** Francis Gauthier (all files)
+- **Serial numbers:** 00304, 00322, 00328 (3 SnowScope instruments)
+- **Firmware:** 2.4.1
+- **PCB:** v2.7
+
+### Data section
+- **Columns:** `depth (mm)`, `hardness (kPa)`, `optical Reflectance Avg` (optional)
+- **181 files** have optical reflectance; **138 files** lack it
+- **Profile depths:** 81 to 2266 mm
+- **Hardness range:** ~1-337 kPa
+- **Optical reflectance range:** 688-2277 (arbitrary units)
+- **Missing values:** `null` string in metadata fields; no NaN in data columns
+
+### Bounding box from SnowScope GPS
+- **Lat:** 51.234120 to 51.323627
+- **Lon:** -117.713247 to -117.531450
+
+## 6. K-band Radar TXT Files
+
+**Files:** 166 total
+**Format:** Text with metadata header + comma-separated I/Q data
+**Encoding:** UTF-8
+**Software:** pandas
+
+| Day | Site | Count |
+|-----|------|-------|
+| Jour 1 | Jim Bay Corner (spatial) | 50 |
+| Jour 2 | Jim Bay Corner | 42 |
+| Jour 3 | Hermit | 28 |
+| Jour 4 | Fidelity | 2 |
+| Jour 5 | Round Hill | 44 |
 
 ### Header metadata
+- **Radar No.:** 2010000058 (single instrument)
+- **Start-Frequency:** 23500 MHz
+- **Stop-Frequency:** 26000 MHz (Ka-band, 23.5-26 GHz)
+- **Ramp Time:** 1 ms
+- **Number of Samples:** 513
+- **Zero Pad Factor:** 4
+- **Active Channels:** I1, Q1, I2, Q2
+- **Dates:** 2025-03-01 through 2025-03-05
 
-All parsed radar files share the same metadata values:
+### Data section
+- **Columns:** X (m), I1, Q1, I2, Q2
+- **Rows per file:** 2565 (consistent)
+- **X range:** 0.0 to 7.675 m
+- **I/Q values:** Integer-scale (range ~1000 to ~38 million)
+- **Missing values:** None in parsed data; some files have trailing incomplete lines
 
-- start frequency: `23500 MHz`
-- stop frequency: `26000 MHz`
-- ramp time: `1 ms`
-- number of samples: `513`
-- zero pad factor: `4`
-- active channels: `I1, Q1, I2, Q2`
-- `Tic = 14991`
+**Note:** No radar files for Day 6 (Christiana Ridge).
 
-### Table structure
+## 7. Radar & Spatial Summary XLSX
 
-Each file contains repeated blocks beginning with:
+**Files:** 4 linkage workbooks mapping measurement point numbers to instrument file IDs and GPS rover points
 
-- `X (m), I1, Q1, I2, Q2`
+| File | Site | Rows | Key columns |
+|------|------|------|-------------|
+| Radar Fidelity point information.xlsx | Fidelity Day 1 | 13 | Mesure #, SMP, Radar, Snowscope Minute |
+| 20250302_JimBayCornerSpatial.xlsx | Jim Bay Day 2 | 18 | Measure Number, Rover Number, Radar with/without surface, SMP |
+| 20250303_HermitWX_RadarK.xlsx | Hermit Day 3 | 30 | POINT GNSS, LATITUDE, LONGITUDE, ELEVATION |
+| Spatial Survey notes.xlsx | Round Hill Day 5 | 48 | #, GPS, Ku, K, SMP, SS |
 
-Every parsed radar file contains:
+These are critical linkage tables connecting GPS point IDs to radar file numbers, SMP measurement numbers, and SnowScope profile numbers.
 
-- `5` repeated table blocks
-- `513` rows per block
-- `2565` numeric rows total per file
+## 8. GPS/Spatial CSV and Shapefiles
 
-Observed variable ranges across all parsed rows:
+### GPS CSV files (3 files, RTK survey export)
+**37 columns** including: Name, Longitude, Latitude, Elevation, Ellipsoidal height, Solution status, Correction type, timestamps, satellite counts, RMS values
 
-- `X (m)`: `0.0` to `7.675392`
-- `I1`: `0` to `77093910`
-- `Q1`: `83` to `74822123`
-- `I2`: `69` to `66754050`
-- `Q2`: `56` to `66329455`
+| File | Site | Points |
+|------|------|--------|
+| Radar Fidelity.csv | Fidelity Day 1 | 18 |
+| jimbaycorner_01032025.csv | Jim Bay Day 2 | 18 |
+| ROUND HILL.csv | Round Hill Day 5 | 46 |
 
-### Important note
+- **Solution status:** FIX (RTK fixed solution)
+- **Correction type:** RTK
+- **Antenna height:** 1.934 m (consistent)
+- **Coordinate system:** Global (WGS84)
 
-The header says `Number of Samples: 513`, but the stored files actually contain five repeated `513`-row blocks. The README should explain this explicitly because a naive reader will otherwise assume a single sweep per file.
+### Shapefiles (3 zipped)
+Each zip contains: Points.shp, Points.cpg, Points.dbf, Points.shx
 
-## 5. IRIS plain-text exports (`6` files)
+## 9. Geographic Bounding Box
 
-Plain-text IRIS files appear as two-column time series:
+Combined from all GPS sources (RTK CSVs + SnowScope embedded GPS):
 
-- time string, then
-- numeric value
+| Bound | Value |
+|-------|-------|
+| **North** | 51.323627 |
+| **South** | 51.234087 |
+| **East** | -117.531450 |
+| **West** | -117.713247 |
+| **Elevation** | 1838-2088 m |
+| **Total GPS points** | 394 |
 
-Examples:
+## 10. Hazard Assessment PDFs
 
-- `13:47:26, 0.815`
-- `15:13:36, 1.985`
+**6 files** (one per day), 3-page PDFs with structured morning hazard assessment form:
+- Weather observations (temperature, wind, HS, precipitation)
+- Avalanche hazard assessment
+- Links to weather stations (Fidelity, Rogers Pass, Round Hill, Abbott)
 
-Findings:
+## 11. Site ReadMe DOCX Files
 
-- file count: `6`
-- row counts per file: `52` to `92`
-- numeric value range: `0.006` to `2.002`
+**6 files** with field notes per site-day:
+- 4 daily site ReadMe files (~7.5 KB each)
+- 1 SMP manipulation ReadMe (Fidelity)
+- 1 radar readme (Day 4)
 
-These exports are much less self-describing than the workbook `IRIS` sheets, so both forms should be documented together in the README.
+## 12. Support/Administrative Files (out of scope)
 
-## 6. SMP binary profiles (`79` files)
+- **Bouffe et infos/** — Food/logistics spreadsheet
+- **Planning DOCX** — Campaign planning document
+- **Table of content Field Books.docx** — Field book index
+- **YUL parking reservation.pdf** — Travel logistics
+- **StratiTemplate.xlsx** — Blank template (reference)
 
-Parsed with `snowmicropyn`.
+## 13. File Relationships
 
-Findings:
+```
+Spatial Survey XLSX (linkage table)
+  |-- maps GPS rover # --> GPS CSV point (Lat/Lon/Elev)
+  |-- maps SMP # --> .pnt file (S35M0{SMP#}.pnt)
+  |-- maps Radar # --> radar_k/{NNNN}YYYYMMDD_HHMM.txt
+  |-- maps SnowScope minute --> SS CSV profile
 
-- profile count: `79`
-- nontrivial sample-count range: `16423` to `411400`
-- one likely bad / truncated file has only `3` samples:
-  - `Jour 5 - Round Hill/Spatial Survey/SMP/S35M0196.pnt`
-- maximum distance range across files: `0.0083` to `1699.996 mm`
-- maximum force range across files: `0.0269` to `41.9168 N`
+Stratigraphy XLSX
+  |-- IRIS sheet links to IRIS TXT file (same day)
+  |-- AVY profile covers same pit as density + stability tests
 
-Coordinate metadata issue:
+SnowScope CSV
+  |-- GPS location embedded in metadata header
+  |-- serialNum links to physical instrument
+  |-- profileDepth correlates with SMP measurements at same point
+```
 
-- all parsed `.pnt` files resolve to missing or invalid latitude / longitude in `snowmicropyn`
-- spatial linkage must therefore come from the companion GPS files and survey-note workbooks
+## Scope Updates
 
-## 7. Shapefile ZIPs (`3` files)
+### 1. Day 6 Fidelity stratigraphy file
+Jour 6 contains `Fidelity_Strati_20250306.xlsx` — a stratigraphy file for Fidelity on Day 6, which was planned for Round Hill and Christiana Ridge only. The file has DATE=202500306 (typo: extra zero), minimal data (empty Stability Tests, Density, IRIS sheets), OBSERVER=AL, JM. This may be a quick re-visit to Fidelity on the last day. **Action needed:** Confirm with researcher whether this is a real observation or a mis-filed/duplicate workbook.
 
-Observed files:
+### 2. IRIS file naming inconsistency
+Day 1 IRIS file is named `IRIS_20250301.TXT` while Days 2-6 use `YYYYMMDD.TXT` (without IRIS prefix). The IRIS data format is consistent (time, value pairs).
 
-- `Jour 1 - Fidelity/Fidelity Radars and SMP/Radar Fidelity.shp.zip`
-- `Jour 2 - Jim Bay/Spatial Survey - SMP and Radar K/jimbaycorner_01032025.shp.zip`
-- `Jour 5 - Round Hill/Spatial Survey/GPS information/ROUND HILL.shp.zip`
+### 3. Hermit stratigraphy quality note
+The Hermit Day 3 stratigraphy file contains the note "NOTE...THIS PROFIL IS NOT GOOD" in the SITE CARACT field. This should be documented in the README.
 
-These are strong candidates for ancillary spatial data in the FRDR package.
+### 4. Ka-band radar inconsistency (Day 5)
+Day 5 radar files are in a directory named `radar_ka` (not `radar_k`), suggesting these may be Ka-band rather than K-band, or the naming is inconsistent. The file format and frequency range (23.5-26 GHz) are identical. **Action needed:** Confirm frequency band designation.
 
-## 8. Support and administrative material
+### 5. No radar data for Day 6
+No K-band/Ka-band radar files exist for Day 6 (Christiana Ridge). The spatial survey for Day 6 contains only SnowScope CSVs.
 
-Mixed into the raw tree but likely not core data:
+### 6. No GPS/shapefile for Days 3, 4, 6
+RTK GPS exports (CSV + shapefile) exist only for Days 1, 2, and 5. Day 3 has coordinates embedded in its spatial XLSX. Days 4 and 6 have no standalone GPS files.
 
-- AWP permit PDFs
-- meal-planning workbook in `Bouffe et infos`
-- parking reservation PDF
-- HEIC field photos
-- day-level readme/docx notes
+### 7. SMP data absent for Days 3 and 4
+No .pnt files exist for Day 3 (Hermit) or Day 4 (Fidelity). Day 3 has SnowScope CSVs but no raw SMP binary profiles.
 
-Some of the docx notes are scientifically useful because they explain the number of points collected and the relationship between instruments. They should at least be mined for README text even if they are not deposited.
+### 8. SnowScope location anomaly
+The SnowScope GPS bounding box extends to lon=-117.531, which is significantly east of the other sites (centered around -117.70). This corresponds to the Hermit site (Jour 3) at lat~51.323, lon~-117.531, confirming Hermit is geographically distinct from the other sites.
 
-## Naming and consistency issues
-
-QC-relevant issues found during exploration:
-
-- `Round Hill` vs `RoundHill`
-- `Christiana` vs `Christiania`
-- mixed `.txt` and `.TXT`
-- mixed `.HEIC` and `.heic`
-- `Fidelity_Strati_20250306.xlsx` likely contains mistyped date `202500306`
-- some workbook columns vary slightly, for example `Height` vs `Heigh`
-- many SnowScope CSVs use `null` literals instead of empty cells
-- radar files contain repeated table blocks not obvious from the header
-
-## README-ready conclusions
-
-The FRDR README can already document:
-
-- the campaign date range and site list
-- the main instrument families
-- the raw package structure by day and by data type
-- workbook sheet structure and the main variable groups
-- SnowScope metadata fields, hardness units, and optional optical-reflectance field
-- radar file header fields and the repeated-block structure
-- IRIS text-export structure
-- SMP binary dependency on `snowmicropyn`
-- the need to use companion GPS files for spatial linkage
-
-Still needing owner confirmation rather than more file parsing:
-
-- which support files should be deposited
-- final authoritative site spellings
-- whether Ka-band and K-band should be described as distinct instruments or as folder-level naming
-- whether any of the raw formats will be normalized before FRDR deposit
+### 9. Date in Christiana Ridge directory name
+The directory `SS4_christridge_20240306` uses date 20240306 (2024) instead of 20250306 (2025). The actual data files inside have 2025 dates. This is a naming error in the directory.

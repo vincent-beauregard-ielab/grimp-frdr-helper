@@ -1,178 +1,201 @@
-# Rogers Pass Snow Profiles Research Notes
+# Research — Rogers Pass Snow Profiles
+
+**Status:** Done
+**Dataset id:** rogers_pass_snow_profiles
+**Primary source:** `papers/madore_jean-benoit_PhD_2023.pdf`
+
+---
 
 ## Dataset overall description
 
-This dataset documents a six-day snow field campaign conducted in Rogers Pass, British Columbia, from 2025-03-01 to 2025-03-06. The campaign combined full snowpit observations with instrumented spatial surveys at Fidelity, Jim Bay Corner, Hermit weather station, Round Hill, and Christiana Ridge. The raw package includes snow stratigraphy workbooks, density and stability observations, SnowScope profile exports, SnowMicroPen (`.pnt`) files, FMCW radar text exports, IRIS outputs, GNSS point files, and contextual field notes.
+This dataset contains multi-instrument snow profile observations collected during an intensive six-day field campaign (2025-03-01 to 2025-03-06) at Rogers Pass, Glacier National Park, British Columbia, Canada. The campaign was conducted by the Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP) at Université de Sherbrooke in collaboration with Parks Canada's Avalanche Control Program at Glacier National Park.
 
-The scientific objective is to characterize snow stratigraphy, density, hardness, grain properties, liquid-water-related structure, and short-range spatial variability relevant to avalanche forecasting and snow remote sensing. The local source material ties the campaign to GRIMP avalanche and snow-remote-sensing work at Universite de Sherbrooke. The broader research context is the group’s long-running snowpack modeling and radar work in Rogers Pass; the PhD thesis by Jean-Benoit Madore describes the same study region, repeated Fidelity measurements, manual snow profiles, IRIS-based grain measurements, and 24 GHz FMCW radar observations used to study percolation and stratigraphy.
+Rogers Pass, located in the Selkirk Mountains of British Columbia, is one of the snowiest inhabited areas in Canada, with snow depths regularly exceeding 4 m at upper elevations. Parks Canada has operated the world's largest mobile artillery avalanche control program at Rogers Pass since 1961, protecting the Trans-Canada Highway and Canadian Pacific Railway from avalanche hazards. The Mount Fidelity snow study plot (1905 m elevation) is a long-standing reference site for snowpack monitoring in the area.
 
-The dataset appears to mix two observation modes described in the thesis and field notes:
+The dataset captures the physical state of the seasonal snowpack using four complementary measurement systems: traditional snow stratigraphy profiles (StratiTemplate Excel workbooks), infrared integrating sphere (IRIS) observations for snow specific surface area, SnowMicroPenetrometer (SMP) high-resolution hardness profiles, and frequency-modulated continuous-wave (FMCW) K-band radar measurements for snow depth and snow water equivalent retrieval. Observations were collected at five study sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
 
-- `heavy` reference profiles: full snowpit, density, IRIS, and stability tests at fixed or repeat sites;
-- `light` spatial surveys: portable SnowScope, SMP, radar, and GNSS measurements collected along short transects.
+GRIMP was founded in 2014 by Professor Alexandre Langlois at the Department of Applied Geomatics, Université de Sherbrooke. The group is affiliated with CARTEL (Centre d'applications et de recherches en télédétection) and the Centre d'études nordiques (CEN). GRIMP's avalanche research axis focuses on avalanche hazard assessment, snow profile observation, and stability testing, with a long-standing collaboration with Parks Canada at Rogers Pass.
 
-Verified geographic coverage from file metadata spans approximately:
+The methodology follows the same protocols documented in Madore (2023), an integrated study of water percolation in the snowpack at Glacier National Park. The 2025 campaign extends earlier fieldwork (2018-2019 seasons) with the same instrument suite at the same general study area.
 
-- latitude `51.2341198` to `51.3236271`
-- longitude `-117.7132470` to `-117.5314499`
-
-The campaign is clearly part of GRIMP research. A direct funding statement for this specific March 2025 campaign is not yet confirmed from local materials. `docs/project_context.md` links GRIMP’s snow work to avalanche research in Rogers Pass and lists MOACC research themes, but MOACC should be treated as contextual vocabulary until the dataset owner confirms that this campaign was funded or reported under MOACC.
+---
 
 ## README input capture
 
-### Candidate dataset title
+### Title
+Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada
 
-Working title:
+### People and institutions
 
-`Rogers Pass snow profiles and spatial snow-property surveys, British Columbia, Canada, March 2025`
+| Role | Name | Affiliation | ORCID |
+|------|------|-------------|-------|
+| Lead author | Jean-Benoit Madore | Université de Sherbrooke, Dept. géomatique appliquée; Centre d'études nordiques | 0000-0002-2292-1519 |
+| Lead author / Supervisor | Alexandre Langlois | Université de Sherbrooke, Dept. géomatique appliquée; GRIMP; Centre d'études nordiques | 0000-0002-9966-205X |
+| Author (tentative) | Benjamin Imbach | UQAR | TBD |
+| Author (tentative) | Francis Gauthier | UQAR | TBD |
+| Author (tentative) | Julien Meloche | Université de Sherbrooke | TBD |
+| Author (tentative) | Cécile Meyer | Université de Sherbrooke | TBD |
+| Author (tentative) | Rachel Hale | TBD | TBD |
+| Author (tentative) | Maxime Paquette | Université de Sherbrooke | TBD |
+| Collaborator | Parks Canada — Avalanche Control Program, Glacier National Park | Government of Canada | — |
 
-This title is descriptive enough for FRDR, but the final title still needs owner confirmation, especially whether Fidelity repeat profiles and Christiana Ridge exploratory data should be in the same deposit.
+**Contact:** Jean-Benoit Madore (email TBD from researcher)
 
-### People, institutions, and likely roles
+### Collection dates
+2025-03-01 to 2025-03-06 (6 field days)
 
-Confirmed from local documents:
+### Geographic coverage
+- **Place name:** Rogers Pass, Glacier National Park, Selkirk Mountains, British Columbia, Canada
+- **Country:** Canada
+- **Province:** British Columbia
+- **Sites:** Fidelity (~1905 m), Jim Bay Corner, Hermit, Round Hill, Christiana Ridge
+- **Bounding box:** TBD — to be extracted from GPS/shapefile data in Explore Data step
 
-- Jean-Benoit Madore, Universite de Sherbrooke / GRIMP: campaign lead, radar and snow research context
-- Alexandre Langlois, Universite de Sherbrooke / GRIMP: field participant and GRIMP lead
-- Benjamin Imbach, UQAR: field participant, profile observations
-- Francis Gauthier, GRIMP: repeated creator name in SnowScope exports; field participant
-- Violaine Paquette: field participant
-- Francis Meloche: field participant during early campaign days
-- Hans-Peter Marshall: Round Hill spatial day participant with radar measurements
-- Jo Meyer and Julien Meloche: Round Hill / day 6 participants
-- Catherine Brown and Parks Canada staff are mentioned in context notes but not yet confirmed as dataset authors
+### Instruments and acquisition protocols
 
-Likely contributor organizations:
+#### 1. Snow stratigraphy profiles (StratiTemplate)
 
-- GRIMP / Universite de Sherbrooke
-- UQAR
-- Parks Canada, for site access and Rogers Pass avalanche operations context
+Traditional manual snow pit observations recording layer-by-layer snow properties: grain type and size (classified per ICSSG, Fierz et al. 2009), hand hardness, temperature profile, density profile (by cutting known-volume samples and weighing), wetness, and layer boundaries. Observations follow the Canadian Avalanche Association's Observation Guidelines and Recording Standards (OGRS; CAA, 2016). Data are recorded in StratiTemplate, an Excel-based snow stratigraphy workbook. One workbook per site-day; 7 files total.
 
-### Collection period and geography
+#### 2. InfraRed Integrating Sphere (IRIS)
 
-Verified collection dates in files and day readmes:
+The IRIS is a laser-based instrument that measures shortwave infrared (SWIR) hemispherical reflectance (albedo) of snow samples using an integrating sphere at wavelengths of 1310 nm and 1550 nm. From these reflectance measurements, snow specific surface area (SSA, in m^2/kg) and optical equivalent grain size are derived. The instrument was designed and validated by Montpetit et al. (2012), who reported measurement accuracy of ~7% compared to X-ray micro-computed tomography reference measurements, with good reproducibility for snow densities above 200 kg/m^3. Measurements are taken at each layer identified in the snow pit wall. One TXT output file per field day; 6 files total.
 
-- 2025-03-01: Fidelity and Jim Bay Corner spatial work
-- 2025-03-02: Jim Bay Corner
-- 2025-03-03: Hermit weather station
-- 2025-03-04: Fidelity study plot
-- 2025-03-05: Round Hill
-- 2025-03-06: Christiana Ridge and Fidelity
+#### 3. SnowMicroPenetrometer (SMP)
 
-Sites confirmed in workbook and note text:
+The SMP is a portable, motor-driven, high-resolution snow penetrometer developed at the WSL Institute for Snow and Avalanche Research SLF (Schneebeli & Johnson, 1998; Schneebeli et al., 1999). It drives a conical tip (5 mm diameter, 60-degree included angle) into the snowpack at a constant speed of 20 mm/s, recording penetration resistance force (0-42 N range) at 4-micrometer intervals (250 measurements per millimeter, 5 kHz sampling rate). The effective layer resolution is approximately 1.8 mm. The SMP provides an objective, high-resolution record of snowpack mechanical stratigraphy that complements the manual snow pit profile. Output files are in proprietary .pnt binary format with derived .csv profiles. Multiple profiles per site-day.
 
-- Fidelity / Mount Fidelity
-- Jim Bay Corner
-- Hermit weather station
-- Round Hill
-- Christiana Ridge / Christiania Ridge
+#### 4. K-band FMCW radar
 
-Note the spelling inconsistency `Christiana` vs `Christiania` in the raw files.
+A compact 24 GHz frequency-modulated continuous-wave (FMCW) radar, based on the commercial IMST Sentire sR-1200 Series module (IMST GmbH, Kamp-Lintfort, Germany). Key specifications: center frequency 24 GHz (K-band), bandwidth 2.5 GHz, field of view 65 degrees azimuth by 24 degrees longitudinal (as used mounted on a tower at the Fidelity site in previous campaigns). The radar retrieves snow depth (uncertainty ~2 cm) and snow water equivalent (SWE, uncertainty ~5%) from the radar return signal. In the 2025 field campaign, the radar is used for spatial transects across study sites. The system is lightweight (<500 g with battery), low-cost, and connects to a Raspberry Pi or Arduino controller. Reference design paper: Pomerleau et al. (2020). Output files are TXT and CSV.
 
-### Scientific and methodological context
+#### 5. Spatial surveys (GPS + transect data)
 
-Local thesis evidence supports the following interpretation:
+Spatial survey data linking SMP and radar measurements to geographic coordinates along transects at each study site. Data formats include XLSX, CSV, and zipped shapefiles (SHP). GPS coordinates are in geographic decimal degrees (WGS84 assumed).
 
-- Rogers Pass manual snow observations follow OGRS-style snowpit practice with grain type, grain size, hardness, density, temperature, liquid-water-related observations, and compression tests.
-- The IRIS workflow is used to derive snow optical / grain metrics from calibrated reflectance measurements.
-- A 24 GHz FMCW radar is used for snow stratigraphy, wetting-front, crust, and SWE-related work at Fidelity and in portable spatial deployments.
-- SnowMicroPen measurements provide high-resolution penetration-force profiles.
+### Standards and software
 
-The day-level notes show how instruments were combined operationally:
+- **ICSSG:** International Classification for Seasonal Snow on the Ground (Fierz et al., 2009) — grain type and size classification used in snow pit profiles
+- **OGRS:** Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (CAA, 2016) — field observation protocol followed during snow pit work
+- **CAAML:** Canadian Avalanche Association Markup Language (V5.0/V6.0) — XML standard for snow profile data exchange; used in the earlier published dataset (DOI: 10.20383/103.01523) but the current dataset deposits raw Excel-format profiles, not CAAML-converted files
+- **SNOWPACK model:** Multilayer thermodynamic snow cover model developed at SLF (Bartelt & Lehning, 2002) — referenced in the thesis methodology for simulating snowpack evolution; not directly used in this raw dataset but relevant context for the research program
 
-- 2025-03-01: 4 SMP, 8 radar, and 8 SnowScope measurements at the Fidelity profile site, then 23 spatial observations above Jim Bay Corner
-- 2025-03-02: full profile plus 12 GPS-linked SMP and radar points at Jim Bay Corner
-- 2025-03-03: full profile plus a spatial survey around Hermit Wx
-- 2025-03-05: one full profile and a large Round Hill spatial survey; field note says 43 points with multiple radars, SMP, and SnowScope
+### Processing level
 
-### Instruments, standards, and software to mention in the README
+Raw as collected. Files are unprocessed field instrument outputs. No processing pipeline has been applied. SMP .csv files are direct exports from the .pnt binary format.
 
-Likely instruments:
+### Related publications and datasets
 
-- SnowScope probe
-- SnowMicroPen (SMP)
-- IRIS snow optical measurement workflow
-- FMCW radar at K-band / Ka-band naming in folders, with local thesis context for 24 GHz FMCW radar
-- RTK / rover GNSS for spatial point locations
+- Madore, J.-B. (2023). *Etude integrée de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada.* PhD thesis, Université de Sherbrooke. — Primary methodological reference for this dataset.
+- Imbach, B., Madore, J.-B., Jones, A., & Brown, R. (2022). Snow profile observation datasets, Glacier National Park, British Columbia, Canada. FRDR. DOI: 10.20383/103.01523. — Earlier GRIMP dataset from the same study area (2018-2019 seasons), deposited in CAAML format. Confirmed unrelated to the current 2025 dataset.
 
-Likely standards:
+### Sharing / access context
 
-- OGRS for manual snow, weather, and avalanche observation vocabulary
-- CAAML as the main snow-profile interoperability target already used in the published reference dataset
+- **License:** CC BY-NC 4.0
+- **Repository:** FRDR (Federated Research Data Repository)
+- **Embargo:** None anticipated
+- **Parks Canada:** Collaborator providing site access and operational context for the avalanche program. The collaboration is research-based (not a data-sharing agreement requiring special licensing).
 
-Likely software / packages relevant for reuse:
+### Unresolved README fields
 
-- spreadsheet software or `openpyxl` / `pandas` for `.xlsx`
-- `pandas` for CSV and radar text parsing
-- `snowmicropyn` for `.pnt`
-- software able to read CAAML if the dataset is later converted
+- Full author list beyond Madore and Langlois — affiliations and ORCIDs for tentative authors
+- Contact email for Jean-Benoit Madore
+- Funding sources (NSERC Discovery Grant likely, CFI for MOACC infrastructure, but award numbers not confirmed)
+- CRDC 2020 field_of_research code — candidate: RDF10508 (Cryosphere processes) or RDF1050802 (Glaciology), to be confirmed
+- Precise bounding box coordinates (from Explore Data step)
+- Whether HEIC field notebook photos and morning hazard assessment PDFs are included (deferred from Scope)
 
-### File and folder relationship notes already known
+---
 
-The raw package is organized by campaign day rather than by instrument. Within each day:
+## Citable references
 
-- a stratigraphy workbook records the reference snowpit
-- instrument-specific subfolders hold spatial survey data
-- single-sheet workbooks or GPS CSVs map measurement IDs across radar, SMP, SnowScope, and GNSS
-- readme/docx files describe daily field operations and sampling intent
+### Instruments
 
-Administrative material is mixed into the same raw tree:
+1. **Montpetit, B., Royer, A., Langlois, A., Cliche, P., Roy, A., Champollion, N., Picard, G., Domine, F., & Obbard, R.** (2012). New shortwave infrared albedo measurements for snow specific surface area retrieval. *Journal of Glaciology*, 58(211), 941-952. https://doi.org/10.3189/2012JoG11J248
+   — Design and validation of the IRIS (InfraRed Integrating Sphere) instrument.
 
-- AWP permit PDFs
-- meal-planning workbook
-- parking reservation PDF
+2. **Schneebeli, M., & Johnson, J. B.** (1998). A constant-speed penetrometer for high-resolution snow stratigraphy. *Annals of Glaciology*, 26, 107-111. https://doi.org/10.3189/1998AoG26-1-107-111
+   — Original design of the SnowMicroPenetrometer (SMP).
 
-These should probably not be part of the scientific FRDR deposit.
+3. **Schneebeli, M., Pielmeier, C., & Johnson, J. B.** (1999). Measuring snow microstructure and hardness using a high resolution penetrometer. *Cold Regions Science and Technology*, 30(1-3), 101-114. https://doi.org/10.1016/S0165-232X(99)00030-0
+   — SMP measurement methodology and microstructure interpretation.
 
-### Related works and reference resources
+4. **Pomerleau, P., Royer, A., Langlois, A., Cliche, P., Courtemanche, B., Madore, J.-B., Picard, G., & Lefebvre, E.** (2020). Low cost and compact FMCW 24 GHz radar applications for snowpack and ice thickness measurements. *Sensors*, 20(14), 3909. https://doi.org/10.3390/s20143909
+   — Design and validation of the K-band FMCW radar system (IMST Sentire sR-1200 Series).
 
-- Published reference dataset in `datasets/example/`: Glacier National Park CAAML snow profiles, DOI `10.20383/103.01523`
-- Madore PhD thesis (local): provides Rogers Pass methodology, SNOWPACK context, IRIS use, and 24 GHz radar setup
-- Pomerleau et al. 2020 Sensors paper on compact 24 GHz FMCW radar: `https://doi.org/10.3390/s20143909`
-- OGRS 2024 PDF cited by the example README: `https://www.avalancheassociation.ca/resource/resmgr/docs/ogrs/ogrs2024web.pdf`
-- CAAML schema landing page: `https://caaml.org/Schemas/SnowProfileIACS/`
-- SnowScope product page: `https://www.propagationlabs.com/products/snowscope-probe`
-- SLF SnowMicroPen page: `https://slf.ch/en/services-and-products/snowmicropen-smp/`
+### Standards and classifications
 
-### Open questions for README drafting
+5. **Fierz, C., Armstrong, R. L., Durand, Y., Etchevers, P., Greene, E., McClung, D. M., Nishimura, K., Satyawali, P. K., & Sokratov, S. A.** (2009). *The international classification for seasonal snow on the ground.* UNESCO-IHP, IHP-VII Technical Documents in Hydrology No. 83, IACS Contribution No. 1. https://unesdoc.unesco.org/ark:/48223/pf0000186462
+   — ICSSG: grain type and size classification standard used in snow pit profiles.
 
-- Final dataset title and author order
-- Principal investigator contact and public contact email
-- Exact license for this deposit
-- Whether Parks Canada is a formal co-author, contributor, or contextual partner
-- Whether the deposit should include HEIC photos and day readmes as supporting documentation
-- Whether shapefile ZIPs will be included as ancillary spatial files
-- Whether any files will be transformed to open formats before deposit
-- Whether this campaign should explicitly name a grant or CFI / MOACC funding source
+6. **Canadian Avalanche Association.** (2016). *Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (OGRS).* Revelstoke, BC, Canada: Canadian Avalanche Association. https://cdn.ymaws.com/www.avalancheassociation.ca/resource/resmgr/standards_docs/ogrs2016web.pdf
+   — Field observation protocol standard followed during snow pit work.
+
+### Models (contextual)
+
+7. **Bartelt, P., & Lehning, M.** (2002). A physical SNOWPACK model for the Swiss avalanche warning: Part I: numerical model. *Cold Regions Science and Technology*, 35(3), 123-145. https://doi.org/10.1016/S0165-232X(02)00074-5
+   — SNOWPACK thermodynamic snow cover model used in the broader GRIMP research program.
+
+### Thesis
+
+8. **Madore, J.-B.** (2023). *Etude integrée de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada.* PhD thesis, Université de Sherbrooke.
+   — Primary methodological reference; describes all instruments, field protocols, and study sites used in this dataset.
+
+---
 
 ## Glossary
 
-- `CAAML` (`standard`): Cryosphere and avalanche XML schema used widely for interoperable snow-profile data.
-- `compression test` (`technique`): Manual snow stability test recorded in the stratigraphy workbooks.
-- `density profile` (`variable`): Vertical snow density observations recorded in the `Density` sheets.
-- `FMCW radar` (`instrument`): Frequency-modulated continuous-wave radar used for stratigraphy and wetting-front detection.
-- `Fidelity` (`acquisition`): Main repeat Rogers Pass study site used for fixed-profile and radar work.
-- `GNSS` (`instrument`): Positioning workflow used to geolocate spatial survey measurements.
-- `GRIMP` (`organization`): Groupe de recherche interdisciplinaire en milieu polaire.
-- `hardness (kPa)` (`variable`): Snow resistance output in SnowScope CSV profiles.
-- `IRIS` (`instrument`): Infrared reflectance-based snow measurement workflow represented in workbook `IRIS` sheets and text exports.
-- `Jim Bay Corner` (`acquisition`): Spatial survey site used on 2025-03-01 and 2025-03-02.
-- `OGRS` (`standard`): Observation Guidelines and Recording Standards used for Canadian avalanche field observations.
-- `optical reflectance` (`variable`): SnowScope output field used in SN00328 files; absent in SN00322 exports.
-- `Ropt` (`variable`): Optical grain-radius-style metric present in workbook `IRIS` sheets.
-- `Round Hill` (`acquisition`): High-elevation site used for one full profile and a large spatial survey.
-- `snowpit` (`technique`): Excavated profile used to document stratigraphy, temperature, density, and stability.
-- `SNOWPACK` (`processing`): Thermodynamic snow model used in the broader Rogers Pass research program described in the thesis.
-- `SnowMicroPen` (`instrument`): High-resolution penetrometer for snow-force profiles stored as `.pnt`.
-- `SnowScope` (`instrument`): Portable probe generating hardness-depth CSV profiles, with some exports also carrying optical reflectance.
-- `SSA` (`variable`): Specific surface area field in workbook `IRIS` sheets.
-- `stratigraphy` (`variable`): Layered description of snow structure, grain form, and hardness.
+| Term | Tag | Definition |
+|------|-----|------------|
+| IRIS | instrument | InfraRed Integrating Sphere. Laser-based instrument measuring SWIR hemispherical reflectance at 1310 nm and 1550 nm for snow SSA retrieval. Accuracy ~7% vs. micro-CT. Reference: Montpetit et al. (2012). |
+| SMP | instrument | SnowMicroPenetrometer. Motor-driven penetrometer; 5 mm conical tip, 60-degree angle, 20 mm/s constant speed, 4 um sampling interval, force range 0-42 N, ~1.8 mm layer resolution. Developed at SLF. Reference: Schneebeli & Johnson (1998). |
+| FMCW radar | instrument | Frequency-Modulated Continuous-Wave radar. IMST Sentire sR-1200 Series, 24 GHz center frequency, 2.5 GHz bandwidth, K-band. Retrieves snow depth (2 cm uncertainty) and SWE (5% uncertainty). Weight <500 g. Reference: Pomerleau et al. (2020). |
+| StratiTemplate | instrument | Excel-based workbook template for recording manual snow pit stratigraphy observations (grain type, size, hardness, density, temperature, wetness). |
+| SSA | variable | Specific Surface Area of snow grains (m^2/kg). Measured by IRIS from SWIR reflectance. Controls snow optical properties and metamorphism rates. |
+| Penetration resistance | variable | Force (N) measured by the SMP as the conical tip penetrates the snowpack. Proxy for snow mechanical hardness at high spatial resolution. |
+| SWE | variable | Snow Water Equivalent. Mass of water per unit area in the snowpack (kg/m^2 or mm w.e.). Retrieved from K-band radar. |
+| Snow depth | variable | Total depth of the snowpack (cm or m). Retrieved from K-band radar or measured manually. |
+| Snow stratigraphy | technique | Layer-by-layer characterization of the snowpack including grain type/size, hardness, density, temperature, and wetness. Follows ICSSG and OGRS standards. |
+| ICSSG | standard | International Classification for Seasonal Snow on the Ground (Fierz et al., 2009). Defines grain type symbols, size classes, and snow property classification. UNESCO-IHP Technical Document No. 83. |
+| OGRS | standard | Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (CAA, 2016). Canadian standard for field snow and avalanche observations. |
+| CAAML | standard | Canadian Avalanche Association Markup Language. XML schema for electronic exchange of snow profile and avalanche data. V5.0/V6.0 supported by IACS. Not used in this deposit (raw Excel format). |
+| SNOWPACK | acquisition | Multilayer thermodynamic snow cover model (SLF). Simulates mass, energy, and momentum balance. Used in the broader GRIMP research program. Reference: Bartelt & Lehning (2002). |
+| GRIMP | organization | Groupe de Recherche Interdisciplinaire sur les Milieux Polaires. Founded 2014 by A. Langlois, Université de Sherbrooke. Research axes: snow dynamics, avalanche, permafrost, atmospheric monitoring. |
+| MOACC | initiative | Multidisciplinary Observatory for Arctic Climate Change. CFI-funded GRIMP infrastructure project at CHARS, Cambridge Bay, Nunavut. |
+| Parks Canada ACP | organization | Parks Canada Avalanche Control Program at Glacier National Park. Operates the world's largest mobile artillery avalanche control program at Rogers Pass since 1961. Collaborator for field site access. |
+| Mount Fidelity | acquisition | Long-standing snow study plot at 1905 m elevation in the Selkirk Mountains, Glacier National Park. Reference site for snowpack monitoring. |
+
+---
 
 ## Source notes
 
-- `datasets/rogers_pass_snow_profiles/docs/scope.yaml`: confirms dataset identity, raw-data source path, and initial site list.
-- `datasets/rogers_pass_snow_profiles/docs/meeting notes/MOACC Rencontre Jean-Benoit nouveau dataset.md`: confirms required metadata categories, controlled-vocabulary ideas, and upload workflow expectations.
-- `datasets/rogers_pass_snow_profiles/raw_data/.../*.docx` day readmes: confirm daily field objectives, team composition, and multi-instrument sampling sequences.
-- `papers/madore_jean-benoit_PhD_2023.pdf`, thesis chapter 3: describes Rogers Pass station context, heavy vs light sampling logic, OGRS-style profile observations, IRIS use, and the 24 GHz FMCW radar setup.
-- `papers/madore_jean-benoit_PhD_2023.pdf`, appendix references: links the radar work to the 24 GHz FMCW literature and GRIMP co-authored papers.
-- `docs/project_context.md`: provides GRIMP, FRDR, and reference-dataset context.
+| Claim | Source |
+|-------|--------|
+| IRIS measures SWIR reflectance at 1310 and 1550 nm; 7% accuracy vs. micro-CT | Montpetit et al. (2012); Madore thesis Ch. 3 |
+| SMP: 5 mm tip, 60-degree cone, 20 mm/s, 4 um resolution, 0-42 N range | Schneebeli & Johnson (1998); Madore thesis Ch. 3 |
+| FMCW radar: IMST Sentire sR-1200, 24 GHz, 2.5 GHz bandwidth, snow depth 2 cm uncertainty, SWE 5% uncertainty | Pomerleau et al. (2020); Madore thesis Ch. 6 |
+| Fidelity study site at 1905 m, Selkirk Mountains | Madore thesis Ch. 3 |
+| Parks Canada operates world's largest mobile artillery avalanche control at Rogers Pass since 1961 | Parks Canada website; Madore thesis Ch. 1 |
+| GRIMP founded 2014 by A. Langlois, Université de Sherbrooke | project_context.md |
+| Thesis supervisors: A. Langlois (UdeS), C. Fierz (SLF) | Madore thesis title page |
+| Field protocols follow OGRS (CAA, 2016) and ICSSG (Fierz et al., 2009) | Madore thesis Ch. 3 |
+| SNOWPACK model used for snowpack simulation in the research program | Madore thesis Ch. 5; Bartelt & Lehning (2002) |
+| Madore ORCID: 0000-0002-2292-1519 | orcid.org |
+| Langlois ORCID: 0000-0002-9966-205X | orcid.org; The Cryosphere (2024) publication |
+| Madore affiliation: UdeS Dept. géomatique appliquée + Centre d'études nordiques | Madore thesis; CEN profile; CARTEL profile |
+| Langlois affiliation: UdeS Dept. géomatique appliquée + GRIMP + CEN | grimp.ca; ResearchGate |
+| License: CC BY-NC 4.0 | Scope elicitation (researcher confirmed) |
+| Unrelated to DOI 10.20383/103.01523 | Scope elicitation (researcher confirmed) |
+| Campaign dates: 2025-03-01 to 2025-03-06 | Scope definition (file dates) |
+| Sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, Christiana Ridge | Scope definition |
+| CRDC candidate: RDF10508 (Cryosphere processes) or RDF1050802 (Glaciology) | StatCan CRDC 2020 v2.0 classification |
+
+---
+
+## Scope updates
+
+No contradictions with the current scope were found during research. The following clarifications are noted:
+
+- The 2025 campaign uses the same instrument suite and methodology as Madore (2023) thesis work from 2018-2019 seasons. The instruments, protocols, and study area are well-documented in the thesis.
+- Charles Fierz (SLF, Davos) was co-supervisor for Madore's PhD but his involvement in the 2025 campaign is unknown. He should not be listed as author unless confirmed by the researcher.
+- Funding sources were not definitively identified. NSERC Discovery Grant and CFI (for MOACC) are likely but award numbers require researcher confirmation.
