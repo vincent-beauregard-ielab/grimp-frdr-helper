@@ -4,6 +4,29 @@
 
 This plan replaces the earlier high-level initialization flow with the next concrete execution steps for the Rogers Pass dataset and the repo workflow around it.
 
+## Status snapshot (2026-03-24)
+
+This plan is now partly implemented and partly superseded by work in the repo.
+
+### Implemented from this plan
+
+- `datasets/rogers_pass_snow_profiles/README.txt`
+- `datasets/rogers_pass_snow_profiles/artifacts/qc_report.md`
+- `datasets/rogers_pass_snow_profiles/metadata.yaml`
+- `notebooks/rogers_pass_snow_profiles_data_preparation.ipynb`
+- `scripts/prepare_rogers_pass_dataset.py`
+- Repo docs and workflow updates around scope, README drafting, QC, data preparation, and deposit assistance
+
+### Still not implemented
+
+- `datasets/rogers_pass_snow_profiles/artifacts/preflight.md`
+- FRDR deposit execution, DOI assignment, and FRDR URL capture
+- Final researcher decisions on still-open scope questions in the QC report
+
+### Notes
+
+- This file is now best read as historical planning plus remaining follow-up items, not as the current source of truth for dataset status.
+
 It assumes the following are now complete:
 
 - project scaffolding and basic repo setup
@@ -20,6 +43,11 @@ The next work should focus on converting those inputs into a usable FRDR package
 - `datasets/rogers_pass_snow_profiles/artifacts/research.md`
 - `datasets/rogers_pass_snow_profiles/artifacts/data_exploration.md`
 - `notebooks/rogers_pass_snow_profiles_data_exploration.ipynb`
+- `datasets/rogers_pass_snow_profiles/README.txt`
+- `datasets/rogers_pass_snow_profiles/artifacts/qc_report.md`
+- `datasets/rogers_pass_snow_profiles/metadata.yaml`
+- `notebooks/rogers_pass_snow_profiles_data_preparation.ipynb`
+- `scripts/prepare_rogers_pass_dataset.py`
 
 ### Completed workflow refinements
 
@@ -28,10 +56,10 @@ The next work should focus on converting those inputs into a usable FRDR package
 
 ### Still missing for this dataset
 
-- `datasets/rogers_pass_snow_profiles/README.txt`
-- `datasets/rogers_pass_snow_profiles/artifacts/qc_report.md`
-- a deposit decision on which files are scientific, ancillary, or excluded
-- owner-confirmed metadata fields such as title, authors, contact, license, and funding
+- `datasets/rogers_pass_snow_profiles/artifacts/preflight.md`
+- FRDR deposit execution and publication metadata (`doi`, `doi_url`, `frdr_url`)
+- researcher confirmation on still-open QC decisions such as hazard-assessment PDFs and HEIC field notebook photos
+- funding metadata, which remains unset in `metadata.yaml`
 
 ## Key learnings from the session
 
@@ -68,6 +96,8 @@ The next work should focus on converting those inputs into a usable FRDR package
 ### Goal
 
 Write `datasets/rogers_pass_snow_profiles/README.txt` from `docs/FRDR-template_README.txt` using the completed research and exploration outputs.
+
+**Status (2026-03-24):** Implemented.
 
 ### Inputs
 
@@ -111,6 +141,8 @@ Write `datasets/rogers_pass_snow_profiles/README.txt` from `docs/FRDR-template_R
 
 Write `datasets/rogers_pass_snow_profiles/artifacts/qc_report.md` and define the proposed deposit scope.
 
+**Status (2026-03-24):** Implemented, with some scope decisions still open for researcher review.
+
 ### Tasks
 
 1. Review the raw package against the README draft.
@@ -145,16 +177,15 @@ Write `datasets/rogers_pass_snow_profiles/artifacts/qc_report.md` and define the
 
 Resolve the metadata fields that cannot be inferred safely from local files.
 
+**Status (2026-03-24):** Partly implemented. `metadata.yaml` now exists and includes title, authors, contact, license, dates, geography, contributors, and workflow state. Funding, publication identifiers, and some deposit-scope decisions still need researcher confirmation.
+
 ### Questions to resolve
 
-- final dataset title
-- author list and order
-- principal investigator and contact email
-- license
 - funding source and grant wording
-- whether Parks Canada is co-author, contributor, or contextual partner
-- whether field notes, HEIC photos, and shapefile ZIPs are included
-- whether the package remains raw-format or is normalized before deposit
+- whether hazard assessment PDFs should be included
+- whether HEIC field notebook photos should be included
+- whether the Day 6 Fidelity stratigraphy workbook is correctly interpreted as a revisit
+- final publication identifiers after FRDR deposit (`doi`, `doi_url`, `frdr_url`)
 
 ### Output
 
@@ -166,6 +197,8 @@ Resolve the metadata fields that cannot be inferred safely from local files.
 ### Goal
 
 Bring repo-level planning and docs into line with what now works in practice.
+
+**Status (2026-03-24):** Mostly implemented. `AGENTS.md`, `README.md`, the step files, and dataset metadata now reflect the updated workflow. The main remaining repo-level work is preflight execution and any cleanup after the actual deposit.
 
 ### Tasks
 
@@ -192,9 +225,8 @@ Bring repo-level planning and docs into line with what now works in practice.
 
 This plan is complete when:
 
-- the Rogers Pass dataset has a usable `README.txt`
-- the dataset has a clear `qc_report.md`
-- deposit scope is explicit
-- unresolved metadata fields are narrow and owner-facing
-- the repo workflow reflects the actual sequence:
-  `research -> data exploration -> README draft -> QC -> metadata completion -> deposit`
+- the Rogers Pass dataset has a usable `README.txt` and a reviewed `qc_report.md`
+- preflight validation has been run and captured in `artifacts/preflight.md`
+- deposit scope decisions are finalized by the researcher
+- remaining metadata gaps are limited to publication identifiers assigned during deposit
+- the dataset has been deposited and `metadata.yaml` has been updated with the final DOI and FRDR URL

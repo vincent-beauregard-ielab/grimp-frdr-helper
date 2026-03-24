@@ -6,9 +6,35 @@ What is well implemented and well captured? What is missing? What opportunity ar
 
 ---
 
+## Implementation check (2026-03-24)
+
+This review has now been partly implemented in the repo.
+
+### Implemented
+
+- Dataset initialization is now documented in `steps/1_scope_definition.md`.
+- Deposit assistance is now documented in `steps/8_deposit.md`, including FRDR field mapping.
+- Workflow dependencies now explicitly show `Research` and `Explore Data` running in parallel in `AGENTS.md`.
+- The scope-update protocol is documented in `AGENTS.md` and `steps/1_scope_definition.md`.
+- Preflight validation now exists as `steps/7_preflight_validation.md`.
+- `metadata.yaml` is now used as a richer workflow and metadata record, including workflow state.
+- `steps/2_research.md` now tells the agent to use `utils/frdr_metadata.py` when applicable.
+- `steps/6_draft_readme.md` now includes explicit validation against `docs/FRDR-template_README.txt`.
+- The autonomy note keeps Level 4 out of the main workflow table and treats it as future work.
+
+### Still not implemented
+
+- Cross-dataset and collection-level guidance is still minimal. The repo has controlled vocabulary notes, but not a clear collection-level workflow or consistency checks across datasets.
+- There is still no dedicated automation for cross-dataset validation, collection metadata management, or related-identifier consistency across multiple datasets.
+
+### Notes
+
+- Several recommendations were implemented as workflow documentation rather than standalone code. That closes the process gap, but not every item has dedicated tooling yet.
+- The sections below preserve the original review framing; use the implementation check above as the current-status summary.
+
 ## What's well implemented
 
-**Workflow design is solid.** The seven-step pipeline (Scope → Research → Explore → QC → Data Prep → README → Deposit) is a natural progression from "understand the dataset" to "publish it." Each step has a clear deliverable artifact with a defined path, which makes the workflow inspectable and resumable.
+**Workflow design is solid.** The pipeline (Scope → Research → Explore → QC → Data Prep → README → Preflight → Deposit) is a natural progression from "understand the dataset" to "publish it." Each step has a clear deliverable artifact with a defined path, which makes the workflow inspectable and resumable.
 
 **Human-in-the-loop is thoughtful.** The four autonomy levels with per-step targets are well-calibrated. Research/Explore at Level 3 (low risk, inspectable output), Data Prep/README at Level 2 (modifies files or is public-facing), Deposit at Level 1 (irreversible). The "start at Level 2, promote selectively" rule is prudent for a small team.
 
