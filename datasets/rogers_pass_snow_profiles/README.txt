@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada
 
-2. Author Information
+2. Author Information 🔔
     A. Principal Investigator Contact Information
         Name: Jean-Benoit Madore
         Institution: Universite de Sherbrooke, Department of Applied Geomatics; Centre d'etudes nordiques
@@ -17,9 +17,9 @@ Snow profile observation datasets, Rogers Pass, Glacier National Park, British C
     B. Associate or Co-investigator Contact Information
         Name: Alexandre Langlois
         Institution: Universite de Sherbrooke, Department of Applied Geomatics; GRIMP; Centre d'etudes nordiques
-        Email: Pending researcher confirmation
+        Email: alexandre.langlois2@usherbrooke.ca
 
-        Additional field participants documented in the field notes include Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Final author list and author order are pending researcher confirmation.
+        Additional field participants documented in the field notes include Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Final author list and author order are 🔔 pending researcher confirmation.
 
 3. Date of data collection (single date, range, approximate date):
 
@@ -34,7 +34,7 @@ Study sites represented in the prepared package are Fidelity, Jim Bay Corner, He
 
 5. Information about funding sources that supported the collection of the data:
 
-Pending researcher confirmation. Local project records indicate GRIMP / Universite de Sherbrooke support and likely MOACC-related infrastructure context, but no funder names or award numbers are confirmed in the repository.
+🔔 pending researcher confirmation. Local project records indicate GRIMP / Universite de Sherbrooke support and likely MOACC-related infrastructure context, but no funder names or award numbers are confirmed in the repository.
 
 ---------------------------
 SHARING/ACCESS INFORMATION
@@ -45,36 +45,20 @@ SHARING/ACCESS INFORMATION
 These data are prepared for release under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license:
 https://creativecommons.org/licenses/by-nc/4.0/
 
-2. Links to publications that cite or use the data:
-
-- Madore, J.-B. (2023). Etude integree de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada. PhD thesis, Universite de Sherbrooke. Primary methodological reference for the Rogers Pass campaign.
-- Imbach, B., Madore, J.-B., Jones, A., and Brown, C. (2025). Snow profile observation datasets, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. https://doi.org/10.20383/103.01523
-- Pomerleau, P. et al. (2020). Low cost and compact FMCW 24 GHz radar applications for snowpack and ice thickness measurements. Sensors. https://doi.org/10.3390/s20143909
-- Montpetit, B. et al. (2012). New shortwave infrared albedo measurements for snow specific surface area retrieval. Journal of Glaciology. https://doi.org/10.3189/2012JoG11J248
-- Schneebeli, M. and Johnson, J. B. (1998). A constant-speed penetrometer for high-resolution snow stratigraphy. Annals of Glaciology. https://doi.org/10.3189/1998AoG26-1-107-111
-- Schneebeli, M., Pielmeier, C., and Johnson, J. B. (1999). Measuring snow microstructure and hardness using a high resolution penetrometer. Cold Regions Science and Technology. https://doi.org/10.1016/S0165-232X(99)00030-0
-- Fierz, C. et al. (2009). The international classification for seasonal snow on the ground. UNESCO-IHP. https://unesdoc.unesco.org/ark:/48223/pf0000186462
-- Bartelt, P. and Lehning, M. (2002). A physical SNOWPACK model for the Swiss avalanche warning: Part I: numerical model. Cold Regions Science and Technology. https://doi.org/10.1016/S0165-232X(02)00074-5
+2. Links to publications that cite or use the data : None
 
 3. Links/relationships to ancillary data sets or software packages:
 
-- This 2025 Rogers Pass package is not derived from the earlier FRDR CAAML deposit, but it is methodologically related to the earlier Glacier National Park dataset: https://doi.org/10.20383/103.01523
-- `snowmicropyn` is recommended for reading `.pnt` files: https://pypi.org/project/snowmicropyn/
-- `pandas` is recommended for `.csv` and `.txt` files: https://pandas.pydata.org/
-- `openpyxl` is recommended for Excel workbook inspection in Python: https://openpyxl.readthedocs.io/
-- QGIS can read shapefile ZIP contents after extraction: https://qgis.org/
-- GeoPandas can read shapefiles in Python: https://geopandas.org/
+- `snowmicropyn` is a python packagerecommended for reading `.pnt` files: https://pypi.org/project/snowmicropyn/
 
-5. Was data derived from another source? yes/no
-    A. If yes, list source(s):
 
-No. The deposit contains field-collected measurements and associated field documentation from the 2025 campaign.
+5. Was data derived from another source? No
 
 6. Recommended citation for this dataset:
 
-Madore, J.-B., Langlois, A., and collaborators (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI pending.
+Madore, J.-B., Langlois, A., and collaborators (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI 🔔 pending.
 
-Pending researcher confirmation: final author list, publication year, and DOI.
+🔔 pending researcher confirmation: final author list, publication year, and DOI.
 
 ---------------------
 DATA & FILE OVERVIEW
@@ -85,7 +69,7 @@ DATA & FILE OVERVIEW
    Naming convention:
    - Standardized folder names use `<datatype>/<YYYYMMDD>_<site>` or `<datatype>/<YYYYMMDD>_<site>_<content>`.
    - Standardized top-level file names use `<YYYYMMDD>_<site>_<content>.<ext>`.
-   - Instrument-native file names inside bulk folders were preserved where they already encode acquisition identifiers, for example `s35m0151.pnt`, `2025-03-05_1738_Profile105_SN00322.csv`, or `054820250302_1554.txt`.
+   - Instrument-native file names inside measurement folders were preserved where they already encode acquisition identifiers, for example `s35m0151.pnt`, `2025-03-05_1738_Profile105_SN00322.csv`, or `054820250302_1554.txt`.
 
    A. Filename: snow_stratigraphy/
       Short description: Seven raw Excel workbooks containing manual snow-pit observations, one workbook per site-day. Representative files are `20250301_fidelity_stratigraphy.xlsx`, `20250303_hermit_stratigraphy.xlsx`, and `20250306_christiana_ridge_stratigraphy.xlsx`. Each workbook has four sheets: `AVY profile`, `Stability Tests`, `Density`, and `IRIS`.
@@ -119,17 +103,14 @@ DATA & FILE OVERVIEW
 
 3. Additional related data collected that was not included in the current data package:
 
-- Morning hazard assessment PDFs were left out of the prepared package pending researcher confirmation.
-- HEIC field notebook photos were left out of the prepared package pending researcher confirmation.
+🔔 pending researcher confirmation applies to the following scope decisions and content exclusions:
+
+- Morning hazard assessment PDFs were left out of the prepared package 🔔 pending researcher confirmation.
+- HEIC field notebook photos were left out of the prepared package 🔔 pending researcher confirmation.
 - Administrative material such as logistics spreadsheets, planning documents, and travel files was excluded.
 - A blank `StratiTemplate.xlsx` workbook and an `IRIS_20250301.TXT.docx` companion file were excluded because they do not add unique observed data to the deposit.
 
-4. Are there multiple versions of the dataset? yes/no
-    A. If yes, name of file(s) that was updated:
-        i. Why was the file updated?
-        ii. When was the file updated?
-
-No. This README describes one prepared deposit package created from the raw campaign folder. The scientific files themselves were not numerically edited; only package structure and documentation format were standardized.
+4. Are there multiple versions of the dataset? No
 
 -----------------------
 READING AND USING DATA
@@ -159,18 +140,11 @@ Compact 24 GHz FMCW radar measurements were collected along spatial transects us
 
 SnowScope observations were collected as depth-resolved hardness profiles with optional optical reflectance. The CSV header preserves device serial number, firmware version, PCB version, collection time, location, and profile depth. Linkage workbooks and RTK GPS exports were collected to georeference the radar, SMP, and SnowScope transects and to map acquisition point numbers to files.
 
-CAAML is not used in this deposit; raw Excel, text, CSV, and binary files are preserved instead. The earlier FRDR Glacier National Park deposit used CAAML for interchange, while this package remains closer to the campaign source files. SNOWPACK is also not used directly in the deposit, but it is relevant background for the broader research program (Bartelt and Lehning, 2002, https://doi.org/10.1016/S0165-232X(02)00074-5).
-
 2. Methods for processing the data:
 
-Data preparation was intentionally non-destructive. Files were copied from `raw_data/` into `frdr_data/`, reorganized by data type, and renamed so the deposit uses stable English folder names and machine-readable date/site tokens. No numeric values were edited in the scientific files. The only content conversion performed during preparation was DOCX-to-TXT conversion for field and instrument notes so that ancillary documentation can be opened without proprietary software.
+Data contained in the prepared package are raw exports from the field campaign, with no numeric editing applied to the scientific files. Minor quality-control related modifications were made during preparation to standardize the package structure, but the scientific content of the files was not altered.
 
-Specific preparation actions were:
-- standardized deposit folder names and top-level filenames;
-- normalized mixed-case extensions and inconsistent folder labels through the prepared-package names rather than source-file edits;
-- converted 8 DOCX notes to UTF-8 plain text;
-- excluded out-of-scope administrative files, photos, and unresolved hazard PDFs from the prepared package;
-- preserved ambiguous raw-source issues, such as the Day 6 Fidelity revisit workbook and invalid SMP GPS sentinels, without altering source values.
+🔔 Confirmation required for QC related data modification proposed in qc_report. 
 
 3. Instrument- or software-specific information needed to interpret the data:
 
@@ -186,8 +160,9 @@ Specific preparation actions were:
 - Manual snow classification follows ICSSG grain classes and OGRS field conventions.
 - IRIS sheets preserve field calibration voltages and reflectance/SSA placeholders recorded during acquisition.
 - SnowScope files preserve device firmware and PCB metadata in the header block.
-- GPS exports indicate RTK acquisition and should be treated as WGS84 geographic coordinates unless the researcher provides a more specific survey note.
-- CAAML is referenced only as contextual interoperability background and is not a deposited file format in this package.
+- GPS exports are obtained by RTK acquisition and should be treated as WGS84 geographic coordinates.
+
+🔔 pending confirmation of the coordinates' reference frame and geoid model, the elevation values should be interpreted as ellipsoidal heights rather than orthometric heights.
 
 5. Environmental/experimental conditions:
 
@@ -196,15 +171,20 @@ The campaign covered five Rogers Pass sites between 1832 m and 2088 m elevation.
 6. Describe any quality-assurance procedures performed on the data:
 
 Quality assurance during preparation focused on packaging and interpretability rather than on altering scientific measurements. The prepared package:
-- separates scientific files from administrative material;
-- documents unresolved scope decisions and raw-source anomalies in `artifacts/qc_report.md`;
 - standardizes folder names and filenames for deposit consistency;
 - preserves raw instrument formats and numeric content;
 - converts ancillary DOCX notes to plain text for accessibility.
 
+The following items remain open and are 🔔 pending researcher confirmation:
+- Whether the Day 6 Fidelity revisit workbook should be included or removed from the deposit.
+- The correct radar band designation (K-band vs Ka-band) to use in the deposit documentation.
+- Whether morning hazard assessment PDFs are in scope for the deposit.
+- Some raw SMP file headers contain invalid GPS sentinels (-99999); these were documented and left unchanged.
+- Some template-derived workbook cells contain placeholder zeros; these were documented and left unchanged.
+
 7. People involved with sample collection, processing, analysis and/or submission:
 
-Confirmed field participants in the site notes include Jean-Benoit Madore, Alexandre Langlois, Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Parks Canada staff are referenced in the notes as operational collaborators for site access and logistics. Pending researcher confirmation applies to final authorship, contact list, and funding wording.
+Confirmed field participants in the site notes include Jean-Benoit Madore, Alexandre Langlois, Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Parks Canada staff are referenced in the notes as operational collaborators for site access and logistics. 🔔 pending researcher confirmation applies to final authorship, contact list, and funding wording.
 
 -----------------------------------------------------------------
 DATA-SPECIFIC INFORMATION FOR: snow_stratigraphy/
