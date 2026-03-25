@@ -1,6 +1,6 @@
 # Scope — Rogers Pass Snow Profiles
 
-**Status:** Approved — pending Research and Explore Data steps
+**Status:** Updated from Research and Explore Data — pending researcher review
 **Dataset id:** rogers_pass_snow_profiles
 
 ---
@@ -22,7 +22,25 @@ Data files carry dates 20250301–20250306 consistently across all measurement t
 **Study area:** Rogers Pass, Glacier National Park, British Columbia, Canada
 **Collaboration partner:** Parks Canada (Glacier National Park avalanche program)
 
-**Sites visited** (one or more per day):
+### Confirmed sites
+
+- Fidelity
+- Jim Bay Corner
+- Hermit
+- Round Hill
+- Christiana Ridge
+
+### Bounding box from combined GPS sources
+
+| Bound | Value |
+|---|---|
+| West | -117.713247 |
+| East | -117.531450 |
+| North | 51.323627 |
+| South | 51.234087 |
+| Elevation range | 1838-2088 m |
+
+### Site/day coverage
 
 | Day | Date | Site(s) |
 |-----|------|---------|
@@ -31,46 +49,48 @@ Data files carry dates 20250301–20250306 consistently across all measurement t
 | 3 | 2025-03-03 | Hermit |
 | 4 | 2025-03-04 | Fidelity |
 | 5 | 2025-03-05 | Round Hill |
-| 6 | 2025-03-06 | Round Hill, Christiana Ridge |
-
-Coordinate system: Geographic (decimal degrees, WGS84 assumed).
-Precise bounding box TBD — to be extracted from shapefiles and GPS data in the Explore Data step.
+| 6 | 2025-03-06 | Christiana Ridge; possible additional Fidelity revisit pending confirmation |
 
 ---
 
 ## Measurements and variables
 
-| Data type | Instrument / format | Files |
-|-----------|-------------------|-------|
-| Snow stratigraphy + density profiles | StratiTemplate (Excel) | 1 XLSX per site-day; 7 files total |
-| IRIS infrared observations | IRIS sensor (TXT) | 1 TXT per field day; 6 files total |
-| SnowMicroPenetrometer (SMP) | SMP probe (.pnt binary, .csv) | Multiple profiles per site-day |
-| K-band radar transects | Compact K-band radar (TXT, CSV) | Spatial transects per site-day |
-| Spatial surveys (SMP + radar) | GPS + tabular (XLSX, CSV, SHP) | Per-site transect data |
-| Morning hazard assessments | Parks Canada / GRIMP (PDF) | 1 PDF per field day; 6 files total |
-| Site-level ReadMe notes | Field notes (DOCX) | 1 DOCX per site-day |
-| Field notebook photos | Camera (HEIC) | Multiple per site-day — **scope TBD** |
+| Data type | Instrument / format | Scope notes |
+|---|---|---|
+| Snow stratigraphy workbooks | StratiTemplate XLSX (7 files) | Layer height, grain type and size, hand hardness, wetness, density, temperature, stability tests |
+| IRIS observations | TXT files (6 files) plus IRIS sheets in XLSX | Time/value observations used for snow specific surface area workflows |
+| SnowMicroPenetrometer | `.pnt` binary profiles (79 files) | Distance and force measurements; present for Days 1, 2, 5, and 6 |
+| SnowScope profiles | CSV exports (319 files) | Depth-resolved hardness with optional optical reflectance and embedded GPS |
+| FMCW radar transects | TXT files (166 files) | 24 GHz class radar measurements with I/Q traces; no Day 6 radar files observed |
+| Spatial linkage tables | XLSX (4 files) | Maps rover points to radar, SMP, and SnowScope measurements |
+| GPS / spatial survey exports | CSV (3 files) and zipped shapefiles (3 files) | RTK point locations and elevations |
+| Supporting field documentation | PDFs and DOCX files | Hazard assessments and site notes remain a boundary decision rather than core measurement data |
 
 ---
 
 ## Data boundaries
 
 ### In scope for deposit (confirmed)
-- Snow stratigraphy XLSX files (StratiTemplate)
-- IRIS TXT data files
-- SMP .pnt files and derived CSV profiles
-- K-band radar TXT/CSV measurement files
-- Spatial survey XLSX, CSV, and zipped SHP files
 
-### Tentatively in scope (pending researcher decision)
+- StratiTemplate snow stratigraphy workbooks
+- IRIS TXT files
+- SMP `.pnt` files
+- SnowScope CSV exports
+- FMCW radar measurement TXT files
+- Spatial linkage XLSX workbooks
+- RTK GPS CSV exports
+- Zipped shapefile packages
+
+### Pending researcher decision
+
 - Morning hazard assessment PDFs
-- Site-level ReadMe DOCX files
-- Spatial survey GPS/radar README files
+- Site-level ReadMe DOCX files and other field-note style documentation
 
-### Out of scope (excluded)
-- `Bouffe et infos/` — Field logistics
-- `Table of content Field Books.docx` — Internal organizational document
-- Field notebook HEIC photos — raw scans of handwritten notes; **researcher decision needed**
+### Out of scope
+
+- HEIC field photos
+- Food, logistics, travel, and planning documents
+- Blank reference templates and other administrative support files
 
 ---
 
