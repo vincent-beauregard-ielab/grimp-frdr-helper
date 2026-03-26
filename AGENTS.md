@@ -58,6 +58,7 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 2 | Research | 3 | [`steps/2_research.md`](steps/2_research.md) | `artifacts/research.md` |
 | 3 | Explore Data | 3 | [`steps/3_explore_data.md`](steps/3_explore_data.md) | `artifacts/data_exploration.md`, notebook |
 | 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md` |
+| 4b | Scope Revision | 2 | [`steps/4b_scope_revision.md`](steps/4b_scope_revision.md) | revised `artifacts/scope.md` |
 | 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `artifacts/verification_report.md`, notebook |
 | 6 | Draft README | 2 | [`steps/6_draft_readme.md`](steps/6_draft_readme.md) | `README.txt` |
 | 7 | Preflight Validation | 3 | [`steps/7_preflight_validation.md`](steps/7_preflight_validation.md) | `artifacts/preflight.md` |
@@ -72,12 +73,23 @@ Scope Definition
     ├── Research ──────────┐
     └── Explore Data ──────┤
                            ├── Quality Control
-                           │       └── Data Preparation
-                           │               └── Draft README
-                           │                       └── Preflight Validation
-                           │                               └── Deposit
+                           │       └── Scope Revision (human reviews)
+                           │               └── Data Preparation
+                           │                       └── Draft README
+                           │                               └── Preflight Validation
+                           │                                       └── Deposit
 ```
 
 ## Scope-update protocol
 
 When Research or Explore Data discovers information that contradicts or extends the current scope (e.g., broader date range, additional file types, out-of-scope records), the step adds a `## Scope updates` section to its own artifact describing the finding. The main agent consolidates these into `scope.md` before proceeding to Quality Control.
+
+## Documentation-coverage reconciliation
+
+Because Research draws from literature and Explore Data draws from files, neither artifact alone guarantees full coverage. Before Quality Control begins data-quality checks, it must reconcile the two artifacts:
+
+1. Every instrument or file type in `data_exploration.md` must have a methodology entry and citable reference in `research.md`.
+2. Every instrument in `research.md` must have corresponding files in `data_exploration.md` (catches phantom instruments).
+3. Every variable found in file headers must have a definition or unit in one of the two artifacts.
+
+When a gap is found, QC sends a targeted research request back to the Research step (covering only the missing instruments or variables) before proceeding. This is a lightweight patch, not a full re-run of Research.

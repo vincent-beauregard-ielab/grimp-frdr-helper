@@ -52,6 +52,10 @@ Research is highly parallelizable. Consider splitting across source types, for e
 
 The agent decides the split based on the actual source volume. The main agent merges outputs into the final `research.md`.
 
+## Provisional instrument list
+
+The instrument and method inventory produced by Research is based on literature and project documentation available before file inspection. It is **provisional** until validated against the file inventory from Explore Data. The documentation-coverage reconciliation at the start of Quality Control (see AGENTS.md) will identify instruments or file types present in the data but absent from `research.md`, and send targeted research requests back to this step to fill the gaps.
+
 ## Outputs
 
 - `datasets/{id}/artifacts/research.md`
