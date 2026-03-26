@@ -12,11 +12,11 @@ This dataset contains multi-instrument snow profile observations collected durin
 
 Rogers Pass, located in the Selkirk Mountains of British Columbia, is one of the snowiest inhabited areas in Canada, with snow depths regularly exceeding 4 m at upper elevations. Parks Canada has operated the world's largest mobile artillery avalanche control program at Rogers Pass since 1961, protecting the Trans-Canada Highway and Canadian Pacific Railway from avalanche hazards. The Mount Fidelity snow study plot (1905 m elevation) is a long-standing reference site for snowpack monitoring in the area.
 
-The dataset captures the physical state of the seasonal snowpack using four complementary measurement systems: traditional snow stratigraphy profiles (StratiTemplate Excel workbooks), infrared integrating sphere (IRIS) observations for snow specific surface area, SnowMicroPenetrometer (SMP) high-resolution hardness profiles, and frequency-modulated continuous-wave (FMCW) K-band radar measurements for snow depth and snow water equivalent retrieval. Observations were collected at five study sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
+The dataset captures the physical state of the seasonal snowpack using five complementary measurement systems: traditional snow stratigraphy profiles (StratiTemplate Excel workbooks), infrared integrating sphere (IRIS) observations for snow specific surface area, SnowMicroPenetrometer (SMP) high-resolution hardness profiles, Snow Scope Probe digital penetrometer profiles for rapid spatial hardness surveys, and frequency-modulated continuous-wave (FMCW) K-band radar measurements for snow depth and snow water equivalent retrieval. Observations were collected at five study sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
 
 GRIMP was founded in 2014 by Professor Alexandre Langlois at the Department of Applied Geomatics, Université de Sherbrooke. The group is affiliated with CARTEL (Centre d'applications et de recherches en télédétection) and the Centre d'études nordiques (CEN). GRIMP's avalanche research axis focuses on avalanche hazard assessment, snow profile observation, and stability testing, with a long-standing collaboration with Parks Canada at Rogers Pass.
 
-The methodology follows the same protocols documented in Madore (2023), an integrated study of water percolation in the snowpack at Glacier National Park. The 2025 campaign extends earlier fieldwork (2018-2019 seasons) with the same instrument suite at the same general study area.
+The methodology for stratigraphy, IRIS, SMP, and radar follows the same protocols documented in Madore (2023), an integrated study of water percolation in the snowpack at Glacier National Park. The 2025 campaign extends earlier fieldwork (2018-2019 seasons) at the same general study area, adding the Snow Scope Probe (Propagation Labs) as a new instrument not present in the 2018-2019 campaigns.
 
 ---
 
@@ -63,15 +63,23 @@ The IRIS is a laser-based instrument that measures shortwave infrared (SWIR) hem
 
 #### 3. SnowMicroPenetrometer (SMP)
 
-The SMP is a portable, motor-driven, high-resolution snow penetrometer developed at the WSL Institute for Snow and Avalanche Research SLF (Schneebeli & Johnson, 1998; Schneebeli et al., 1999). It drives a conical tip (5 mm diameter, 60-degree included angle) into the snowpack at a constant speed of 20 mm/s, recording penetration resistance force (0-42 N range) at 4-micrometer intervals (250 measurements per millimeter, 5 kHz sampling rate). The effective layer resolution is approximately 1.8 mm. The SMP provides an objective, high-resolution record of snowpack mechanical stratigraphy that complements the manual snow pit profile. Output files are in proprietary .pnt binary format with derived .csv profiles. Multiple profiles per site-day.
+The SMP is a portable, motor-driven, high-resolution snow penetrometer developed at the WSL Institute for Snow and Avalanche Research SLF (Schneebeli & Johnson, 1998; Schneebeli et al., 1999). It drives a conical tip (5 mm diameter, 60-degree included angle) into the snowpack at a constant speed of 20 mm/s, recording penetration resistance force (0-42 N range) at 4-micrometer intervals (250 measurements per millimeter, 5 kHz sampling rate). The effective layer resolution is approximately 1.8 mm. The SMP provides an objective, high-resolution record of snowpack mechanical stratigraphy that complements the manual snow pit profile. Output files are in proprietary .pnt binary format. Multiple profiles per site-day; 79 files total.
 
-#### 4. K-band FMCW radar
+#### 4. Snow Scope Probe (SnowScope)
+
+The Snow Scope Probe is a digital snow penetrometer manufactured by Propagation Labs. It consists of a sensor "bullet" attached to a collapsible probe (similar in size and weight to an avalanche probe; 385 g for 220 cm, 475 g for 300 cm). When probed into the snowpack, it measures depth-resolved snow hardness using force sensors sampling at over 5000 Hz. The instrument produces hardness profiles (3-550 kPa range) with a depth resolution of approximately 3 mm (minimum identifiable layer thickness 1.5 mm) and a hardness resolution of 3 kPa. Depth error is typically 2.3% mean and 5% maximum. An optional optical reflectance channel records near-infrared backscatter at each depth step. Data are transmitted wirelessly to the companion Snow Scope App (iOS/Android) and exported as CSV files with a 21-field metadata header (serial number, firmware version, PCB version, GPS coordinates, collection time, profile depth) followed by a depth-resolved measurement table.
+
+The 2025 campaign used three Snow Scope units (serial numbers 00304, 00322, 00328; firmware 2.4.1; PCB v2.7), operated by Francis Gauthier (UQAR). A total of 319 CSV profiles were collected across five site-days. Of these, 181 files include the optical reflectance channel and 138 do not. Profile depths range from 81 to 2266 mm.
+
+The Snow Scope Probe is new to the 2025 campaign and was not part of the instrument suite described in Madore (2023). An independent evaluation of the instrument was presented by Hagenmuller et al. (2024) at the International Snow Science Workshop (ISSW) in Tromsø, Norway.
+
+#### 5. K-band FMCW radar
 
 A compact 24 GHz frequency-modulated continuous-wave (FMCW) radar, based on the commercial IMST Sentire sR-1200 Series module (IMST GmbH, Kamp-Lintfort, Germany). Key specifications: center frequency 24 GHz (K-band), bandwidth 2.5 GHz, field of view 65 degrees azimuth by 24 degrees longitudinal (as used mounted on a tower at the Fidelity site in previous campaigns). The radar retrieves snow depth (uncertainty ~2 cm) and snow water equivalent (SWE, uncertainty ~5%) from the radar return signal. In the 2025 field campaign, the radar is used for spatial transects across study sites. The system is lightweight (<500 g with battery), low-cost, and connects to a Raspberry Pi or Arduino controller. Reference design paper: Pomerleau et al. (2020). Output files are TXT and CSV.
 
-#### 5. Spatial surveys (GPS + transect data)
+#### 6. Spatial surveys (GPS + transect data)
 
-Spatial survey data linking SMP and radar measurements to geographic coordinates along transects at each study site. Data formats include XLSX, CSV, and zipped shapefiles (SHP). GPS coordinates are in geographic decimal degrees (WGS84 assumed).
+Spatial survey data linking SMP, SnowScope, and radar measurements to geographic coordinates along transects at each study site. Data formats include XLSX, CSV, and zipped shapefiles (SHP). GPS coordinates are in geographic decimal degrees (WGS84 assumed).
 
 ### Standards and software
 
@@ -82,7 +90,7 @@ Spatial survey data linking SMP and radar measurements to geographic coordinates
 
 ### Processing level
 
-Raw as collected. Files are unprocessed field instrument outputs. No processing pipeline has been applied. SMP .csv files are direct exports from the .pnt binary format.
+Raw as collected. Files are unprocessed field instrument outputs. No processing pipeline has been applied. SnowScope CSV files are direct exports from the Snow Scope App.
 
 ### Related publications and datasets
 
@@ -123,22 +131,25 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 4. **Pomerleau, P., Royer, A., Langlois, A., Cliche, P., Courtemanche, B., Madore, J.-B., Picard, G., & Lefebvre, E.** (2020). Low cost and compact FMCW 24 GHz radar applications for snowpack and ice thickness measurements. *Sensors*, 20(14), 3909. https://doi.org/10.3390/s20143909
    — Design and validation of the K-band FMCW radar system (IMST Sentire sR-1200 Series).
 
+5. **Hagenmuller, P., Reuter, B., van Herwijnen, A., & Dual, J.** (2024). Evaluation of the snow penetrometer SCOPE. *Proceedings, International Snow Science Workshop (ISSW)*, Tromsø, Norway.
+   — Independent evaluation of the Snow Scope Probe's hardness measurement performance and layer detection capability.
+
 ### Standards and classifications
 
-5. **Fierz, C., Armstrong, R. L., Durand, Y., Etchevers, P., Greene, E., McClung, D. M., Nishimura, K., Satyawali, P. K., & Sokratov, S. A.** (2009). *The international classification for seasonal snow on the ground.* UNESCO-IHP, IHP-VII Technical Documents in Hydrology No. 83, IACS Contribution No. 1. https://unesdoc.unesco.org/ark:/48223/pf0000186462
+6. **Fierz, C., Armstrong, R. L., Durand, Y., Etchevers, P., Greene, E., McClung, D. M., Nishimura, K., Satyawali, P. K., & Sokratov, S. A.** (2009). *The international classification for seasonal snow on the ground.* UNESCO-IHP, IHP-VII Technical Documents in Hydrology No. 83, IACS Contribution No. 1. https://unesdoc.unesco.org/ark:/48223/pf0000186462
    — ICSSG: grain type and size classification standard used in snow pit profiles.
 
-6. **Canadian Avalanche Association.** (2016). *Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (OGRS).* Revelstoke, BC, Canada: Canadian Avalanche Association. https://cdn.ymaws.com/www.avalancheassociation.ca/resource/resmgr/standards_docs/ogrs2016web.pdf
+7. **Canadian Avalanche Association.** (2016). *Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (OGRS).* Revelstoke, BC, Canada: Canadian Avalanche Association. https://cdn.ymaws.com/www.avalancheassociation.ca/resource/resmgr/standards_docs/ogrs2016web.pdf
    — Field observation protocol standard followed during snow pit work.
 
 ### Models (contextual)
 
-7. **Bartelt, P., & Lehning, M.** (2002). A physical SNOWPACK model for the Swiss avalanche warning: Part I: numerical model. *Cold Regions Science and Technology*, 35(3), 123-145. https://doi.org/10.1016/S0165-232X(02)00074-5
+8. **Bartelt, P., & Lehning, M.** (2002). A physical SNOWPACK model for the Swiss avalanche warning: Part I: numerical model. *Cold Regions Science and Technology*, 35(3), 123-145. https://doi.org/10.1016/S0165-232X(02)00074-5
    — SNOWPACK thermodynamic snow cover model used in the broader GRIMP research program.
 
 ### Thesis
 
-8. **Madore, J.-B.** (2023). *Etude integrée de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada.* PhD thesis, Université de Sherbrooke.
+9. **Madore, J.-B.** (2023). *Etude integrée de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada.* PhD thesis, Université de Sherbrooke.
    — Primary methodological reference; describes all instruments, field protocols, and study sites used in this dataset.
 
 ---
@@ -150,11 +161,13 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 | IRIS | instrument | InfraRed Integrating Sphere. Laser-based instrument measuring SWIR hemispherical reflectance at 1310 nm and 1550 nm for snow SSA retrieval. Accuracy ~7% vs. micro-CT. Reference: Montpetit et al. (2012). |
 | SMP | instrument | SnowMicroPenetrometer. Motor-driven penetrometer; 5 mm conical tip, 60-degree angle, 20 mm/s constant speed, 4 um sampling interval, force range 0-42 N, ~1.8 mm layer resolution. Developed at SLF. Reference: Schneebeli & Johnson (1998). |
 | FMCW radar | instrument | Frequency-Modulated Continuous-Wave radar. IMST Sentire sR-1200 Series, 24 GHz center frequency, 2.5 GHz bandwidth, K-band. Retrieves snow depth (2 cm uncertainty) and SWE (5% uncertainty). Weight <500 g. Reference: Pomerleau et al. (2020). |
+| SnowScope | instrument | Snow Scope Probe. Digital snow penetrometer by Propagation Labs. Collapsible probe with sensor bullet; 5000+ Hz sampling; hardness range 3-550 kPa; depth resolution ~3 mm; minimum layer thickness 1.5 mm; optional optical reflectance channel. Weight 385-475 g. CSV output via Snow Scope App. Reference: Hagenmuller et al. (2024). |
 | StratiTemplate | instrument | Excel-based workbook template for recording manual snow pit stratigraphy observations (grain type, size, hardness, density, temperature, wetness). |
 | SSA | variable | Specific Surface Area of snow grains (m^2/kg). Measured by IRIS from SWIR reflectance. Controls snow optical properties and metamorphism rates. |
 | Penetration resistance | variable | Force (N) measured by the SMP as the conical tip penetrates the snowpack. Proxy for snow mechanical hardness at high spatial resolution. |
 | SWE | variable | Snow Water Equivalent. Mass of water per unit area in the snowpack (kg/m^2 or mm w.e.). Retrieved from K-band radar. |
 | Snow depth | variable | Total depth of the snowpack (cm or m). Retrieved from K-band radar or measured manually. |
+| Optical reflectance | variable | Near-infrared backscatter measured by the Snow Scope Probe at each depth step (arbitrary units). Present in 181 of 319 SnowScope CSV files in this dataset. |
 | Snow stratigraphy | technique | Layer-by-layer characterization of the snowpack including grain type/size, hardness, density, temperature, and wetness. Follows ICSSG and OGRS standards. |
 | ICSSG | standard | International Classification for Seasonal Snow on the Ground (Fierz et al., 2009). Defines grain type symbols, size classes, and snow property classification. UNESCO-IHP Technical Document No. 83. |
 | OGRS | standard | Observation Guidelines and Recording Standards for Weather, Snowpack and Avalanches (CAA, 2016). Canadian standard for field snow and avalanche observations. |
@@ -189,13 +202,16 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 | Campaign dates: 2025-03-01 to 2025-03-06 | Scope definition (file dates) |
 | Sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, Christiana Ridge | Scope definition |
 | CRDC candidate: RDF10508 (Cryosphere processes) or RDF1050802 (Glaciology) | StatCan CRDC 2020 v2.0 classification |
+| SnowScope: digital snow penetrometer by Propagation Labs; specs from manufacturer website | propagationlabs.com/specs |
+| SnowScope: 3 units (00304, 00322, 00328); FW 2.4.1; PCB v2.7; creator Francis Gauthier; 319 CSVs | data_exploration.md §5 (file header metadata) |
+| SnowScope: independent evaluation at ISSW 2024 | Hagenmuller et al. (2024); propagationlabs.com/blog |
 
 ---
 
 ## Scope updates
 
-No contradictions with the current scope were found during research. The following clarifications are noted:
+The following clarifications are noted:
 
-- The 2025 campaign uses the same instrument suite and methodology as Madore (2023) thesis work from 2018-2019 seasons. The instruments, protocols, and study area are well-documented in the thesis.
+- The 2025 campaign uses the same stratigraphy, IRIS, SMP, and radar instruments and methodology as Madore (2023) thesis work from 2018-2019 seasons, but adds the Snow Scope Probe as a new instrument not present in the earlier campaigns. The SnowScope is not documented in the thesis.
 - Charles Fierz (SLF, Davos) was co-supervisor for Madore's PhD but his involvement in the 2025 campaign is unknown. He should not be listed as author unless confirmed by the researcher.
 - Funding sources were not definitively identified. NSERC Discovery Grant and CFI (for MOACC) are likely but award numbers require researcher confirmation.

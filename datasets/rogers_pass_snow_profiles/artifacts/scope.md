@@ -60,7 +60,7 @@ Data files carry dates 20250301–20250306 consistently across all measurement t
 | Snow stratigraphy workbooks | StratiTemplate XLSX (7 files) | Layer height, grain type and size, hand hardness, wetness, density, temperature, stability tests |
 | IRIS observations | TXT files (6 files) plus IRIS sheets in XLSX | Time/value observations used for snow specific surface area workflows |
 | SnowMicroPenetrometer | `.pnt` binary profiles (79 files) | Distance and force measurements; present for Days 1, 2, 5, and 6 |
-| SnowScope profiles | CSV exports (319 files) | Depth-resolved hardness with optional optical reflectance and embedded GPS |
+| SnowScope profiles | Snow Scope Probe (Propagation Labs) CSV exports (319 files) | Depth-resolved hardness with optional optical reflectance and embedded GPS |
 | FMCW radar transects | TXT files (166 files) | 24 GHz class radar measurements with I/Q traces; no Day 6 radar files observed |
 | Spatial linkage tables | XLSX (4 files) | Maps rover points to radar, SMP, and SnowScope measurements |
 | GPS / spatial survey exports | CSV (3 files) and zipped shapefiles (3 files) | RTK point locations and elevations |
