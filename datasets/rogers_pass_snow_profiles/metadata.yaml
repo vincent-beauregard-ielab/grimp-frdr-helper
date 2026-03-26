@@ -76,6 +76,7 @@ workflow:
   quality_control: done
   data_preparation: done
   draft_readme: done
+  researcher_review: requested
   preflight_validation: null
   deposit: null
 raw_data_source: datasets/rogers_pass_snow_profiles/raw_data/Rogers Pass March 2024-2025/
