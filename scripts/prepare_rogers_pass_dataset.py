@@ -26,7 +26,7 @@ FRDR_ROOT = DATASET_ROOT / "frdr_data"
 ARTIFACTS_ROOT = DATASET_ROOT / "artifacts"
 NOTEBOOK_PATH = PROJECT_ROOT / "notebooks" / "rogers_pass_snow_profiles_data_preparation.ipynb"
 MANIFEST_PATH = ARTIFACTS_ROOT / "preparation_manifest.json"
-VERIFICATION_PATH = ARTIFACTS_ROOT / "verification_report.md"
+DATA_PREPARATION_REPORT_PATH = ARTIFACTS_ROOT / "data_preparation_report.md"
 QC_PATH = ARTIFACTS_ROOT / "qc_report.md"
 README_PATH = DATASET_ROOT / "README.txt"
 METADATA_PATH = DATASET_ROOT / "metadata.yaml"
@@ -511,7 +511,7 @@ def validation_checks(readme_text: str) -> list[str]:
     return issues
 
 
-def write_verification_report(manifest: dict) -> None:
+def write_data_preparation_report(manifest: dict) -> None:
     stats = manifest["stats"]
     text = f"""
     # Verification Report: Rogers Pass Snow Profiles
@@ -581,7 +581,7 @@ def write_verification_report(manifest: dict) -> None:
     - Hazard assessment PDFs remain excluded until the researcher decides whether they are in scope.
     - Some raw SMP files contain invalid GPS sentinels and some template-derived workbook cells use placeholder zeros; these raw-source conditions were documented rather than altered.
     """
-    write_text(VERIFICATION_PATH, textwrap.dedent(text))
+    write_text(DATA_PREPARATION_REPORT_PATH, textwrap.dedent(text))
 
 
 def write_qc_report() -> None:
@@ -1044,7 +1044,7 @@ def prepare_dataset() -> dict:
     manifest = build_manifest()
     readme_issues = write_readme(manifest)
     manifest["readme_validation_issues"] = readme_issues
-    write_verification_report(manifest)
+    write_data_preparation_report(manifest)
     write_qc_report()
     update_metadata(manifest, readme_issues)
     write_text(MANIFEST_PATH, json.dumps(manifest, indent=2))

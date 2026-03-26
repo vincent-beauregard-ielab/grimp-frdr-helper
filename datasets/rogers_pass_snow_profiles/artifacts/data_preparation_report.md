@@ -1,9 +1,24 @@
 
-# Verification Report: Rogers Pass Snow Profiles
+# Data Preparation Report: Rogers Pass Snow Profiles
 
 **Date:** 2026-03-24
 **Prepared package:** `datasets/rogers_pass_snow_profiles/frdr_data/`
 **Notebook:** `notebooks/rogers_pass_snow_profiles_data_preparation.ipynb`
+
+## Proposed deposit scope
+
+| Material class | Decision | Notes |
+|---|---|---|
+| Snow stratigraphy XLSX workbooks | Include | Seven workbooks kept in raw Excel format with standardized names |
+| IRIS TXT exports | Include | Six daily raw text exports kept unchanged except naming normalization |
+| SMP `.pnt` profiles | Include | Four day-site folders preserved as binary raw outputs |
+| SnowScope CSV profiles | Include | Five day-site folders preserved with standardized folder names |
+| Radar TXT exports | Include | Five day-site folders preserved with standardized folder names |
+| Spatial linkage XLSX / GPS CSV / SHP ZIP | Include | First-class scientific support files linking measurements to coordinates |
+| Site and instrument DOCX notes | Include as ancillary support | Converted to plain text in `documentation/` |
+| Morning hazard assessment PDFs | Open | Researcher decision still required |
+| HEIC field notebook photos | Exclude for now | Researcher decision still required |
+| Logistics, planning, and travel documents | Exclude | Administrative material |
 
 ## Change summary
 
@@ -65,3 +80,10 @@
 - Raw Day 5 radar files were stored in a folder named `radar_ka` while the research notes describe a 24 GHz K-band radar. The prepared package standardizes the folder name to `radar/`, but the band terminology should be confirmed in the final README review.
 - Hazard assessment PDFs remain excluded until the researcher decides whether they are in scope.
 - Some raw SMP files contain invalid GPS sentinels and some template-derived workbook cells use placeholder zeros; these raw-source conditions were documented rather than altered.
+
+## README consistency check
+
+- The README draft describes the prepared folders in `frdr_data/`, not the raw directory.
+- The README draft documents the naming convention for standardized folders and representative raw instrument file names.
+- The README draft explains how linkage workbooks, GPS files, shapefile ZIPs, radar exports, SnowScope files, SMP files, and stratigraphy workbooks relate to each other.
+- The README draft explicitly lists excluded or pending materials so the deposit boundary is reviewable.

@@ -59,7 +59,7 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 3 | Explore Data | 3 | [`steps/3_explore_data.md`](steps/3_explore_data.md) | `artifacts/data_exploration.md`, notebook |
 | 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md` |
 | 4b | Scope Revision | 2 | [`steps/4b_scope_revision.md`](steps/4b_scope_revision.md) | revised `artifacts/scope.md` |
-| 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `artifacts/verification_report.md`, notebook |
+| 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `artifacts/data_preparation_report.md`, notebook |
 | 6 | Draft README | 2 | [`steps/6_draft_readme.md`](steps/6_draft_readme.md) | `README.txt` |
 | 7 | Preflight Validation | 3 | [`steps/7_preflight_validation.md`](steps/7_preflight_validation.md) | `artifacts/preflight.md` |
 | 8 | Deposit | 1 | [`steps/8_deposit.md`](steps/8_deposit.md) | Published dataset with DOI |

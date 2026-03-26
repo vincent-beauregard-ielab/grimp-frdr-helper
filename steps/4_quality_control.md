@@ -39,4 +39,4 @@ For each issue found, the QC report should specify:
 
 ## Outputs
 
-- `datasets/{id}/artifacts/qc_report.md`
+- `datasets/{id}/artifacts/qc_report.md` — Issue list only. Does not include deposit scope summaries, file inventories, or README checks (those belong in the Data Preparation report or Preflight Validation).

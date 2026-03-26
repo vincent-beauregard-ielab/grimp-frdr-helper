@@ -14,7 +14,7 @@ Final check before deposit. Validates that all deliverables are complete and con
 - `metadata.yaml` exists and has at minimum a dataset title
 - Geographic coordinates are present (point or bounding box)
 - License is explicitly specified
-- Scope document, research artifact, QC report, and verification report all exist in `artifacts/`
+- Scope document, research artifact, QC report, and data preparation report all exist in `artifacts/`
 - All files described in the README have variable definitions, units, and null-value coding
 - No files contain protected or restricted information (flag for researcher if uncertain)
 - Third-party data sources are credited with proper attribution
