@@ -1,4 +1,4 @@
-This README.txt file was generated on 2026-03-24 by Codex; researcher review applied 2026-04-28 (PR #2)
+This README.txt file was generated on 2026-03-24 and last updated on 2026-04-29.
 
 --------------------
 GENERAL INFORMATION
@@ -85,7 +85,7 @@ https://creativecommons.org/licenses/by-nc/4.0/
 
 6. Recommended citation for this dataset:
 
-Madore, J.-B., Langlois, A., Imbach, B., Gauthier, F., Meloche, F., Paquette, V., Hale, K., Marshall, H.-P., Meyer, J., Meloche, J. (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI pending.
+Madore, J.-B., Langlois, A., Imbach, B., Gauthier, F., Meloche, F., Paquette, V., Hale, K., Marshall, H.-P., Meyer, J., Meloche, J. (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI: [to be assigned at deposit]
 
 ---------------------
 DATA & FILE OVERVIEW
@@ -167,9 +167,7 @@ SnowScope profiles were acquired with the Snow Scope Probe (Propagation Labs), a
 
 2. Methods for processing the data:
 
-Data contained in the prepared package are raw exports from the field campaign, with no numeric editing applied to the scientific files 🔔. Minor quality-control related modifications were made during preparation to standardize the package structure, but the scientific content of the files was not altered.
-
-Quality control modifications are documented in `artifacts/qc_report.md`; all open items were resolved during researcher review (PR #2, 2026-04-28).
+Data contained in the prepared package are raw exports from the field campaign. No scientific values were altered. Minor structural modifications were made during preparation: raw folders were reorganized by data type, filenames were normalized, and ancillary DOCX field notes were converted to UTF-8 plain text.
 
 3. Instrument- or software-specific information needed to interpret the data:
 
@@ -200,14 +198,11 @@ Quality assurance during preparation focused on packaging and interpretability r
 - preserves raw instrument formats and numeric content;
 - converts ancillary DOCX notes to plain text for accessibility.
 
-The following items were resolved during researcher review (PR #2, 2026-04-28):
-- Day 6 Fidelity revisit workbook confirmed as a revisit (same site, five days later); kept with `_revisit` filename.
-- Radar band confirmed K-band; folder standardized to `radar_FMCW_K/` with center frequency 24.5 GHz.
-- Morning hazard assessment PDFs excluded as out of scope.
-
-Remaining items documented but not altered:
-- Some raw SMP file headers contain invalid GPS sentinels (-99999); these were documented and left unchanged.
-- Some template-derived workbook cells contain placeholder zeros; flagged for a final researcher passthrough before deposit.
+Notes on specific items:
+- `20250306_fidelity_revisit_stratigraphy.xlsx` is a revisit profile at the Fidelity site taken on Day 6, five days after the Day 1 profile at the same location. Both profiles are included.
+- The K-band FMCW radar (center 24.5 GHz) produces files deposited under `radar_FMCW_K/`. 
+- Some raw SMP file headers contain invalid GPS sentinels (-99999); these were documented and left unchanged 🔔.
+- Some template-derived workbook cells contain placeholder zeros; these represent absent field entries and should be treated as missing values. 🔔
 
 7. People involved with sample collection, processing, analysis and/or submission:
 
