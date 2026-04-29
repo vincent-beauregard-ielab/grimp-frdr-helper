@@ -1,4 +1,4 @@
-This README.txt file was generated on 2026-03-24 by Codex
+This README.txt file was generated on 2026-03-24 by Codex; researcher review applied 2026-04-28 (PR #2)
 
 --------------------
 GENERAL INFORMATION
@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada
 
-2. Author Information 🔔
+2. Author Information
     A. Principal Investigator Contact Information
         Name: Jean-Benoit Madore
         Institution: Universite de Sherbrooke, Department of Applied Geomatics; Centre d'etudes nordiques
@@ -19,7 +19,36 @@ Snow profile observation datasets, Rogers Pass, Glacier National Park, British C
         Institution: Universite de Sherbrooke, Department of Applied Geomatics; GRIMP; Centre d'etudes nordiques
         Email: alexandre.langlois2@usherbrooke.ca
 
-        Additional field participants documented in the field notes include Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Final author list and author order are 🔔 pending researcher confirmation.
+        Name: Benjamin Imbach
+        Institution: UQAR, Laboratoire de geomorphologie et de gestion des risques en montagne (LGGRM)
+        Email: Benjamin.Imbach@uqar.ca
+
+        Name: Francis Gauthier
+        Institution: UQAR, Laboratoire de geomorphologie et de gestion des risques en montagne (LGGRM)
+        Email: Francis_Gauthier@uqar.ca
+
+        Name: Francis Meloche
+        Institution: UQAR, Laboratoire de geomorphologie et de gestion des risques en montagne (LGGRM); WSL Institut pour l'etude de la neige et des avalanches SLF; ETH Zurich, Chair of Alpine Mass Movements
+        Email: fmeloche@ethz.ch
+
+        Name: Violaine Paquette
+        Institution: Universite de Sherbrooke, Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP)
+        Email: Violaine.Paquette@USherbrooke.ca
+
+        Name: Kate Hale
+        Institution: The University of British Columbia, Snow Water Resources Laboratory
+        Email: kate.hale@ubc.ca
+
+        Name: Hans-Peter Marshall
+        Institution: Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS
+        Email: hpmarshall@boisestate.edu
+
+        Name: Joachim Meyer
+        Institution: Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS
+        Email: jmeyer@boisestate.edu
+
+        Name: Julien Meloche
+        Institution: Environnement et Changement climatique Canada
 
 3. Date of data collection (single date, range, approximate date):
 
@@ -28,13 +57,13 @@ Snow profile observation datasets, Rogers Pass, Glacier National Park, British C
 4. Geographic location of data collection:
 
 Rogers Pass, Glacier National Park, Selkirk Mountains, British Columbia, Canada.
-Bounding box from the prepared package: north 51.323627, south 51.234087, east -117.531450, west -117.713247.
+Bounding box (WGS84, EPSG:4326): west -117.7304, south 51.2274, east -117.4670, north 51.3284.
 Elevation range represented by GPS and snow-profile metadata: 1832-2088 m.
 Study sites represented in the prepared package are Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
 
 5. Information about funding sources that supported the collection of the data:
 
-🔔 pending researcher confirmation. Local project records indicate GRIMP / Universite de Sherbrooke support and likely MOACC-related infrastructure context, but no funder names or award numbers are confirmed in the repository.
+Fonds de recherche du Quebec - Nature et technologie (FRQNT). Fonds des nouvelles initiatives de recherche et de sauvetage.
 
 ---------------------------
 SHARING/ACCESS INFORMATION
@@ -56,9 +85,7 @@ https://creativecommons.org/licenses/by-nc/4.0/
 
 6. Recommended citation for this dataset:
 
-Madore, J.-B., Langlois, A., and collaborators (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI 🔔 pending.
-
-🔔 pending researcher confirmation: final author list, publication year, and DOI.
+Madore, J.-B., Langlois, A., Imbach, B., Gauthier, F., Meloche, F., Paquette, V., Hale, K., Marshall, H.-P., Meyer, J., Meloche, J. (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI pending.
 
 ---------------------
 DATA & FILE OVERVIEW
@@ -83,8 +110,8 @@ DATA & FILE OVERVIEW
    D. Filename: snowscope/
       Short description: Five standardized SnowScope folder names containing 319 CSV profile files. Representative folders are `20250301_jim_bay_corner_snowscope/`, `20250305_round_hill_snowscope/`, and `20250306_christiana_ridge_snowscope/`. Representative files are `14-45_2025_3_1_Profile14_SN00328_.csv` and `2025-03-06_1649_Profile100_SN00304.csv`.
 
-   E. Filename: radar/
-      Short description: Five day-site folders containing 166 FMCW radar text exports. Representative folders are `20250302_jim_bay_corner/`, `20250304_fidelity/`, and `20250305_round_hill/`. Representative files are `052820250302_1505.txt`, `059820250304_1338.txt`, and `056720250302_1625.txt`. The Day 5 raw folder label `radar_ka` was standardized into the generic `radar/` deposit folder.
+   E. Filename: radar_FMCW_K/
+      Short description: Five day-site folders containing 166 FMCW K-band radar text exports (center 24.5 GHz, sweep 23.5-26 GHz). Representative folders are `20250302_jim_bay_corner/`, `20250304_fidelity/`, and `20250305_round_hill/`. Representative files are `052820250302_1505.txt`, `059820250304_1338.txt`, and `056720250302_1625.txt`.
 
    F. Filename: spatial_reference/
       Short description: Ten support files that link measurements to coordinates. These include four linkage workbooks (`*_spatial_linkage.xlsx`), three RTK GPS CSV exports (`*_gps_points.csv`), and three zipped shapefile packages (`*_gps_points_shapefile.zip`).
@@ -103,10 +130,8 @@ DATA & FILE OVERVIEW
 
 3. Additional related data collected that was not included in the current data package:
 
-🔔 pending researcher confirmation applies to the following scope decisions and content exclusions:
-
-- Morning hazard assessment PDFs were left out of the prepared package 🔔 pending researcher confirmation.
-- HEIC field notebook photos were left out of the prepared package 🔔 pending researcher confirmation.
+- Morning hazard assessment PDFs were excluded.
+- HEIC field notebook photos were excluded.
 - Administrative material such as logistics spreadsheets, planning documents, and travel files was excluded.
 - A blank `StratiTemplate.xlsx` workbook and an `IRIS_20250301.TXT.docx` companion file were excluded because they do not add unique observed data to the deposit.
 
@@ -136,15 +161,15 @@ IRIS measurements were collected alongside the snow pits using the InfraRed Inte
 
 SnowMicroPenetrometer profiles were acquired with a constant-speed penetrometer following Schneebeli and Johnson (1998, https://doi.org/10.3189/1998AoG26-1-107-111) and Schneebeli et al. (1999, https://doi.org/10.1016/S0165-232X(99)00030-0). The instrument drives a 5 mm conical tip into the snow at approximately 20 mm/s and records penetration resistance at very high vertical resolution. This campaign collected 79 `.pnt` profiles across four site-days.
 
-Compact 24 GHz FMCW radar measurements were collected along spatial transects using the radar architecture described by Pomerleau et al. (2020, Low cost and compact FMCW 24 GHz radar applications for snowpack and ice thickness measurements, https://doi.org/10.3390/s20143909). The raw files in this package preserve the original header metadata and the sampled I/Q signal table. The research notes describe the system as a K-band radar, while one raw folder uses the label `radar_ka`; that naming inconsistency is documented in the QC report rather than altered in the raw file content.
+Compact 24 GHz FMCW radar measurements were collected along spatial transects using the radar architecture described by Pomerleau et al. (2020, Low cost and compact FMCW 24 GHz radar applications for snowpack and ice thickness measurements, https://doi.org/10.3390/s20143909). The system is a K-band FMCW radar with center frequency 24.5 GHz and a bandwidth of 2.5 GHz (sweep 23.5-26 GHz). Raw files are stored in the `radar_FMCW_K/` folder and preserve the original header metadata and sampled I/Q signal table.
 
 SnowScope profiles were acquired with the Snow Scope Probe (Propagation Labs), a digital snow penetrometer consisting of a sensor bullet on a collapsible probe. The instrument measures depth-resolved hardness at over 5000 Hz sampling, with a hardness range of 3–550 kPa, a depth resolution of approximately 3 mm, and a minimum resolvable layer thickness of 1.5 mm. An optional optical reflectance channel records near-infrared backscatter at each depth step; 181 of the 319 profiles in this package include that channel. Data are exported as CSV files from the companion Snow Scope App, with a 21-field metadata header (serial number, firmware version, PCB version, GPS coordinates, collection time, profile depth) followed by a depth-resolved measurement table. Linkage workbooks and RTK GPS exports were collected to georeference the radar, SMP, and SnowScope transects and to map acquisition point numbers to files.
 
 2. Methods for processing the data:
 
-Data contained in the prepared package are raw exports from the field campaign, with no numeric editing applied to the scientific files. Minor quality-control related modifications were made during preparation to standardize the package structure, but the scientific content of the files was not altered.
+Data contained in the prepared package are raw exports from the field campaign, with no numeric editing applied to the scientific files 🔔. Minor quality-control related modifications were made during preparation to standardize the package structure, but the scientific content of the files was not altered.
 
-🔔 Confirmation required for QC related data modification proposed in qc_report. 
+Quality control modifications are documented in `artifacts/qc_report.md`; all open items were resolved during researcher review (PR #2, 2026-04-28).
 
 3. Instrument- or software-specific information needed to interpret the data:
 
@@ -162,7 +187,7 @@ Data contained in the prepared package are raw exports from the field campaign, 
 - SnowScope files preserve device firmware and PCB metadata in the header block.
 - GPS exports are obtained by RTK acquisition and should be treated as WGS84 geographic coordinates.
 
-🔔 pending confirmation of the coordinates' reference frame and geoid model, the elevation values should be interpreted as ellipsoidal heights rather than orthometric heights.
+GPS coordinates are WGS84 geographic (EPSG:4326). Elevation values are ellipsoidal heights.
 
 5. Environmental/experimental conditions:
 
@@ -175,16 +200,18 @@ Quality assurance during preparation focused on packaging and interpretability r
 - preserves raw instrument formats and numeric content;
 - converts ancillary DOCX notes to plain text for accessibility.
 
-The following items remain open and are 🔔 pending researcher confirmation:
-- Whether the Day 6 Fidelity revisit workbook should be included or removed from the deposit.
-- The correct radar band designation (K-band vs Ka-band) to use in the deposit documentation.
-- Whether morning hazard assessment PDFs are in scope for the deposit.
+The following items were resolved during researcher review (PR #2, 2026-04-28):
+- Day 6 Fidelity revisit workbook confirmed as a revisit (same site, five days later); kept with `_revisit` filename.
+- Radar band confirmed K-band; folder standardized to `radar_FMCW_K/` with center frequency 24.5 GHz.
+- Morning hazard assessment PDFs excluded as out of scope.
+
+Remaining items documented but not altered:
 - Some raw SMP file headers contain invalid GPS sentinels (-99999); these were documented and left unchanged.
-- Some template-derived workbook cells contain placeholder zeros; these were documented and left unchanged.
+- Some template-derived workbook cells contain placeholder zeros; flagged for a final researcher passthrough before deposit.
 
 7. People involved with sample collection, processing, analysis and/or submission:
 
-Confirmed field participants in the site notes include Jean-Benoit Madore, Alexandre Langlois, Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Jo Meyer, and Julien Meloche. Parks Canada staff are referenced in the notes as operational collaborators for site access and logistics. 🔔 pending researcher confirmation applies to final authorship, contact list, and funding wording.
+Field participants include Jean-Benoit Madore, Alexandre Langlois, Benjamin Imbach, Francis Gauthier, Francis Meloche, Violaine Paquette, Kate Hale, Hans-Peter Marshall, Joachim Meyer, and Julien Meloche. Parks Canada staff are referenced in the notes as operational collaborators for site access and logistics.
 
 -----------------------------------------------------------------
 DATA-SPECIFIC INFORMATION FOR: snow_stratigraphy/
@@ -284,7 +311,7 @@ Approximately 21 metadata header fields plus a profile table with 2-3 columns.
        Description: Depth-resolved SnowScope measurement table. `optical Reflectance Avg` appears only in a subset of profiles.
 
 -----------------------------------------------------------------
-DATA-SPECIFIC INFORMATION FOR: radar/
+DATA-SPECIFIC INFORMATION FOR: radar_FMCW_K/
 -----------------------------------------------------------------
 
 1. Number of variables:

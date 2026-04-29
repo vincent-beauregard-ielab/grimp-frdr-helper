@@ -31,15 +31,17 @@ Snow profile observation datasets, Rogers Pass, Glacier National Park, British C
 |------|------|-------------|-------|
 | Lead author | Jean-Benoit Madore | Université de Sherbrooke, Dept. géomatique appliquée; Centre d'études nordiques | 0000-0002-2292-1519 |
 | Lead author / Supervisor | Alexandre Langlois | Université de Sherbrooke, Dept. géomatique appliquée; GRIMP; Centre d'études nordiques | 0000-0002-9966-205X |
-| Author (tentative) | Benjamin Imbach | UQAR | TBD |
-| Author (tentative) | Francis Gauthier | UQAR | TBD |
-| Author (tentative) | Julien Meloche | Université de Sherbrooke | TBD |
-| Author (tentative) | Cécile Meyer | Université de Sherbrooke | TBD |
-| Author (tentative) | Rachel Hale | TBD | TBD |
-| Author (tentative) | Maxime Paquette | Université de Sherbrooke | TBD |
+| Author | Benjamin Imbach | UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM) | 0009-0009-1002-9900 |
+| Author | Francis Gauthier | UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM) | |
+| Author | Julien Meloche | Environnement et Changement climatique Canada | |
+| Author | Joachim Meyer | Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS | 0000-0002-1358-2244 |
+| Author | Hans-Peter Marshall | Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS | 0000-0002-4852-5637 |
+| Author | Kate Hale | The University of British Columbia, Snow Water Resources Laboratory | 0000-0003-1899-0287 |
+| Author | Francis Meloche | UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM); WSL Institut pour l'étude de la neige et des avalanches SLF; ETH Zurich, Chair of Alpine Mass Movements | 0009-0001-5884-5597 |
+| Author | Violaine Paquette | Université de Sherbrooke, Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP) | |
 | Collaborator | Parks Canada — Avalanche Control Program, Glacier National Park | Government of Canada | — |
 
-**Contact:** Jean-Benoit Madore (email TBD from researcher)
+**Contact:** Jean-Benoit Madore — jean-benoit.madore@usherbrooke.ca
 
 ### Collection dates
 2025-03-01 to 2025-03-06 (6 field days)
@@ -49,7 +51,7 @@ Snow profile observation datasets, Rogers Pass, Glacier National Park, British C
 - **Country:** Canada
 - **Province:** British Columbia
 - **Sites:** Fidelity (~1905 m), Jim Bay Corner, Hermit, Round Hill, Christiana Ridge
-- **Bounding box:** TBD — to be extracted from GPS/shapefile data in Explore Data step
+- **Bounding box (WGS84, EPSG:4326):** west -117.7304, south 51.2274, east -117.4670, north 51.3284
 
 ### Instruments and acquisition protocols
 
@@ -75,7 +77,7 @@ The Snow Scope Probe is new to the 2025 campaign and was not part of the instrum
 
 #### 5. K-band FMCW radar
 
-A compact 24 GHz frequency-modulated continuous-wave (FMCW) radar, based on the commercial IMST Sentire sR-1200 Series module (IMST GmbH, Kamp-Lintfort, Germany). Key specifications: center frequency 24 GHz (K-band), bandwidth 2.5 GHz, field of view 65 degrees azimuth by 24 degrees longitudinal (as used mounted on a tower at the Fidelity site in previous campaigns). The radar retrieves snow depth (uncertainty ~2 cm) and snow water equivalent (SWE, uncertainty ~5%) from the radar return signal. In the 2025 field campaign, the radar is used for spatial transects across study sites. The system is lightweight (<500 g with battery), low-cost, and connects to a Raspberry Pi or Arduino controller. Reference design paper: Pomerleau et al. (2020). Output files are TXT and CSV.
+A compact 24 GHz frequency-modulated continuous-wave (FMCW) radar, based on the commercial IMST Sentire sR-1200 Series module (IMST GmbH, Kamp-Lintfort, Germany). Key specifications: center frequency 24.5 GHz (K-band), bandwidth 2.5 GHz (sweep 23.5–26 GHz), field of view 65 degrees azimuth by 24 degrees longitudinal (as used mounted on a tower at the Fidelity site in previous campaigns). The radar retrieves snow depth (uncertainty ~2 cm) and snow water equivalent (SWE, uncertainty ~5%) from the radar return signal. In the 2025 field campaign, the radar is used for spatial transects across study sites. The system is lightweight (<500 g with battery), low-cost, and connects to a Raspberry Pi or Arduino controller. Reference design paper: Pomerleau et al. (2020). Output files are TXT and CSV.
 
 #### 6. Spatial surveys (GPS + transect data)
 
@@ -95,7 +97,7 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 ### Related publications and datasets
 
 - Madore, J.-B. (2023). *Etude integrée de la percolation de l'eau dans le manteau neigeux du Parc national des Glaciers, Colombie-Britannique, Canada.* PhD thesis, Université de Sherbrooke. — Primary methodological reference for this dataset.
-- Imbach, B., Madore, J.-B., Jones, A., & Brown, R. (2022). Snow profile observation datasets, Glacier National Park, British Columbia, Canada. FRDR. DOI: 10.20383/103.01523. — Earlier GRIMP dataset from the same study area (2018-2019 seasons), deposited in CAAML format. Confirmed unrelated to the current 2025 dataset.
+- Imbach, B., Madore, J., Jones, A., Brown, C. (2022). Snow profile observation datasets, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. https://doi.org/10.20383/103.01523. — Earlier GRIMP dataset from the same study area (2018-2019 seasons), deposited in CAAML format. Confirmed unrelated to the current 2025 dataset.
 
 ### Sharing / access context
 
@@ -106,12 +108,8 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 
 ### Unresolved README fields
 
-- Full author list beyond Madore and Langlois — affiliations and ORCIDs for tentative authors
-- Contact email for Jean-Benoit Madore
-- Funding sources (NSERC Discovery Grant likely, CFI for MOACC infrastructure, but award numbers not confirmed)
 - CRDC 2020 field_of_research code — candidate: RDF10508 (Cryosphere processes) or RDF1050802 (Glaciology), to be confirmed
-- Precise bounding box coordinates (from Explore Data step)
-- Whether HEIC field notebook photos and morning hazard assessment PDFs are included (deferred from Scope)
+- Confirmed funders: FRQNT (Fonds de recherche du Québec – Nature et technologie) and Fonds des nouvelles initiatives de recherche et de sauvetage. Award numbers not yet provided.
 
 ---
 
@@ -160,7 +158,7 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 |------|-----|------------|
 | IRIS | instrument | InfraRed Integrating Sphere. Laser-based instrument measuring SWIR hemispherical reflectance at 1310 nm and 1550 nm for snow SSA retrieval. Accuracy ~7% vs. micro-CT. Reference: Montpetit et al. (2012). |
 | SMP | instrument | SnowMicroPenetrometer. Motor-driven penetrometer; 5 mm conical tip, 60-degree angle, 20 mm/s constant speed, 4 um sampling interval, force range 0-42 N, ~1.8 mm layer resolution. Developed at SLF. Reference: Schneebeli & Johnson (1998). |
-| FMCW radar | instrument | Frequency-Modulated Continuous-Wave radar. IMST Sentire sR-1200 Series, 24 GHz center frequency, 2.5 GHz bandwidth, K-band. Retrieves snow depth (2 cm uncertainty) and SWE (5% uncertainty). Weight <500 g. Reference: Pomerleau et al. (2020). |
+| FMCW radar | instrument | Frequency-Modulated Continuous-Wave radar. IMST Sentire sR-1200 Series, K-band, center frequency 24.5 GHz, bandwidth 2.5 GHz (sweep 23.5–26 GHz). Retrieves snow depth (2 cm uncertainty) and SWE (5% uncertainty). Weight <500 g. Reference: Pomerleau et al. (2020). |
 | SnowScope | instrument | Snow Scope Probe. Digital snow penetrometer by Propagation Labs. Collapsible probe with sensor bullet; 5000+ Hz sampling; hardness range 3-550 kPa; depth resolution ~3 mm; minimum layer thickness 1.5 mm; optional optical reflectance channel. Weight 385-475 g. CSV output via Snow Scope App. Reference: Hagenmuller et al. (2024). |
 | StratiTemplate | instrument | Excel-based workbook template for recording manual snow pit stratigraphy observations (grain type, size, hardness, density, temperature, wetness). |
 | SSA | variable | Specific Surface Area of snow grains (m^2/kg). Measured by IRIS from SWIR reflectance. Controls snow optical properties and metamorphism rates. |
@@ -199,6 +197,16 @@ Raw as collected. Files are unprocessed field instrument outputs. No processing 
 | Langlois affiliation: UdeS Dept. géomatique appliquée + GRIMP + CEN | grimp.ca; ResearchGate |
 | License: CC BY-NC 4.0 | Scope elicitation (researcher confirmed) |
 | Unrelated to DOI 10.20383/103.01523 | Scope elicitation (researcher confirmed) |
+| Benjamin Imbach ORCID: 0009-0009-1002-9900 | JB Madore review (PR #2, 2026-04-28) |
+| Joachim Meyer ORCID: 0000-0002-1358-2244 | JB Madore review (PR #2, 2026-04-28) |
+| Hans-Peter Marshall ORCID: 0000-0002-4852-5637 | JB Madore review (PR #2, 2026-04-28) |
+| Kate Hale ORCID: 0000-0003-1899-0287 | JB Madore review (PR #2, 2026-04-28) |
+| Francis Meloche ORCID: 0009-0001-5884-5597 | JB Madore review (PR #2, 2026-04-28) |
+| Funders: FRQNT and Fonds des nouvelles initiatives de recherche et de sauvetage | JB Madore review (PR #2, 2026-04-28) |
+| Bounding box west -117.7304, south 51.2274, east -117.4670, north 51.3284 (WGS84) | JB Madore review (PR #2, 2026-04-28) |
+| Radar center frequency 24.5 GHz, sweep 23.5–26 GHz | JB Madore review (PR #2, 2026-04-28) |
+| F. Gauthier ORCID left blank — candidate 0000-0003-4961-7952 not confirmed as matching person | JB Madore review (PR #2, 2026-04-28) |
+| J. Meloche ORCID left blank — candidate 0000-0001-9617-1979 not confirmed | JB Madore review (PR #2, 2026-04-28) |
 | Campaign dates: 2025-03-01 to 2025-03-06 | Scope definition (file dates) |
 | Sites: Fidelity, Jim Bay Corner, Hermit, Round Hill, Christiana Ridge | Scope definition |
 | CRDC candidate: RDF10508 (Cryosphere processes) or RDF1050802 (Glaciology) | StatCan CRDC 2020 v2.0 classification |
@@ -215,3 +223,4 @@ The following clarifications are noted:
 - The 2025 campaign uses the same stratigraphy, IRIS, SMP, and radar instruments and methodology as Madore (2023) thesis work from 2018-2019 seasons, but adds the Snow Scope Probe as a new instrument not present in the earlier campaigns. The SnowScope is not documented in the thesis.
 - Charles Fierz (SLF, Davos) was co-supervisor for Madore's PhD but his involvement in the 2025 campaign is unknown. He should not be listed as author unless confirmed by the researcher.
 - Funding sources were not definitively identified. NSERC Discovery Grant and CFI (for MOACC) are likely but award numbers require researcher confirmation.
+- Researcher review (PR #2, 2026-03-27 to 2026-04-28) confirmed: Day-6 Fidelity revisit kept; radar standardized as `radar_FMCW_K`; HEIC photos and hazard PDFs out of scope; full author list and funders supplied by JB Madore.
