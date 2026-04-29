@@ -10,7 +10,9 @@ Prepare data files for FRDR deposit by acting on issues identified in Quality Co
 
 **IMPORTANT: This step is non-destructive to original data.** All operations read from `datasets/{id}/raw_data/` and write to `datasets/{id}/frdr_data/`. Never modify files in `raw_data/`.
 
-**All data preparation must be captured in a Jupyter notebook** saved to `notebooks/` with dataset name in filename (e.g., `notebooks/{id}_data_preparation.ipynb`) for reproducibility.
+**All data preparation must be captured in a Jupyter notebook** saved to `datasets/{id}/notebooks/data_preparation.ipynb` for reproducibility. The notebook is the reproducible record; the agent edits it directly via NotebookEdit — there is no per-dataset preparation script.
+
+Use helpers from `utils/preparation.py` (`copy_and_rename`, `copy_directory_files`, `docx_to_txt`, `normalize_text_file`, `TransformLog`) for all file operations. Import them in the notebook. `TransformLog` accumulates every transform; render it into `data_preparation_report.md` using `to_markdown_table()` and `category_summary_markdown()`. No separate JSON manifest is produced — the file inventory and transformation log live entirely in `data_preparation_report.md`.
 
 ## Actions (driven by QC report)
 
@@ -43,6 +45,6 @@ The report must include:
 ## Outputs
 
 - `datasets/{id}/frdr_data/` — Deposit-ready files
-- `notebooks/{id}_data_preparation.ipynb` — Reproducible transformation notebook
+- `datasets/{id}/notebooks/data_preparation.ipynb` — Reproducible transformation notebook
 - `datasets/{id}/artifacts/data_preparation_report.md` — Human-readable data preparation report
 - Update `datasets/{id}/artifacts/qc_report.md` — Mark resolved issues only; do not duplicate scope or inventory information

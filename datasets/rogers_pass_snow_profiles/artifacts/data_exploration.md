@@ -1,7 +1,7 @@
 # Data Exploration: Rogers Pass Snow Profiles
 
 **Date:** 2026-03-11
-**Notebook:** `notebooks/rogers_pass_snow_profiles_data_exploration.ipynb`
+**Notebook:** `datasets/rogers_pass_snow_profiles/notebooks/data_exploration.ipynb`
 
 ## 1. File Inventory
 

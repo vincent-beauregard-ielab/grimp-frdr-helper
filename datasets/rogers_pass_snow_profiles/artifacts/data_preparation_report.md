@@ -3,7 +3,7 @@
 
 **Date:** 2026-03-24
 **Prepared package:** `datasets/rogers_pass_snow_profiles/frdr_data/`
-**Notebook:** `notebooks/rogers_pass_snow_profiles_data_preparation.ipynb`
+**Notebook:** `datasets/rogers_pass_snow_profiles/notebooks/data_preparation.ipynb`
 
 ## Proposed deposit scope
 
