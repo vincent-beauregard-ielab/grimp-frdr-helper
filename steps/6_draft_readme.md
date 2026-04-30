@@ -90,6 +90,8 @@ Use the scope document (`artifacts/scope.md`), research artifact (`artifacts/res
 
 After drafting, run these checks:
 
+The README at this stage is a **collaborative working document**. 🔔 markers, inline comments, and unresolved questions are expected and appropriate — they are the primary mechanism for researcher review. Do not strip them; they will be resolved and removed during Preflight Validation (Step 7).
+
 1. **Template coverage**: Compare the README against `docs/FRDR-template_README.txt` section by section. Flag any template sections that are empty or missing. The draft should have no leftover template help text (lines starting with `##`).
 2. **Methodology completeness**: For every glossary entry in `research.md` tagged `instrument`, `technique`, or `standard`, verify that the README methods section contains a concrete description, not just a name. Flag any missing entries.
 3. **Citation completeness**: For every entry in the `research.md` citable-references section, verify it appears as an inline citation in the README or in the related-publications section. Flag any missing citations.
@@ -97,6 +99,29 @@ After drafting, run these checks:
 5. **File list granularity**: For each folder entry in the file list, verify that the file types within are described with counts and representative names — not just a folder-level summary.
 6. **Reading/reuse section**: Verify that every deposited file format has a corresponding entry explaining how to open it, with software/library recommendations and URLs.
 7. **URLs present**: Every referenced standard, software package, or external tool must include a URL or DOI. Flag bare names without links (e.g., "snowmicropyn" without a URL).
+
+## Post-review: self-standing pass
+
+This is the final action of Step 6, done **after** all 🔔 markers have been resolved through researcher review. Do not do this before the review is complete — unresolved markers may still change the text.
+
+For each 🔔 remaining in the README:
+1. Confirm the researcher has addressed the underlying question (value confirmed, fact settled, or item explicitly ruled out).
+2. Replace the 🔔 and any placeholder text with the confirmed content, or remove the sentence if the item is out of scope.
+3. Do not leave any 🔔 without a resolution — "not available" or "not applicable" are valid resolutions.
+
+Then remove all references to internal project workflow:
+- File paths pointing inside the repository (`artifacts/`, `datasets/`, `notebooks/`)
+- PR or review-round numbers ("PR #2", "review applied 2026-04-28")
+- Step names or workflow phrases ("pending researcher confirmation", "flagged for passthrough", "to be confirmed later")
+
+Every sentence in the final README must be self-contained for an external reader with no access to this repository.
+
+Verify:
+```
+grep -c "🔔" README.txt   # must be 0
+```
+
+Step 6 is complete only when this check passes. Then move to Step 7 Preflight Validation.
 
 ## Outputs
 

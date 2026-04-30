@@ -39,3 +39,6 @@ desktop.ini
 # Secrets / env
 .env
 *.env.local
+
+# Temporary files
+.scratch/

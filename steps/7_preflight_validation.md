@@ -8,6 +8,7 @@ Final check before deposit. Validates that all deliverables are complete and con
 
 ## Checks
 
+- README is self-standing: no 🔔 markers, no internal artifact references, no workflow language (self-standing pass is the final action of Step 6 — if markers remain, return to Step 6)
 - All FRDR required metadata fields are addressed in the README: title, authors, contact, description, keywords, license, date of collection, geographic location
 - README has no leftover template help text or empty sections
 - `frdr_data/` file list matches the README file inventory (no missing or extra files)
