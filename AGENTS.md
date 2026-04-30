@@ -97,6 +97,29 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 7 | Review | 2 | [`steps/7_review.md`](steps/7_review.md) | Resolved `README.txt` and `DATA_PREPARATION.md`, final preflight PASS |
 | 8 | Deposit | 1 | [`steps/8_deposit.md`](steps/8_deposit.md) | Published dataset with DOI |
 
+## New dataset intake
+
+When the user says they want to archive a new dataset, guide them quickly toward Scope Definition. Do not assume they already know this repository structure or the FRDR workflow, but do not linger in explanation either: give just enough orientation to help them provide the dataset or the missing scope facts.
+
+The first response should:
+
+1. Briefly explain the path in plain language: first define the scope, then inspect/research the data, prepare deposit-ready files, draft the FRDR documentation, and run review/preflight before deposit.
+2. Say that the immediate next milestone is **Scope Definition**, where the agent creates the dataset folder and drafts the initial `METADATA.yaml` plus the identity/scope sections of `README.txt`.
+3. Explain quickly what the main files are for:
+   - `METADATA.yaml` gathers the structured fields needed for the FRDR dataset submission form.
+   - `README.txt` becomes the public-facing dataset description that users will see with the deposit.
+   - `DATA_PREPARATION.md` records what files are included, excluded, renamed, converted, or otherwise prepared for deposit.
+4. Name the two researcher-facing review documents early: `README.txt` and `DATA_PREPARATION.md`. Explain that notebooks and `artifacts/` are internal workpapers unless the user wants to inspect them.
+5. Elicit the quickest path to Scope Definition by asking for either a dataset location or the missing facts:
+   - a short dataset name or identifier,
+   - where the raw files are located,
+   - what the dataset is about,
+   - any known people, dates, location, or related publication/DOI.
+6. If the user provides a raw data path, DOI, existing folder, or enough context to infer a dataset ID, proceed into `steps/1_scope_definition.md` instead of asking for every field upfront. Missing details can be marked as draft/unknown and resolved during review.
+7. Keep the tone practical and companionable. Avoid a terse checklist-only answer when the user is starting a workflow.
+
+Do not create or move files until the user provides enough information to identify the dataset and raw data location.
+
 ## Step dependencies
 
 Research and Explore Data are independent and should run in parallel when possible. All other dependencies are sequential.
