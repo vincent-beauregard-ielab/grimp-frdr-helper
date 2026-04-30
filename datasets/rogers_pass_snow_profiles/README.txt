@@ -85,7 +85,7 @@ https://creativecommons.org/licenses/by-nc/4.0/
 
 6. Recommended citation for this dataset:
 
-Madore, J.-B., Langlois, A., Imbach, B., Gauthier, F., Meloche, F., Paquette, V., Hale, K., Marshall, H.-P., Meyer, J., Meloche, J. (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI: [to be assigned at deposit]
+Madore, J.-B., Langlois, A., Imbach, B., Gauthier, F., Meloche, F., Paquette, V., Hale, K., Marshall, H.-P., Meyer, J., Meloche, J. (2026). Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada. Federated Research Data Repository. DOI:https://doi.org/10.20383/103.01634
 
 ---------------------
 DATA & FILE OVERVIEW
