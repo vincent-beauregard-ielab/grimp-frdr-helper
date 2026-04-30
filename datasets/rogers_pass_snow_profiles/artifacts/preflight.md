@@ -1,7 +1,7 @@
 # Preflight Validation: Rogers Pass Snow Profiles
 
 **Date:** 2026-04-29
-**Status:** PASS with one pre-deposit action required (researcher passthrough on placeholder zeros)
+**Status:** PASS
 
 ---
 
@@ -31,7 +31,7 @@
 | `metadata.yaml` bounding box | PASS | WGS84: west -117.7304, south 51.2274, east -117.4670, north 51.3284 |
 | `metadata.yaml` funding | PASS | Two funders; award numbers blank (acceptable — not required by FRDR) |
 | Required artifacts present | PASS | scope.md, research.md, data_exploration.md, qc_report.md, data_preparation_report.md |
-| QC report: all issues resolved | PASS | Status "Researcher review applied (PR #2). All Open items resolved or documented." |
+| QC report: all issues resolved | PASS | Status "Researcher review applied (PR #2). All Open items resolved." |
 | Researcher review applied | PASS | PR #2 comments from jbmadore incorporated 2026-04-28 |
 | Third-party attributions | PASS | All instruments cited (Pomerleau et al. 2020, Montpetit et al. 2012, Schneebeli & Johnson 1998, Hagenmuller et al. 2024); standards cited (ICSSG, OGRS) |
 | No protected or restricted information flagged | PASS | GPS coordinates are public field sites; no personal data beyond research team names |
@@ -40,11 +40,7 @@
 
 ## Flags requiring action before deposit
 
-### 1. Researcher passthrough on placeholder zeros — ACTION REQUIRED
-
-Template-derived cells in the stratigraphy workbooks contain placeholder zeros (e.g., Density sheet rows with `0` where no density sample was taken). These were left unchanged in the prepared package; the README documents them as missing values under the `snow_stratigraphy/` null-value codes.
-
-**Action:** Researcher opens each stratigraphy workbook and either clears the placeholder zeros or confirms they should remain. If zeros are cleared, re-run `data_preparation.ipynb` to regenerate `frdr_data/`.
+None. The previous placeholder-zero passthrough was resolved by rerunning `data_preparation.ipynb`: prepared stratigraphy workbooks now clear blank density-template formulas and materialize observed density formulas as numeric values.
 
 ---
 
@@ -64,4 +60,4 @@ Template-derived cells in the stratigraphy workbooks contain placeholder zeros (
 
 ## Next step
 
-Resolve the placeholder-zero passthrough (Flag 1 above), then proceed to Step 8 Deposit.
+Proceed to Step 8 Deposit after final researcher review of the prepared package.

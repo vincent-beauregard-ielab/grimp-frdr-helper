@@ -78,7 +78,7 @@ https://creativecommons.org/licenses/by-nc/4.0/
 
 3. Links/relationships to ancillary data sets or software packages:
 
-- `snowmicropyn` is a python packagerecommended for reading `.pnt` files: https://pypi.org/project/snowmicropyn/
+- `snowmicropyn` is a Python package recommended for reading `.pnt` files: https://pypi.org/project/snowmicropyn/
 
 
 5. Was data derived from another source? No
@@ -99,7 +99,7 @@ DATA & FILE OVERVIEW
    - Instrument-native file names inside measurement folders were preserved where they already encode acquisition identifiers, for example `s35m0151.pnt`, `2025-03-05_1738_Profile105_SN00322.csv`, or `054820250302_1554.txt`.
 
    A. Filename: snow_stratigraphy/
-      Short description: Seven raw Excel workbooks containing manual snow-pit observations, one workbook per site-day. Representative files are `20250301_fidelity_stratigraphy.xlsx`, `20250303_hermit_stratigraphy.xlsx`, and `20250306_christiana_ridge_stratigraphy.xlsx`. Each workbook has four sheets: `AVY profile`, `Stability Tests`, `Density`, and `IRIS`.
+      Short description: Seven Excel workbooks containing manual snow-pit observations, one workbook per site-day. Representative files are `20250301_fidelity_stratigraphy.xlsx`, `20250303_hermit_stratigraphy.xlsx`, and `20250306_christiana_ridge_stratigraphy.xlsx`. Each workbook has four sheets: `AVY profile`, `Stability Tests`, `Density`, and `IRIS`. Density values in prepared copies are replaced from formula derived to materialize observed values, with 0 values indicating missing data replaced as blanks.
 
    B. Filename: iris/
       Short description: Six daily IRIS raw text exports, renamed to `20250301_fidelity_iris_raw.txt` through `20250306_christiana_ridge_iris_raw.txt`. Each file is a two-column plain-text time series (`time`, `value`) used to support IRIS layer observations.
@@ -167,7 +167,7 @@ SnowScope profiles were acquired with the Snow Scope Probe (Propagation Labs), a
 
 2. Methods for processing the data:
 
-Data contained in the prepared package are raw exports from the field campaign. No scientific values were altered. Minor structural modifications were made during preparation: raw folders were reorganized by data type, filenames were normalized, and ancillary DOCX field notes were converted to UTF-8 plain text.
+Data contained in the prepared package are field-campaign exports reorganized for deposit. Scientific observation values were not changed. Preparation changes were limited to deposit packaging and interpretability: raw folders were reorganized by data type, filenames were normalized, blank density-template formulas in stratigraphy workbooks were cleared, observed density formulas were materialized as numeric values, and ancillary DOCX field notes were converted to UTF-8 plain text.
 
 3. Instrument- or software-specific information needed to interpret the data:
 
@@ -195,14 +195,15 @@ The campaign covered five Rogers Pass sites between 1832 m and 2088 m elevation.
 
 Quality assurance during preparation focused on packaging and interpretability rather than on altering scientific measurements. The prepared package:
 - standardizes folder names and filenames for deposit consistency;
-- preserves raw instrument formats and numeric content;
+- preserves raw instrument formats and scientific measurement content;
+- clears blank density-template formulas and materializes observed density formulas in the prepared stratigraphy workbook copies;
 - converts ancillary DOCX notes to plain text for accessibility.
 
 Notes on specific items:
 - `20250306_fidelity_revisit_stratigraphy.xlsx` is a revisit profile at the Fidelity site taken on Day 6, five days after the Day 1 profile at the same location. Both profiles are included.
 - The K-band FMCW radar (center 24.5 GHz) produces files deposited under `radar_FMCW_K/`. 
-- Some raw SMP file headers contain invalid GPS sentinels (-99999); these were documented and left unchanged 🔔.
-- Some template-derived workbook cells contain placeholder zeros; these represent absent field entries and should be treated as missing values. 🔔
+- Some raw SMP file headers contain invalid GPS sentinels (-99999/99999); these were documented and left unchanged.
+- Template-derived density workbook formulas with no recorded weight were cleared in the prepared copies; formulas with recorded weights were saved as numeric density values.
 
 7. People involved with sample collection, processing, analysis and/or submission:
 
@@ -220,7 +221,6 @@ Four workbook sheets per file. The `AVY profile` sheet contains site metadata pl
 
 3. Missing data codes:
         blank cell        No value recorded in the field template
-        0                In some density columns, likely placeholder or missing entry rather than a true zero
 
 4. Variable List:
     A. Name: DATE / TIME / ELEVATION / ASPECT / INCLINE
@@ -266,7 +266,7 @@ Header metadata plus a high-resolution profile table with the main variables `di
 79 `.pnt` files; 3-411400 samples per file.
 
 3. Missing data codes:
-        -99999            Invalid GPS sentinel in some raw file headers
+        -99999/99999      Invalid GPS sentinel in some raw file headers
 
 4. Variable List:
     A. Name: distance
