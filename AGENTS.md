@@ -4,17 +4,17 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
 
 ## Project organization
 
-* **`datasets/{id}/`** — First class. Each directory is one dataset to be uploaded to FRDR. Contains data files, the FRDR README, `metadata.yaml` (dataset metadata + workflow state), and `artifacts/` (research notes, extracted metadata, QC reports). `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
+* **`datasets/{id}/`** — First class. Each directory is one dataset to be uploaded to FRDR. Contains data files, the FRDR README, `metadata.yaml` (dataset metadata + workflow state), `artifacts/` (research notes, extracted metadata, QC reports), and `notebooks/` (per-dataset Jupyter notebooks for exploration and preparation). `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
 
   `metadata.yaml` mirrors FRDR required and recommended fields (title, authors, license, dates, geographic coverage, funding, related identifiers, etc.) plus workflow state. It is populated incrementally: Scope fills identity and extents, Research fills people and context, later steps update as needed. The Deposit step reads it to fill the FRDR submission form. See `datasets/example/metadata.yaml` for the full schema.
 
-* **`notebooks/`** — First class. All data exploration and manipulation must be done reproducibly in Jupyter notebooks.
+  `datasets/{id}/notebooks/` is first class. All data exploration and manipulation for a dataset must be done reproducibly in Jupyter notebooks living under that dataset's `notebooks/` folder (e.g. `data_exploration.ipynb`, `data_preparation.ipynb`).
 
 * **`docs/`** — Project-level documentation: `project_context.md` (GRIMP/MOACC/FRDR context), `FRDR-template_README.txt` (README template), `controlled_vocabulary.md` (keywords).
 
 * **`papers/`** — Domain literature (PDFs) relevant to GRIMP research.
 
-* **`utils/`** — Python helper modules (e.g. `frdr_metadata.py` for fetching metadata from published FRDR datasets).
+* **`utils/`** — Python helper modules (e.g. `frdr_metadata.py` for fetching metadata from published FRDR datasets; `preparation.py` for reusable file-op primitives: `FileRecord`, `TransformLog`, `copy_and_rename`, `copy_directory_files`, `docx_to_txt`, `normalize_text_file`). Reusable file-op logic belongs here, imported by notebooks.
 
 * **`scripts/`** — Utility scripts. `jupyter_mcp.py` starts JupyterLab with the token expected by the MCP server.
 
@@ -25,6 +25,8 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
 All documentation and results written in English.
 
 Code is Python. Dependencies managed by `uv` in project `.venv`. Run code using `uv run`.
+
+Notebooks, `README.txt`, `metadata.yaml`, and `artifacts/*.md` are **source-of-truth** and are edited directly with file-editing tools (Edit / Write / NotebookEdit). There are no per-dataset driver scripts — do not create them.
 
 If local tooling expects a project `.env`, create it from `.env.example` before running `uv run`.
 

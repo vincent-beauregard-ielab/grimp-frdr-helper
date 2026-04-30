@@ -1,6 +1,6 @@
 # Explore Data Files
 
-Inspect data files using pandas in a Jupyter notebook. Save the notebook to `notebooks/` with dataset name in filename and save a summary to `datasets/{id}/artifacts/data_exploration.md`.
+Inspect data files using pandas in a Jupyter notebook. Save the notebook to `datasets/{id}/notebooks/data_exploration.ipynb` and save a summary to `datasets/{id}/artifacts/data_exploration.md`.
 
 **Autonomy:** Level 3 — Notebook output is inspectable, non-destructive.
 
@@ -33,6 +33,8 @@ Inspect the dataset by real file subtype, not only by extension. For example, a 
 
 Use Python libraries (`pandas`, `openpyxl`, `pypdf`, `pdfplumber`, and format-specific parsers) for all data inspection so that every step is captured reproducibly in the notebook. Reserve document-creation skills (xlsx, pdf, docx) for producing output artifacts, not for reading data.
 
+The agent edits the `.ipynb` directly via NotebookEdit. There is no notebook-builder script.
+
 ## README alignment
 
 The data exploration outputs should provide the file-derived facts needed for the FRDR README sections:
@@ -48,5 +50,5 @@ Consider parallelizing by file type group (e.g., Excel workbooks, CSVs, shapefil
 
 ## Outputs
 
-- `notebooks/{id}_data_exploration.ipynb`
+- `datasets/{id}/notebooks/data_exploration.ipynb`
 - `datasets/{id}/artifacts/data_exploration.md`

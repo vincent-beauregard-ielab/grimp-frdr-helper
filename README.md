@@ -12,9 +12,8 @@ datasets/           # Dataset folders to be deposited on FRDR
     README.txt      #   FRDR README (from template)
     metadata.yaml      #   FRDR metadata fields + workflow state
     artifacts/      #   Research notes, extracted metadata, QC reports
+    notebooks/      #   Per-dataset Jupyter notebooks (exploration, preparation)
   example/          #   Reference: published Rogers Pass snow profiles dataset (DOI: 10.20383/103.01523)
-
-notebooks/          # Reproducible data exploration and manipulation (Jupyter)
 
 docs/               # Project-level documentation and templates
   project_context.md      # Research context (GRIMP, MOACC, FRDR, FAIR)
