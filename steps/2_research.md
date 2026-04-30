@@ -12,13 +12,18 @@ Gather quotes and claims from documents (papers, web sources, knowledge base) to
 - Web searches for instrument specs, standards (CAAML, OGRS), and related publications
 - `docs/project_context.md` for organizational context
 - `datasets/example/` as a reference for format and content
-- For datasets that reference or extend existing FRDR datasets, run `uv run python utils/frdr_metadata.py datasets/{id}/metadata.yaml` to fetch structured metadata (authors, keywords, geographic coverage, related identifiers) and use it to bootstrap `research.md` and `metadata.yaml`
+- For datasets that reference or extend existing FRDR datasets, run `uv run python utils/frdr_metadata.py datasets/{id}/METADATA.yaml` to fetch structured metadata (authors, keywords, geographic coverage, related identifiers) and use it to bootstrap `research.md` and `METADATA.yaml`
 
 ## Output format
 
 Save results to `datasets/{id}/artifacts/research.md` with sections:
 
 - **Dataset overall description** — Scope, research objective, organizational context, umbrella initiative
+- **Scope dimensions** — Capture each dimension explicitly from literature and project documentation:
+  - **Spatial** — Study region name and description, site names and coordinates (lat/lon, elevation), bounding box or polygon if provided, coordinate reference system, ecological or physiographic context (e.g., mountain range, watershed, forest type)
+  - **Temporal** — Campaign dates, seasons, year(s), multi-year periodicity if applicable
+  - **Measurement domain** — Radiometric range, spectral bands, frequency/bandwidth (radar), depth or altitude range, taxonomic scope, or other domain-specific bounds depending on the dataset type
+  - Mark each dimension as `literature-derived` or `to-be-confirmed-from-files` so Explore Data knows what to validate or fill in
 - **README input capture** — Candidate title, people/institutions/roles, collection dates, geographic coverage, instruments, standards, processing stages, related publications/datasets/software, file-relationship notes, and unresolved README fields
 - **Citable references** — Citation-ready entries for every instrument design, observation standard, processing method, and software package that should appear in the README. Each entry must include: author(s), year, title, DOI or URL. These will be cited inline in the README methods and software sections. For example: `Pomerleau, P. et al. (2020). "A low-cost…" Sensors. https://doi.org/10.3390/s20143909`
 - **Glossary** — Key terms tagged as `instrument`, `variable`, `technique`, `acquisition`, `processing`, `initiative`, `organization`, or `standard`. For entries tagged `instrument`, `technique`, or `standard`, include the model/version, key measurement parameters (e.g., frequency, resolution, sampling rate), and a reference to the citable-references entry if one exists
@@ -42,6 +47,21 @@ For each instrument or technique, capture enough detail to write a concrete READ
 - The design or reference paper that describes the instrument or method, formatted as a citable reference
 - Processing chain: what software or workflow transforms the raw output into the deposited product
 
+## Site and geographic context
+
+For each study site or region mentioned in the literature or project documentation, extract:
+
+- Site name (and any aliases used across papers)
+- Coordinates or bounding box as reported (note the source and CRS)
+- Elevation or elevation range
+- Physiographic, ecological, or land-cover description (e.g., "alpine treeline, south-facing slope")
+- Why the site was chosen (access, representativeness, instrumentation history)
+- Any site-specific limitations or caveats noted by the authors
+
+Compile these into a **site table** in `research.md` (columns: site name, coordinates, elevation, description, source). This table is the literature-derived baseline that Explore Data will validate and extend with file-derived coordinates.
+
+If the literature provides a bounding box or polygon for the study region, record it in both `research.md` and `datasets/{id}/METADATA.yaml` (as a provisional value, flagged for confirmation by Explore Data).
+
 ## Delegation
 
 Research is highly parallelizable. Consider splitting across source types, for example:
@@ -56,7 +76,12 @@ The agent decides the split based on the actual source volume. The main agent me
 
 The instrument and method inventory produced by Research is based on literature and project documentation available before file inspection. It is **provisional** until validated against the file inventory from Explore Data. The documentation-coverage reconciliation at the start of Quality Control (see AGENTS.md) will identify instruments or file types present in the data but absent from `research.md`, and send targeted research requests back to this step to fill the gaps.
 
+## README stub-filling
+
+As Research fills in methods, attribution, related publications, and instrument details, update the corresponding `⚠️ [placeholder]` stubs in `datasets/{id}/README.txt` directly. Note each update in a `## README updates` section at the bottom of `research.md`. This keeps README.txt as the living scope document — no separate scope artifact.
+
 ## Outputs
 
 - `datasets/{id}/artifacts/research.md`
-- Updates to `datasets/{id}/metadata.yaml` (authors, keywords, related identifiers, funding)
+- Updates to `datasets/{id}/METADATA.yaml` (authors, keywords, related identifiers, funding)
+- Direct updates to `datasets/{id}/README.txt` stubs (methods, attribution sections)

@@ -10,7 +10,7 @@ Prepare data files for FRDR deposit by acting on issues identified in Quality Co
 
 **IMPORTANT: This step is non-destructive to original data.** All operations read from `datasets/{id}/raw_data/` and write to `datasets/{id}/frdr_data/`. Never modify files in `raw_data/`.
 
-**All data preparation must be captured in a Jupyter notebook** saved to `notebooks/` with dataset name in filename (e.g., `notebooks/{id}_data_preparation.ipynb`) for reproducibility.
+**All data preparation must be captured in a Jupyter notebook** saved to `datasets/{id}/notebooks/` with dataset name in filename (e.g., `notebooks/{id}_data_preparation.ipynb`) for reproducibility.
 
 ## Expected notebook structure
 
@@ -25,8 +25,9 @@ Use this structure unless the dataset requires a clearly documented variation:
 5. **Content-level transformations** — Any operation that changes values, formulas, encodings, columns, rows, or other file contents must be isolated in its own markdown + code cell pair. The markdown must explain the QC issue, the exact cleanup rule, which prepared files are affected, and why raw files remain unchanged. Do not hide content transformations inside generic copy cells.
 6. **Excluded files** — Explicitly list raw files not deposited, with reasons.
 7. **Structural statistics** — Read-only summaries of prepared files used by the report and README.
-8. **Report table rendering** — Render transformation logs and summary tables for `data_preparation_report.md`.
+8. **Report table rendering** — Render transformation logs, summary tables, and the full `frdr_data/` file tree for `DATA_PREPARATION.md`.
 9. **Sanity report and assertions** — End-to-end checks for expected file counts, transform counts, content-transformation counts, preservation checks, and unresolved QC assumptions.
+10. **Synthesis for Report** — Markdown cells explaining key decisions and unresolved issues; code cells printing structured summaries (file counts per category, transform counts, any items flagged for researcher decision). The agent reads this section before writing `DATA_PREPARATION.md`. No intermediate file — the notebook is the source, the report is the formatted output.
 
 For spreadsheet or workbook changes, keep the workbook transformation in a distinct code cell from the initial copy. For example, first copy the workbook into `frdr_data/`, then run a separately introduced Excel-cleanup cell on the prepared copy only. The transformation log should mark affected files with a specific transform name (for example, `copy_rename_clean_workbook`) rather than leaving them as plain copy operations.
 
@@ -46,23 +47,24 @@ File names should be logical, descriptive, and brief. Include project, content, 
 
 ## Data Preparation report
 
-A mandatory deliverable that the researcher reviews before approving Data Preparation. This is the Level 2 review gate. The report owns the complete picture of the prepared package — deposit scope, file inventory, transformations, and exclusions. The QC report is updated only to mark issues resolved; all other information lives here.
+A mandatory deliverable that the researcher reviews before approving Data Preparation. This is the Level 2 review gate. The report owns the complete picture of the prepared package — deposit scope, file inventory, transformations, and exclusions.
 
-The report must include:
+Generate the report from `docs/FRDR-template_DATA_PREPARATION.md`. The report must include:
 
-- **Proposed deposit scope** — Include/exclude decision for each material class, with rationale
+- **Review instructions block** — ⚠️ preamble (see template) explaining the legend, companion README reference, and what to ignore
+- **Proposed deposit scope** — Include/exclude decision for each material class, with rationale. Mark contested items with 🚩 for researcher decision.
+- **`frdr_data/` file tree** — Complete directory tree of the deposit package as it exists after preparation
 - **Change summary** — Total files copied, renamed, modified, excluded
-- **File inventory** — Side-by-side comparison of `raw_data/` vs `frdr_data/` (file count, names, sizes)
-- **Structural changes** — For each modified file: rows before/after, columns before/after, sheets/tables before/after
-- **Transformation log** — Every change applied, with before → after examples (e.g., column rename, date reformat, value remap)
-- **Structural checks** — Spot-check representative files of each type to confirm content was preserved
-- **Excluded data** — What was dropped and why (out-of-scope records, duplicate blocks, ancillary files)
-- **Unresolved issues** — QC issues that were not addressed and why (needs researcher decision, out of scope, etc.)
-- **README consistency check** — Verify that the prepared folder structure and naming are consistent with what the README will describe
+- **Transformation log** — Every content-level change applied, with before → after examples (e.g., column rename, date reformat, value remap)
+- **Excluded files** — What was dropped and why (out-of-scope records, duplicate blocks, ancillary files)
+- **Unresolved issues** — QC issues not addressed and why (needs researcher decision, out of scope, etc.). Mark with 🚩 if researcher decision is required.
+
+Use the `## Synthesis for Report` section of the notebook as the primary source. Do not duplicate the full file inventory from the notebook — reference the tree rendered in the report table rendering section.
+
+Save the report to `datasets/{id}/DATA_PREPARATION.md` (not `artifacts/`). This file is a researcher-facing review document.
 
 ## Outputs
 
 - `datasets/{id}/frdr_data/` — Deposit-ready files
-- `notebooks/{id}_data_preparation.ipynb` — Reproducible transformation notebook
-- `datasets/{id}/artifacts/data_preparation_report.md` — Human-readable data preparation report
-- Update `datasets/{id}/artifacts/qc_report.md` — Mark resolved issues only; do not duplicate scope or inventory information
+- `datasets/{id}/notebooks/{id}_data_preparation.ipynb` — Reproducible transformation notebook
+- `datasets/{id}/DATA_PREPARATION.md` — Researcher-facing report (generated from hardened template)

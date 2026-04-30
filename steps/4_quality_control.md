@@ -39,4 +39,6 @@ For each issue found, the QC report should specify:
 
 ## Outputs
 
-- `datasets/{id}/artifacts/qc_report.md` — Issue list only. Does not include deposit scope summaries, file inventories, or README checks (those belong in the Data Preparation report or Preflight Validation).
+- `datasets/{id}/artifacts/qc_report.md` — Issue list only. Does not include deposit scope summaries, file inventories, or README checks (those belong in `DATA_PREPARATION.md` and preflight).
+
+**`qc_report.md` is frozen after this step.** It is never edited again. All resolution tracking belongs to `DATA_PREPARATION.md`. The researcher may consult it as reference but does not act on it directly.

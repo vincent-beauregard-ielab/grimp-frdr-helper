@@ -4,13 +4,36 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
 
 ## Project organization
 
-* **`datasets/{id}/`** — First class. Each directory is one dataset to be uploaded to FRDR. Contains data files, the FRDR README, `metadata.yaml` (dataset metadata + workflow state), and `artifacts/` (research notes, extracted metadata, QC reports). `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
+* **`datasets/{id}/`** — First class. Each directory is one dataset to be uploaded to FRDR. Contains:
+  - `README.txt` — public-facing dataset description (review surface #1)
+  - `DATA_PREPARATION.md` — deposit package scope, file inventory, and transformation record (review surface #2)
+  - `METADATA.yaml` — dataset metadata and workflow state
+  - `raw_data/` — original unmodified data files
+  - `frdr_data/` — deposit-ready files
+  - `notebooks/` — Jupyter notebooks
+  - `artifacts/` — agent workpaper; not reviewed by researcher
 
-  `metadata.yaml` mirrors FRDR required and recommended fields (title, authors, license, dates, geographic coverage, funding, related identifiers, etc.) plus workflow state. It is populated incrementally: Scope fills identity and extents, Research fills people and context, later steps update as needed. The Deposit step reads it to fill the FRDR submission form. See `datasets/example/metadata.yaml` for the full schema.
+  `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
 
-* **`notebooks/`** — First class. All data exploration and manipulation must be done reproducibly in Jupyter notebooks.
+  `METADATA.yaml` mirrors FRDR required and recommended fields (title, authors, license, dates, geographic coverage, funding, related identifiers, etc.) plus workflow state. It is populated incrementally: Scope fills identity and extents, Research fills people and context, later steps update as needed. The Deposit step reads it to fill the FRDR submission form. See `datasets/example/METADATA.yaml` for the full schema.
 
-* **`docs/`** — Project-level documentation: `project_context.md` (GRIMP/MOACC/FRDR context), `FRDR-template_README.txt` (README template), `controlled_vocabulary.md` (keywords).
+```
+datasets/{id}/
+├── README.txt                        ← Review surface #1
+├── DATA_PREPARATION.md               ← Review surface #2
+├── METADATA.yaml
+├── raw_data/
+├── frdr_data/
+├── notebooks/
+│   └── data_preparation.ipynb
+└── artifacts/                        ← Agent workpaper — not reviewed by researcher
+    ├── research.md
+    ├── data_exploration.md
+    ├── qc_report.md
+    └── preflight.md
+```
+
+* **`docs/`** — Project-level documentation: `project_context.md` (GRIMP/MOACC/FRDR context), `FRDR-template_README.txt` (README template), `FRDR-template_DATA_PREPARATION.md` (hardened report template), `controlled_vocabulary.md` (keywords).
 
 * **`papers/`** — Domain literature (PDFs) relevant to GRIMP research.
 
@@ -19,6 +42,17 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
 * **`scripts/`** — Utility scripts. `jupyter_mcp.py` starts JupyterLab with the token expected by the MCP server.
 
 * **`steps/`** — Detailed instructions for each workflow step. The agent reads the relevant step file when executing that step.
+
+## Emoji convention
+
+Applies to `README.txt` and `DATA_PREPARATION.md` only.
+
+| Marker | Meaning | Who acts |
+|--------|---------|---------|
+| 🚩 | Required decision — researcher must choose | Researcher |
+| ⚠️ | Critical context — researcher must understand | Read only |
+
+Not used in `artifacts/qc_report.md`, `artifacts/research.md`, `artifacts/data_exploration.md`, or `artifacts/preflight.md`.
 
 ## Constraints
 
@@ -54,14 +88,13 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 
 | # | Step | Level | Instructions | Key outputs |
 |---|------|-------|-------------|-------------|
-| 1 | Scope Definition | 2 | [`steps/1_scope_definition.md`](steps/1_scope_definition.md) | `metadata.yaml`, `artifacts/scope.md` |
+| 1 | Scope Definition | 2 | [`steps/1_scope_definition.md`](steps/1_scope_definition.md) | `README.txt` (identity sections), `METADATA.yaml` |
 | 2 | Research | 3 | [`steps/2_research.md`](steps/2_research.md) | `artifacts/research.md` |
 | 3 | Explore Data | 3 | [`steps/3_explore_data.md`](steps/3_explore_data.md) | `artifacts/data_exploration.md`, notebook |
 | 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md` |
-| 4b | Scope Revision | 2 | [`steps/4b_scope_revision.md`](steps/4b_scope_revision.md) | revised `artifacts/scope.md` |
-| 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `artifacts/data_preparation_report.md`, notebook |
-| 6 | Draft README | 2 | [`steps/6_draft_readme.md`](steps/6_draft_readme.md) | `README.txt` |
-| 7 | Preflight Validation | 3 | [`steps/7_preflight_validation.md`](steps/7_preflight_validation.md) | `artifacts/preflight.md` |
+| 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `DATA_PREPARATION.md`, notebook |
+| 6 | Documentation Preparation | 2 | [`steps/6_documentation_preparation.md`](steps/6_documentation_preparation.md) | `README.txt` (complete), `METADATA.yaml` (final), `artifacts/preflight.md` (first run) |
+| 7 | Review | 2 | [`steps/7_review.md`](steps/7_review.md) | Resolved `README.txt` and `DATA_PREPARATION.md`, final preflight PASS |
 | 8 | Deposit | 1 | [`steps/8_deposit.md`](steps/8_deposit.md) | Published dataset with DOI |
 
 ## Step dependencies
@@ -73,16 +106,17 @@ Scope Definition
     ├── Research ──────────┐
     └── Explore Data ──────┤
                            ├── Quality Control
-                           │       └── Scope Revision (human reviews)
-                           │               └── Data Preparation
-                           │                       └── Draft README
-                           │                               └── Preflight Validation
-                           │                                       └── Deposit
+                           │       └── Data Preparation
+                           │               └── Documentation Preparation
+                           │                       └── Review
+                           │                               └── Deposit
 ```
 
 ## Scope-update protocol
 
-When Research or Explore Data discovers information that contradicts or extends the current scope (e.g., broader date range, additional file types, out-of-scope records), the step adds a `## Scope updates` section to its own artifact describing the finding. The main agent consolidates these into `scope.md` before proceeding to Quality Control.
+When Research or Explore Data discovers information that contradicts or extends the current scope (e.g., broader date range, additional file types, out-of-scope records), the agent updates the relevant `README.txt` section directly and notes the change in the step's artifact (`research.md` or `data_exploration.md`). There is no separate scope document. The README is the living scope document throughout the workflow.
+
+**README.txt is not sent to the researcher until Step 6.** Before Step 6 it is a draft — no review preamble, no 🚩 markers.
 
 ## Documentation-coverage reconciliation
 
@@ -93,3 +127,42 @@ Because Research draws from literature and Explore Data draws from files, neithe
 3. Every variable found in file headers must have a definition or unit in one of the two artifacts.
 
 When a gap is found, QC sends a targeted research request back to the Research step (covering only the missing instruments or variables) before proceeding. This is a lightweight patch, not a full re-run of Research.
+
+## Templates
+
+### README.txt review preamble
+
+Added by Documentation Preparation (Step 6) at the very top of `README.txt`, stripped at final preflight before deposit.
+
+```
+⚠️ REVIEW INSTRUCTIONS — REMOVE BEFORE DEPOSIT
+This document is under review for FRDR deposit.
+🚩 marks items requiring your decision.
+⚠️ marks critical context you must understand.
+Your companion review document is DATA_PREPARATION.md.
+Notebooks and artifacts/ are reference material — you do not need to review them.
+----------------------------------------------------------------
+```
+
+### PR description — revision instructions
+
+Used as the PR description when opening a review round in Step 7.
+
+```
+## Dataset review — [dataset title]
+
+Please review the two documents below and leave comments on any 🚩 items.
+
+**Your review documents:**
+- `README.txt` — public-facing dataset description for FRDR deposit
+- `DATA_PREPARATION.md` — deposit package scope, file inventory, and transformation record
+
+**How to review:**
+- 🚩 marks items requiring your decision — please comment directly on these lines
+- ⚠️ marks critical context for your understanding — no action required
+- Notebooks and `artifacts/` are reference material — you do not need to review them
+
+**What happens next:**
+After your comments, the agent operator will apply fixes, run a preflight check, and either
+send another round or proceed to deposit.
+```

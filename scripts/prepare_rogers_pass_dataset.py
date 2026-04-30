@@ -26,10 +26,10 @@ FRDR_ROOT = DATASET_ROOT / "frdr_data"
 ARTIFACTS_ROOT = DATASET_ROOT / "artifacts"
 NOTEBOOK_PATH = PROJECT_ROOT / "notebooks" / "rogers_pass_snow_profiles_data_preparation.ipynb"
 MANIFEST_PATH = ARTIFACTS_ROOT / "preparation_manifest.json"
-DATA_PREPARATION_REPORT_PATH = ARTIFACTS_ROOT / "data_preparation_report.md"
+DATA_PREPARATION_REPORT_PATH = ARTIFACTS_ROOT / "DATA_PREPARATION.md"
 QC_PATH = ARTIFACTS_ROOT / "qc_report.md"
 README_PATH = DATASET_ROOT / "README.txt"
-METADATA_PATH = DATASET_ROOT / "metadata.yaml"
+METADATA_PATH = DATASET_ROOT / "METADATA.yaml"
 
 
 @dataclass
