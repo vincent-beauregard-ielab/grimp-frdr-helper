@@ -16,3 +16,7 @@ dependencies = [
     "pyyaml>=6.0",
     "globus-sdk>=3.0",
 ]
+
+[tool.uv]
+# pyqt5-qt5 (pulled in by snowmicropyn) has no Windows wheel past 5.15.2.
+constraint-dependencies = ["pyqt5-qt5==5.15.2"]

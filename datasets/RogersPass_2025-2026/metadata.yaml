@@ -1,0 +1,125 @@
+# Dataset metadata — mirrors FRDR required + recommended fields.
+# Populated incrementally during the workflow: Scope fills identity and extents,
+# Research fills people and context, Data Preparation fills file details.
+# The Deposit step reads this file to fill the FRDR submission form.
+
+# --- Identity ---
+id: RogersPass_2025-2026
+title: "Snow profile, SSA, and radar observations, Rogers Pass, Glacier National Park, British Columbia, Canada (2025-2026 winter season)"
+doi: ""
+doi_url: ""
+frdr_url: ""
+
+# --- FRDR required fields ---
+description: ""                 # ⚠️ [placeholder — to be filled at Step 6]
+keywords:
+  - avalanche hazard assessment
+  - snow profile
+  - stability test
+  - specific surface area (SSA)
+  - radar
+  - FMCW radar
+  - snow micropenetrometry
+  - SnowMicroPen
+  - snow stratigraphy
+  - Rogers Pass
+  - Glacier National Park
+field_of_research: ""          # CRDC 2020 v1.0 code — candidate: RDF20802 "Geomatics engineering" (NOT confirmed, Step 6 decision)
+authors:
+  # Order/roles/ORCID unconfirmed — do not treat as final. No ORCID iDs found for any team member.
+  - last_name: "Langlois"
+    first_name: "Alexandre"
+    affiliations: ["Universite de Sherbrooke (GRIMP)"]
+    orcid: ""
+  - last_name: "Madore"
+    first_name: "Jean-Benoit"
+    affiliations: ["Universite de Sherbrooke (GRIMP)"]
+    orcid: ""
+  - last_name: "Imbach"
+    first_name: "Benjamin"
+    affiliations: ["Universite du Quebec a Rimouski"]
+    orcid: ""
+  - last_name: "Allet"
+    first_name: "Nicolas"
+    affiliations: ["Universite de Sherbrooke (GRIMP)"]  # to confirm
+    orcid: ""
+  - last_name: "Delage"
+    first_name: "Marie-Clara"
+    affiliations: []  # to confirm
+    orcid: ""
+  - last_name: "Paquette"
+    first_name: "Violaine"
+    affiliations: []  # to confirm
+    orcid: ""
+  - last_name: "Cramb"
+    first_name: "Megan"
+    affiliations: []  # to confirm
+    orcid: ""
+  - last_name: "Marchand"
+    first_name: "Nicolas"
+    affiliations: []  # to confirm — possibly the same "Nicolas Marchand" thanked as a GRIMP research-group colleague in the PhD thesis acknowledgments
+    orcid: ""
+contact:
+  name: "Paul Billecocq"
+  email: "paul@horosgeo.ca"
+license: ""                    # e.g. "CC BY 4.0", "CC BY-NC 4.0" — ⚠️ [placeholder — to be filled at Step 6]
+
+# --- FRDR recommended fields ---
+time_period:                   # Date range the data addresses
+  start: "2026-03-03"
+  end: "2026-03-10"
+collection_period:             # When data gathering occurred
+  start: "2026-03-03"
+  end: "2026-03-10"            # Note: 2026-03-07 and 2026-03-08 fall within this range but have no collected data (rest/filming days)
+funding:
+  # Candidate program-level funders for GRIMP's GNP/Fidelity research (confirmed via Madore 2016 MSc
+  # thesis acknowledgments) — NOT confirmed as the specific funder(s) for THIS 2026 campaign.
+  - funder: "National Search and Rescue Secretariat New Initiatives Fund (SAR-NIF)"
+    award_number: ""
+    award_title: ""
+  - funder: "Natural Sciences and Engineering Research Council of Canada (NSERC)"
+    award_number: ""
+    award_title: ""
+  - funder: "Canada Foundation for Innovation (CFI)"
+    award_number: ""
+    award_title: ""
+contributors:
+  # File-derived, not in the roster provided at Scope Definition — confirmed UBC collaborators
+  - name: "Kate Hale"
+    role: "Data Collector"
+    affiliations: ["University of British Columbia (UBC)"]
+  - name: "Joachim Meyer"
+    role: "Data Collector"
+    affiliations: ["University of British Columbia (UBC)"]
+related_identifiers:
+  - identifier: "https://doi.org/10.20383/103.01523"
+    relation_type: "IsRelatedTo"   # candidate; confirm exact DataCite relation with researcher — related GNP snowpit archive; shared Parks Canada collaborators (Jones, Brown) independently confirmed via thesis acknowledgments
+geographic_coverage:
+  place_name: "Rogers Pass, Glacier National Park"
+  country: "Canada"
+  province: "British Columbia"
+  city: ""
+  point:
+    latitude: ""
+    longitude: ""
+  bounding_box:                # File-derived (GNSS survey files, sentinel "no-fix" values excluded)
+    west: -117.70780
+    east: -117.52996
+    north: 51.33108
+    south: 51.23423
+  # Elevation range ~1822-2125 m (no dedicated elevation field in this schema — noted in README)
+
+# --- Workflow state ---
+# Tracks which steps have been completed. Updated by agents after human approval.
+workflow:
+  scope_definition: "done"
+  research: "done"
+  explore_data: "done"
+  quality_control: null
+  data_preparation: null
+  draft_readme: null
+  preflight_validation: null
+  deposit: null
+
+# --- Source paths ---
+raw_data_source: "OneDrive - HOROS/Documents/UdS/Data-terrain/Avalanche/Rogers Pass March 2025-2026/Field days"
