@@ -39,7 +39,49 @@ authors:
   - Université de Sherbrooke, Dept. géomatique appliquée
   - Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP)
   - Centre d'études nordiques
-  orcid: 
+  orcid: 0000-0002-9966-205X
+- last_name: Imbach
+  first_name: Benjamin
+  affiliations:
+  - UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM)
+  orcid: 0009-0009-1002-9900
+- last_name: Gauthier
+  first_name: Francis
+  affiliations:
+  - UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM)
+  orcid: ''
+- last_name: Meloche
+  first_name: Francis
+  affiliations:
+  - UQAR, Laboratoire de géomorphologie et de gestion des risques en montagne (LGGRM)
+  - WSL Institut pour l'étude de la neige et des avalanches SLF
+  - ETH Zurich, Chair of Alpine Mass Movements
+  orcid: 0009-0001-5884-5597
+- last_name: Paquette
+  first_name: Violaine
+  affiliations:
+  - Université de Sherbrooke, Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP)
+  orcid: ''
+- last_name: Hale
+  first_name: Kate
+  affiliations:
+  - The University of British Columbia, Snow Water Resources Laboratory
+  orcid: 0000-0003-1899-0287
+- last_name: Marshall
+  first_name: Hans-Peter
+  affiliations:
+  - Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS
+  orcid: 0000-0002-4852-5637
+- last_name: Meyer
+  first_name: Joachim
+  affiliations:
+  - Boise State University, Cryosphere, Geophysics and Remote Sensing, CryoGARS
+  orcid: 0000-0002-1358-2244
+- last_name: Meloche
+  first_name: Julien
+  affiliations:
+  - Environnement et Changement climatique Canada
+  orcid: ''
 contact:
   name: Jean-Benoit Madore
   email: jean-benoit.madore@usherbrooke.ca
@@ -50,7 +92,11 @@ time_period:
 collection_period:
   start: '2025-03-01'
   end: '2025-03-06'
-funding: null
+funding:
+- funder: Fonds de recherche du Québec – Nature et technologie (FRQNT)
+  award_number: ''
+- funder: Fonds des nouvelles initiatives de recherche et de sauvetage
+  award_number: ''
 contributors:
 - name: Parks Canada — Avalanche Control Program, Glacier National Park
   role: Other
@@ -61,13 +107,13 @@ geographic_coverage:
   province: British Columbia
   city: ''
   point:
-    latitude: 51.278857
-    longitude: -117.622348
+    latitude: 51.2779
+    longitude: -117.5987
   bounding_box:
-    west: -117.713247
-    east: -117.53145
-    north: 51.323627
-    south: 51.234087
+    west: -117.7304
+    east: -117.4670
+    north: 51.3284
+    south: 51.2274
   elevation_range: 1838-2088 m
 workflow:
   scope_definition: done
@@ -76,7 +122,7 @@ workflow:
   quality_control: done
   data_preparation: done
   draft_readme: done
-  preflight_validation: null
+  preflight_validation: done
   deposit: null
 raw_data_source: datasets/rogers_pass_snow_profiles/raw_data/Rogers Pass March 2024-2025/
 prepared_package:
