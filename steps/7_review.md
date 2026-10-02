@@ -86,7 +86,7 @@ grep -c "REVIEW INSTRUCTIONS" README.txt  # must be 0
 ```
 
 Also strip all references to internal project workflow from README.txt:
-- File paths pointing inside the repository (`artifacts/`, `datasets/`, `notebooks/`)
+- File paths pointing inside the repository (`artifacts/`, `datasets/`, `notebooks/`, `scripts/`)
 - PR or review-round numbers ("PR #2", "review applied 2026-04-28")
 - Step names or workflow phrases ("pending researcher confirmation", "flagged for passthrough", "to be confirmed later")
 

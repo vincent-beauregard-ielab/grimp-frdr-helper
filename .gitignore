@@ -1,6 +1,7 @@
 # Domain data — papers are large PDFs tracked separately
 papers/*
 datasets/*/raw_data/*
+datasets/*/frdr_data/*
 
 # Python
 __pycache__/
@@ -20,7 +21,7 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
+datasets/*/notebooks/.ipynb_checkpoints/
 
 # IDE
 .vscode/

@@ -19,14 +19,14 @@ import snowmicropyn
 import yaml
 from nbclient import NotebookClient
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DATASET_ROOT = PROJECT_ROOT / "datasets" / "rogers_pass_snow_profiles"
+DATASET_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = DATASET_ROOT.parent.parent
 RAW_ROOT = DATASET_ROOT / "raw_data" / "Rogers Pass March 2024-2025"
 FRDR_ROOT = DATASET_ROOT / "frdr_data"
 ARTIFACTS_ROOT = DATASET_ROOT / "artifacts"
-NOTEBOOK_PATH = PROJECT_ROOT / "notebooks" / "rogers_pass_snow_profiles_data_preparation.ipynb"
+NOTEBOOK_PATH = DATASET_ROOT / "notebooks" / "data_preparation.ipynb"
 MANIFEST_PATH = ARTIFACTS_ROOT / "preparation_manifest.json"
-DATA_PREPARATION_REPORT_PATH = ARTIFACTS_ROOT / "DATA_PREPARATION.md"
+DATA_PREPARATION_REPORT_PATH = DATASET_ROOT / "DATA_PREPARATION.md"
 QC_PATH = ARTIFACTS_ROOT / "qc_report.md"
 README_PATH = DATASET_ROOT / "README.txt"
 METADATA_PATH = DATASET_ROOT / "METADATA.yaml"
@@ -518,7 +518,7 @@ def write_data_preparation_report(manifest: dict) -> None:
 
     **Date:** 2026-03-24
     **Prepared package:** `datasets/rogers_pass_snow_profiles/frdr_data/`
-    **Notebook:** `notebooks/rogers_pass_snow_profiles_data_preparation.ipynb`
+    **Notebook:** `notebooks/data_preparation.ipynb`
 
     ## Change summary
 

@@ -1,6 +1,6 @@
 # Explore Data Files
 
-Inspect data files using pandas in a Jupyter notebook. Save the notebook to `notebooks/` with dataset name in filename and save a summary to `datasets/{id}/artifacts/data_exploration.md`.
+Inspect data files using pandas in a Jupyter notebook. Save the notebook to `datasets/{id}/notebooks/data_exploration.ipynb` and save a summary to `datasets/{id}/artifacts/data_exploration.md`.
 
 **Autonomy:** Level 3 — Notebook output is inspectable, non-destructive.
 
@@ -82,7 +82,7 @@ As Explore Data produces the file inventory and structural summaries, update the
 
 ## Outputs
 
-- `notebooks/{id}_data_exploration.ipynb`
+- `datasets/{id}/notebooks/data_exploration.ipynb`
 - `datasets/{id}/artifacts/data_exploration.md`
 - Direct updates to `datasets/{id}/README.txt` stubs (file overview, naming conventions sections)
 - Updates to `datasets/{id}/METADATA.yaml` (confirmed bounding box, confirmed date range)

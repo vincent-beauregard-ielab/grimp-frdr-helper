@@ -7,14 +7,17 @@ LLM agents automate metadata generation, data file inspection, and information r
 ## Project structure
 
 ```
-datasets/           # Dataset folders to be deposited on FRDR
-  {id}/             #   One directory per dataset
-    README.txt      #   FRDR README (from template)
-    metadata.yaml      #   FRDR metadata fields + workflow state
-    artifacts/      #   Research notes, extracted metadata, QC reports
-  example/          #   Reference: published Rogers Pass snow profiles dataset (DOI: 10.20383/103.01523)
-
-notebooks/          # Reproducible data exploration and manipulation (Jupyter)
+datasets/              # Dataset folders to be deposited on FRDR
+  {id}/                #   One directory per dataset — holds ALL of that dataset's files
+    README.txt         #   FRDR README (from template) — review surface #1
+    DATA_PREPARATION.md#   Deposit scope, file inventory, transformations — review surface #2
+    METADATA.yaml      #   FRDR metadata fields + workflow state
+    raw_data/          #   Original unmodified data files
+    frdr_data/         #   Deposit-ready files
+    notebooks/         #   Reproducible exploration and preparation (Jupyter)
+    scripts/           #   Dataset-specific helper scripts (optional)
+    artifacts/         #   Research notes, extracted metadata, QC reports
+  example/             #   Reference: published Rogers Pass snow profiles dataset (DOI: 10.20383/103.01523)
 
 docs/               # Project-level documentation and templates
   project_context.md      # Research context (GRIMP, MOACC, FRDR, FAIR)
@@ -22,7 +25,8 @@ docs/               # Project-level documentation and templates
   controlled_vocabulary.md  # GRIMP controlled vocabulary for keywords
 
 papers/             # Domain literature (PDFs)
-utils/              # Python helper modules
+utils/              # Python helper modules (project-wide)
+scripts/            # Project-wide tooling only (e.g. jupyter_mcp.py)
 steps/              # Detailed instructions per workflow step
 plans/              # Project planning documents
 ```
@@ -94,16 +98,16 @@ Both point to `uvx jupyter-mcp-server@latest`, which is fetched and run on deman
 ### Fetch metadata from an existing FRDR dataset
 
 ```bash
-uv run python utils/frdr_metadata.py datasets/example/metadata.yaml
+uv run python utils/frdr_metadata.py datasets/example/METADATA.yaml
 ```
 
-This fetches structured metadata from the published FRDR record and can bootstrap `research.md` and `metadata.yaml` for datasets that extend existing ones.
+This fetches structured metadata from the published FRDR record and can bootstrap `research.md` and `METADATA.yaml` for datasets that extend existing ones.
 
 ### Agent-assisted workflow
 
 Agent orchestration is defined in `AGENTS.md`, with detailed step instructions in `steps/`. Agents can:
 
-- Define dataset scope and boundaries (`artifacts/scope.md`)
+- Define dataset scope and boundaries (`README.txt` + `METADATA.yaml`)
 - Research dataset context and generate `artifacts/research.md`
 - Explore data files and summarize structure in notebooks
 - Run quality control checks on data files

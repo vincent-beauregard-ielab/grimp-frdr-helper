@@ -10,7 +10,7 @@ Prepare data files for FRDR deposit by acting on issues identified in Quality Co
 
 **IMPORTANT: This step is non-destructive to original data.** All operations read from `datasets/{id}/raw_data/` and write to `datasets/{id}/frdr_data/`. Never modify files in `raw_data/`.
 
-**All data preparation must be captured in a Jupyter notebook** saved to `datasets/{id}/notebooks/` with dataset name in filename (e.g., `notebooks/{id}_data_preparation.ipynb`) for reproducibility.
+**All data preparation must be captured in a Jupyter notebook** saved to `datasets/{id}/notebooks/data_preparation.ipynb` for reproducibility.
 
 ## Expected notebook structure
 
@@ -66,5 +66,5 @@ Save the report to `datasets/{id}/DATA_PREPARATION.md` (not `artifacts/`). This 
 ## Outputs
 
 - `datasets/{id}/frdr_data/` — Deposit-ready files
-- `datasets/{id}/notebooks/{id}_data_preparation.ipynb` — Reproducible transformation notebook
+- `datasets/{id}/notebooks/data_preparation.ipynb` — Reproducible transformation notebook
 - `datasets/{id}/DATA_PREPARATION.md` — Researcher-facing report (generated from hardened template)

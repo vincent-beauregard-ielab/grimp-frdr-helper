@@ -3,8 +3,9 @@
 import nbformat as nbf
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-NB_PATH = PROJECT_ROOT / "notebooks" / "rogers_pass_snow_profiles_data_exploration.ipynb"
+DATASET_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = DATASET_ROOT.parent.parent
+NB_PATH = DATASET_ROOT / "notebooks" / "data_exploration.ipynb"
 
 nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {

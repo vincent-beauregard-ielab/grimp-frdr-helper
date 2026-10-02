@@ -14,7 +14,7 @@ Initialize the dataset and define the boundaries of what will be archived on FRD
 
 ## Sub-activities
 
-1. **Initialize dataset** — Create the dataset directory structure if it doesn't exist: `datasets/{id}/`, `datasets/{id}/raw_data/`, `datasets/{id}/frdr_data/`, `datasets/{id}/artifacts/`, `datasets/{id}/notebooks/`, and `datasets/{id}/METADATA.yaml`. Copy or link raw data files into `raw_data/`.
+1. **Initialize dataset** — Create the dataset directory structure if it doesn't exist: `datasets/{id}/`, `datasets/{id}/raw_data/`, `datasets/{id}/frdr_data/`, `datasets/{id}/artifacts/`, `datasets/{id}/notebooks/`, `datasets/{id}/scripts/` (only if helper scripts are needed), and `datasets/{id}/METADATA.yaml`. Copy or link raw data files into `raw_data/`.
 
 2. **Elicitation** — Ask questions to understand the dataset: what data was collected, how it is structured, what instruments were used, what processing was applied, and how files should be organized for deposit. Use `docs/project_context.md` for GRIMP/MOACC context and `docs/controlled_vocabulary.md` for standard terminology. Always ask about relevant documents/sources/PDFs in `papers/` or elsewhere that should inform the Research step.
 

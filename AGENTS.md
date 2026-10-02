@@ -10,8 +10,13 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
   - `METADATA.yaml` — dataset metadata and workflow state
   - `raw_data/` — original unmodified data files
   - `frdr_data/` — deposit-ready files
-  - `notebooks/` — Jupyter notebooks
+  - `notebooks/` — Jupyter notebooks for this dataset
+  - `scripts/` — dataset-specific helper scripts (optional)
   - `artifacts/` — agent workpaper; not reviewed by researcher
+
+  **All dataset-specific code lives inside `datasets/{id}/`.** Never place a dataset's
+  notebooks or scripts in the repository-level `notebooks/` or `scripts/` directories —
+  the latter is reserved for project-wide tooling that is not tied to any single dataset.
 
   `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
 
@@ -25,7 +30,9 @@ datasets/{id}/
 ├── raw_data/
 ├── frdr_data/
 ├── notebooks/
+│   ├── data_exploration.ipynb
 │   └── data_preparation.ipynb
+├── scripts/                          ← Dataset-specific helpers (optional)
 └── artifacts/                        ← Agent workpaper — not reviewed by researcher
     ├── research.md
     ├── data_exploration.md
@@ -39,7 +46,7 @@ datasets/{id}/
 
 * **`utils/`** — Python helper modules (e.g. `frdr_metadata.py` for fetching metadata from published FRDR datasets).
 
-* **`scripts/`** — Utility scripts. `jupyter_mcp.py` starts JupyterLab with the token expected by the MCP server.
+* **`scripts/`** — Project-wide utility scripts only. `jupyter_mcp.py` starts JupyterLab with the token expected by the MCP server. Dataset-specific scripts belong in `datasets/{id}/scripts/`.
 
 * **`steps/`** — Detailed instructions for each workflow step. The agent reads the relevant step file when executing that step.
 

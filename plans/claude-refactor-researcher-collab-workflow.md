@@ -229,6 +229,26 @@ docs/
 
 ---
 
+## Implementation status (2026-09-24)
+
+Fully implemented. The final migration (items 10–11 plus the on-disk file moves) was
+completed on 2026-09-24:
+
+- All dataset-specific notebooks and scripts moved from the repository-level
+  `notebooks/` and `scripts/` into `datasets/{id}/notebooks/` and `datasets/{id}/scripts/`.
+  The repository-level `notebooks/` directory no longer exists; `scripts/` keeps only
+  project-wide tooling (`jupyter_mcp.py`).
+- Naming uniformized on the AGENTS.md convention: `METADATA.yaml`, `DATA_PREPARATION.md`
+  at the dataset root, and unprefixed `data_exploration.ipynb` / `data_preparation.ipynb`.
+- `artifacts/scope.md` deleted (README.txt is the living scope document).
+- `AGENTS.md`, `README.md` and `steps/1,3,5,7` updated to match.
+
+One deviation from this plan: `DATA_PREPARATION.md` and `METADATA.yaml` are uppercase
+(AGENTS.md convention), not `data_preparation_report.md` / `metadata.yaml` as written below.
+A `scripts/` subfolder was also added to the dataset layout, which this plan did not anticipate.
+
+---
+
 ## Implementation order
 
 1. `AGENTS.md` — update overall structure: file layout, step table, emoji convention, scope-update protocol pointing to README, review loop removed as phase (now Step 7)
