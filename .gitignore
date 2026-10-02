@@ -2,6 +2,7 @@
 papers/*
 datasets/*/raw_data/*
 datasets/*/frdr_data/*
+datasets/*/published/*
 
 # Python
 __pycache__/

@@ -18,7 +18,7 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
   notebooks or scripts in the repository-level `notebooks/` or `scripts/` directories —
   the latter is reserved for project-wide tooling that is not tied to any single dataset.
 
-  `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
+  `datasets/example/` is a reference template based on the published Glacier National Park (Rogers Pass area) CAAML snow profile dataset (DOI: 10.20383/103.01523). It is a different FRDR record from `datasets/rogers_pass_snow_profiles/` (DOI: 10.20383/103.01634).
 
   `METADATA.yaml` mirrors FRDR required and recommended fields (title, authors, license, dates, geographic coverage, funding, related identifiers, etc.) plus workflow state. It is populated incrementally: Scope fills identity and extents, Research fills people and context, later steps update as needed. The Deposit step reads it to fill the FRDR submission form. See `datasets/example/METADATA.yaml` for the full schema.
 
@@ -104,6 +104,8 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 7 | Review | 2 | [`steps/7_review.md`](steps/7_review.md) | Resolved `README.txt` and `DATA_PREPARATION.md`, final preflight PASS |
 | 8 | Deposit | 1 | [`steps/8_deposit.md`](steps/8_deposit.md) | Published dataset with DOI |
 
+When adding a new period (e.g. a new field season) to a dataset already published on FRDR, also follow [`steps/extension.md`](steps/extension.md): it adds a Baseline step (Step 0) and lists what changes in each step above.
+
 ## New dataset intake
 
 When the user says they want to archive a new dataset, guide them quickly toward Scope Definition. Do not assume they already know this repository structure or the FRDR workflow, but do not linger in explanation either: give just enough orientation to help them provide the dataset or the missing scope facts.
@@ -126,6 +128,16 @@ The first response should:
 7. Keep the tone practical and companionable. Avoid a terse checklist-only answer when the user is starting a workflow.
 
 Do not create or move files until the user provides enough information to identify the dataset and raw data location.
+
+## Extending a published dataset
+
+When the user wants to add new data (typically a new field season) to a dataset already published on FRDR, this is an extension, not a new dataset. The result is a new FRDR version of the same record, with a new DOI. Work in the existing `datasets/{id}/` folder and follow [`steps/extension.md`](steps/extension.md).
+
+The first response should briefly explain that the agent will first download the published version as a read-only baseline, then run Steps 1–8 on the new period only, keeping previously published files unchanged. Ask for:
+
+- the DOI of the latest published version (or find it in `METADATA.yaml` and confirm it),
+- the period name (e.g. `2025-2026`) and where its raw files are located,
+- what changed since the last version (new sites, instruments, people, protocol).
 
 ## Step dependencies
 
