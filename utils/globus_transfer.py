@@ -128,6 +128,27 @@ def get_local_endpoint_id() -> str:
     return endpoint_id
 
 
+def to_globus_local_path(path: Path) -> str:
+    """Return a local path in the form Globus Connect Personal expects.
+
+    On Windows, GCP uses /C/Users/... instead of C:\\Users\\...
+
+    Parameters
+    ----------
+    path : Path
+        Absolute local path.
+
+    Returns
+    -------
+    str
+        POSIX-style path, with the drive letter as the first segment on Windows.
+    """
+    posix = path.as_posix()
+    if path.drive:
+        return "/" + path.drive.rstrip(":") + posix[len(path.drive):]
+    return posix
+
+
 # ---------------------------------------------------------------------------
 # LS
 # ---------------------------------------------------------------------------
@@ -214,8 +235,8 @@ def cmd_download(args: argparse.Namespace) -> None:
         is_dir = False
 
     task = globus_sdk.TransferData(
-        source_endpoint_id=source_endpoint,
-        destination_endpoint_id=local_endpoint,
+        source_endpoint=source_endpoint,
+        destination_endpoint=local_endpoint,
         label=label,
         sync_level="checksum",
         notify_on_succeeded=False,
@@ -224,11 +245,11 @@ def cmd_download(args: argparse.Namespace) -> None:
 
     if is_dir:
         dest_name = source_path.rsplit("/", 1)[-1]
-        task.add_item(source_path, str(dest_dir / dest_name), recursive=True)
+        task.add_item(source_path, to_globus_local_path(dest_dir / dest_name), recursive=True)
         print(f"Queuing recursive transfer: {source_path}/ -> {dest_dir / dest_name}/")
     else:
         filename = source_path.rsplit("/", 1)[-1]
-        task.add_item(source_path, str(dest_dir / filename))
+        task.add_item(source_path, to_globus_local_path(dest_dir / filename))
         print(f"Queuing file transfer: {source_path} -> {dest_dir / filename}")
 
     result = tc.submit_transfer(task)
@@ -259,15 +280,15 @@ def cmd_upload(args: argparse.Namespace) -> None:
     local_endpoint = get_local_endpoint_id()
 
     task = globus_sdk.TransferData(
-        source_endpoint_id=local_endpoint,
-        destination_endpoint_id=dest_endpoint,
+        source_endpoint=local_endpoint,
+        destination_endpoint=dest_endpoint,
         label=label,
         sync_level="checksum",
         notify_on_succeeded=False,
         notify_on_failed=True,
     )
 
-    task.add_item(str(source_dir), dest_path, recursive=True)
+    task.add_item(to_globus_local_path(source_dir), dest_path, recursive=True)
     print(f"Queuing upload: {source_dir}/ -> {dest_path}/")
 
     result = tc.submit_transfer(task)
