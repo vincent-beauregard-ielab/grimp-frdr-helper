@@ -55,10 +55,10 @@ GENERAL INFORMATION
 4. Geographic location of data collection:
 Rogers Pass, Glacier National Park, Selkirk Mountains, British Columbia, Canada.
 Bounding box (WGS84, EPSG:4326), all seasons: west -117.7304, south 51.2274, east -117.4670, north 51.3311.
-Elevation range represented by GPS and snow-profile metadata: 1822-2125 m (2024-2025: 1832-2088 m).
+Elevation range represented by GPS and snow-profile metadata: 1303-2125 m (2024-2025: 1832-2088 m; 2025-2026: about 1303 m at Rogers Pass to 2125 m at Hermit Meadows).
 Study sites, 2024-2025 season: Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
 Study sites, 2025-2026 season: Round Hill, Fidelity, Rogers Pass, Jim Bay Corner, Gopher Butte, and Hermit Meadows.
-2025-2026 extent is a draft from the raw files, to be verified at data exploration. ⚠️ [placeholder — to be filled at Step 6]
+2025-2026 extent is derived from RTK GNSS, SMP and SnowScope positions; heights mix ellipsoidal (GNSS), instrument-app and workbook values. ⚠️ [placeholder — to be filled at Step 6]
 
 5. Information about funding sources that supported the collection of the data:
 Fonds de recherche du Quebec - Nature et technologie (FRQNT). Fonds des nouvelles initiatives de recherche et de sauvetage.
