@@ -41,9 +41,13 @@ Step 0 Baseline — done (2026-10-06), see `datasets/rogers_pass_snow_profiles/a
 - utils/globus_transfer.py fixed for globus-sdk 4 and Windows GCP paths (/C/Users/...).
 - GCP needs the repo `datasets/` folder as a writable accessible folder.
 
+Steps 1-3 done (2026-10-06): tag `rogers_pass_snow_profiles/v1` on 453c4ad (local, not pushed); raw data in `raw_data/2025-2026/` (567 files, byte-identical to OneDrive `Field days/`; logistics files left out); scope c308779; research + exploration 83aa72d (`artifacts/2025-2026/`, `notebooks/data_exploration_2025-2026.ipynb`).
+- `ka` = same K-band radar as v1 (serial 2010000058); radar clock wrong (2025-09 dates).
+- Rogers Pass site is at ~1303 m: elevation range now 1303-2125 m.
+- PR reviewer to complete/correct field participants and v2 authors (flag at Step 6); researcher contacts: J.-B. Madore and B. Imbach.
+
 Next:
-1. Decide on git tag `rogers_pass_snow_profiles/v1` (no commit matches the published state exactly; proposal: tag the baseline commit).
-2. Step 1 Scope for period 2025-2026 (raw data on OneDrive: Data-terrain/Avalanche/Rogers Pass March 2025-2026), reusing the 44e55ec analysis as input.
+1. Step 4 QC for 2025-2026 (issue list in `artifacts/2025-2026/data_exploration.md` §12), then PR after QC (as planned).
 
 Points to follow up:
 - SnowScope is in v1 (319 files) but missing from the FRDR description and keywords — fix in v2 metadata.
