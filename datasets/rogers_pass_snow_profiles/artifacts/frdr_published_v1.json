@@ -1,0 +1,458 @@
+{
+  "title": "Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada",
+  "description": "Multi-instrument snow profile observations from a six-day field campaign (March 1-6, 2025) at Rogers Pass, Glacier National Park, British Columbia, Canada. Includes manual snow stratigraphy profiles (StratiTemplate Excel), InfraRed Integrating Sphere (IRIS) specific surface area measurements, SnowMicroPenetrometer (SMP) high-resolution hardness profiles, and compact K-band (24 GHz) FMCW radar transects for snow depth and snow water equivalent retrieval. Observations were collected at five study sites (Fidelity, Jim Bay Corner, Hermit, Round Hill, Christiana Ridge) in collaboration with Parks Canada's Avalanche Control Program. Data are raw as collected.",
+  "creators": [
+    {
+      "name": "Madore, Jean-Benoit",
+      "affiliations": [
+        "Université de Sherbrooke"
+      ],
+      "orcid": "0000-0002-2292-1519",
+      "orcid_url": "https://orcid.org/0000-0002-2292-1519"
+    },
+    {
+      "name": "Langlois, Alexandre",
+      "affiliations": [
+        "Université de Sherbrooke"
+      ],
+      "orcid": "0000-0002-9966-205X",
+      "orcid_url": "https://orcid.org/0000-0002-9966-205X"
+    },
+    {
+      "name": "Imbach, Benjamin",
+      "affiliations": [
+        "Université du Québec à Rimouski"
+      ],
+      "orcid": "0009-0009-1002-9900",
+      "orcid_url": "https://orcid.org/0009-0009-1002-9900"
+    },
+    {
+      "name": "Gauthier, Francis",
+      "affiliations": [
+        "Université du Québec à Rimouski"
+      ]
+    },
+    {
+      "name": "Meloche, Francis",
+      "affiliations": [
+        "Université du Québec à Rimouski"
+      ],
+      "orcid": "0009-0001-5884-5597",
+      "orcid_url": "https://orcid.org/0009-0001-5884-5597"
+    },
+    {
+      "name": "Paquette, Violaine",
+      "affiliations": [
+        "Université de Sherbrooke"
+      ]
+    },
+    {
+      "name": "Hale, Kate",
+      "affiliations": [
+        "University of British Columbia"
+      ],
+      "orcid": "0000-0003-1899-0287",
+      "orcid_url": "https://orcid.org/0000-0003-1899-0287"
+    },
+    {
+      "name": "Marshall, Hans-Peter",
+      "affiliations": [
+        "Boise State University"
+      ],
+      "orcid": "0000-0002-4852-5637",
+      "orcid_url": "https://orcid.org/0000-0002-4852-5637"
+    },
+    {
+      "name": "Meyer, Joachim",
+      "affiliations": [
+        "Boise State University"
+      ],
+      "orcid": "0000-0002-1358-2244",
+      "orcid_url": "https://orcid.org/0000-0002-1358-2244"
+    },
+    {
+      "name": "Meloche, Julien",
+      "affiliations": [
+        "Environment and Climate Change Canada"
+      ]
+    }
+  ],
+  "keywords": [
+    "snow profile",
+    "avalanche hazard assessment",
+    "snow water equivalent",
+    "specific surface area",
+    "snow stratigraphy",
+    "SnowMicroPenetrometer",
+    "FMCW radar",
+    "IRIS",
+    "Rogers Pass",
+    "Glacier National Park",
+    "mountain hazard"
+  ],
+  "publisher": "Federated Research Data Repository / dépôt fédéré de données de recherche",
+  "publication_date": "2026-05-07",
+  "license": {
+    "name": "Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "doi": "10.20383/103.01634",
+  "files": [
+    {
+      "path": "submitted_data/CITATION.txt",
+      "type": "file",
+      "size_bytes": 301,
+      "last_modified": "2026-05-07 13:37:02+00:00"
+    },
+    {
+      "path": "submitted_data/LICENSE.txt",
+      "type": "file",
+      "size_bytes": 14187,
+      "last_modified": "2026-05-07 13:36:55+00:00"
+    },
+    {
+      "path": "submitted_data/README.txt",
+      "type": "file",
+      "size_bytes": 23116,
+      "last_modified": "2026-05-07 13:33:47+00:00"
+    },
+    {
+      "path": "submitted_data/frdr-dfdr-checksums.txt",
+      "type": "file",
+      "size_bytes": 115338,
+      "last_modified": "2026-05-07 15:13:50+00:00"
+    },
+    {
+      "path": "submitted_data/documentation",
+      "type": "folder",
+      "children_count": 8,
+      "last_modified": "2026-04-30 17:53:55+00:00",
+      "children": [
+        {
+          "path": "submitted_data/documentation/20250301_fidelity_jim_bay_corner_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 2038,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250301_fidelity_smp_setup_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 135,
+          "last_modified": "2026-04-30 17:53:55+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250302_jim_bay_corner_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 1817,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250303_hermit_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 1661,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250304_fidelity_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 1128,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250304_fidelity_radar_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 64,
+          "last_modified": "2026-04-30 17:53:55+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250305_round_hill_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 2092,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/documentation/20250306_round_hill_christiana_ridge_field_notes_fr.txt",
+          "type": "file",
+          "size_bytes": 1419,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/iris",
+      "type": "folder",
+      "children_count": 6,
+      "last_modified": "2026-04-30 17:53:55+00:00",
+      "children": [
+        {
+          "path": "submitted_data/iris/20250301_fidelity_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 1559,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/iris/20250302_jim_bay_corner_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 875,
+          "last_modified": "2026-04-30 17:53:55+00:00"
+        },
+        {
+          "path": "submitted_data/iris/20250303_hermit_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 1212,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/iris/20250304_fidelity_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 1172,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/iris/20250305_round_hill_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 964,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/iris/20250306_christiana_ridge_iris_raw.txt",
+          "type": "file",
+          "size_bytes": 909,
+          "last_modified": "2026-04-30 17:53:55+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/radar_FMCW_K",
+      "type": "folder",
+      "children_count": 5,
+      "last_modified": "2026-04-30 17:53:45+00:00",
+      "children": [
+        {
+          "path": "submitted_data/radar_FMCW_K/20250301_jim_bay_corner",
+          "type": "folder",
+          "children_count": 50,
+          "last_modified": "2026-04-30 17:53:50+00:00"
+        },
+        {
+          "path": "submitted_data/radar_FMCW_K/20250302_jim_bay_corner",
+          "type": "folder",
+          "children_count": 42,
+          "last_modified": "2026-04-30 17:53:50+00:00"
+        },
+        {
+          "path": "submitted_data/radar_FMCW_K/20250303_hermit",
+          "type": "folder",
+          "children_count": 28,
+          "last_modified": "2026-04-30 17:53:50+00:00"
+        },
+        {
+          "path": "submitted_data/radar_FMCW_K/20250304_fidelity",
+          "type": "folder",
+          "children_count": 2,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        },
+        {
+          "path": "submitted_data/radar_FMCW_K/20250305_round_hill",
+          "type": "folder",
+          "children_count": 44,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/snow_stratigraphy",
+      "type": "folder",
+      "children_count": 7,
+      "last_modified": "2026-04-30 17:53:49+00:00",
+      "children": [
+        {
+          "path": "submitted_data/snow_stratigraphy/20250301_fidelity_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210713,
+          "last_modified": "2026-04-30 17:53:48+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250302_jim_bay_corner_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210336,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250303_hermit_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210382,
+          "last_modified": "2026-04-30 17:53:48+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250304_fidelity_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210256,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250305_round_hill_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210695,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250306_christiana_ridge_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210115,
+          "last_modified": "2026-04-30 17:53:48+00:00"
+        },
+        {
+          "path": "submitted_data/snow_stratigraphy/20250306_fidelity_revisit_stratigraphy.xlsx",
+          "type": "file",
+          "size_bytes": 210344,
+          "last_modified": "2026-04-30 17:53:49+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/snowmicropenetrometer",
+      "type": "folder",
+      "children_count": 4,
+      "last_modified": "2026-04-30 17:53:45+00:00",
+      "children": [
+        {
+          "path": "submitted_data/snowmicropenetrometer/20250301_fidelity",
+          "type": "folder",
+          "children_count": 4,
+          "last_modified": "2026-04-30 17:53:46+00:00"
+        },
+        {
+          "path": "submitted_data/snowmicropenetrometer/20250302_jim_bay_corner",
+          "type": "folder",
+          "children_count": 18,
+          "last_modified": "2026-04-30 17:53:47+00:00"
+        },
+        {
+          "path": "submitted_data/snowmicropenetrometer/20250305_round_hill",
+          "type": "folder",
+          "children_count": 46,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/snowmicropenetrometer/20250306_christiana_ridge",
+          "type": "folder",
+          "children_count": 11,
+          "last_modified": "2026-04-30 17:53:51+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/snowscope",
+      "type": "folder",
+      "children_count": 5,
+      "last_modified": "2026-04-30 17:53:45+00:00",
+      "children": [
+        {
+          "path": "submitted_data/snowscope/20250301_jim_bay_corner_snowscope",
+          "type": "folder",
+          "children_count": 43,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/snowscope/20250301_jim_bay_corner_snowscope_smp",
+          "type": "folder",
+          "children_count": 8,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/snowscope/20250303_hermit_snowscope",
+          "type": "folder",
+          "children_count": 59,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/snowscope/20250305_round_hill_snowscope",
+          "type": "folder",
+          "children_count": 98,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/snowscope/20250306_christiana_ridge_snowscope",
+          "type": "folder",
+          "children_count": 111,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        }
+      ]
+    },
+    {
+      "path": "submitted_data/spatial_reference",
+      "type": "folder",
+      "children_count": 10,
+      "last_modified": "2026-04-30 17:53:54+00:00",
+      "children": [
+        {
+          "path": "submitted_data/spatial_reference/20250301_fidelity_gps_points.csv",
+          "type": "file",
+          "size_bytes": 5161,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250301_fidelity_gps_points_shapefile.zip",
+          "type": "file",
+          "size_bytes": 2243,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250301_fidelity_spatial_linkage.xlsx",
+          "type": "file",
+          "size_bytes": 5421,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250302_jim_bay_corner_gps_points.csv",
+          "type": "file",
+          "size_bytes": 6192,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250302_jim_bay_corner_gps_points_shapefile.zip",
+          "type": "file",
+          "size_bytes": 2617,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250302_jim_bay_corner_spatial_linkage.xlsx",
+          "type": "file",
+          "size_bytes": 5649,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250303_hermit_spatial_linkage.xlsx",
+          "type": "file",
+          "size_bytes": 6436,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250305_round_hill_gps_points.csv",
+          "type": "file",
+          "size_bytes": 10201,
+          "last_modified": "2026-04-30 17:53:53+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250305_round_hill_gps_points_shapefile.zip",
+          "type": "file",
+          "size_bytes": 3782,
+          "last_modified": "2026-04-30 17:53:54+00:00"
+        },
+        {
+          "path": "submitted_data/spatial_reference/20250305_round_hill_spatial_linkage.xlsx",
+          "type": "file",
+          "size_bytes": 76576,
+          "last_modified": "2026-04-30 17:53:50+00:00"
+        }
+      ]
+    }
+  ],
+  "related_identifiers": [],
+  "source": {
+    "frdr_landing_page": "https://www.frdr-dfdr.ca/repo/dataset/24132191-533a-4cf9-abbf-b372f5746842",
+    "globus_endpoint_id": "f163c1b3-9c88-42f6-a7bb-5839ed6c4063",
+    "globus_submitted_data_path": "/1/published/publication_1629/submitted_data"
+  }
+}

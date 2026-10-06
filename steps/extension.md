@@ -53,7 +53,12 @@ Artifacts produced before the dataset was extended (flat `artifacts/research.md`
 
    The JSON holds the published title, creators, keywords, license, file list, and under `source` the Globus endpoint ID and `submitted_data` path.
 
-2. **Download the published files** into `published/v{N}/` (requires `GLOBUS_CLIENT_ID` in `.env` and Globus Connect Personal running; see `utils/globus_transfer.py`):
+2. **Download the published files** into `published/v{N}/`. One-time prerequisites, done by the human:
+   - `GLOBUS_CLIENT_ID` set in `.env`;
+   - Globus Connect Personal installed and running, with the repository's `datasets/` folder added as an accessible and **writable** folder (GCP Options → Access). Otherwise the transfer fails with `PERMISSION_DENIED … 500 Path not allowed`;
+   - one interactive login (any `utils.globus_transfer` command, e.g. `ls`), which asks for a code pasted from the browser. The agent cannot do this step.
+
+   Then (see `utils/globus_transfer.py`):
 
    ```bash
    MSYS_NO_PATHCONV=1 uv run python -m utils.globus_transfer download \
@@ -61,6 +66,8 @@ Artifacts produced before the dataset was extended (flat `artifacts/research.md`
        --source-path <source.globus_submitted_data_path> \
        --dest-dir datasets/{id}/published/v{N}/ --wait
    ```
+
+   The transfer creates a `submitted_data/` folder inside the destination; move its contents up one level so the files sit directly in `published/v{N}/`. The transfer runs for several minutes: run it in the background.
 
    Never edit files in `published/`. Verify the download against `frdr-dfdr-checksums.txt` before going further. FRDR generates this file at each publication; it is not part of the submitted dataset, so it is used only for verification and never carried into `frdr_data/`.
 
