@@ -48,16 +48,21 @@ GENERAL INFORMATION
         Name: Julien Meloche
         Institution: Environnement et Changement climatique Canada
 
-3. Date of data collection (single date, range, approximate date): 2025-03-01 to 2025-03-06
+3. Date of data collection (single date, range, approximate date):
+- 2024-2025 season: 2025-03-01 to 2025-03-06
+- 2025-2026 season: 2026-03-03 to 2026-03-10 (no data collected on 2026-03-07 and 2026-03-08)
 
 4. Geographic location of data collection:
 Rogers Pass, Glacier National Park, Selkirk Mountains, British Columbia, Canada.
-Bounding box (WGS84, EPSG:4326): west -117.7304, south 51.2274, east -117.4670, north 51.3284.
-Elevation range represented by GPS and snow-profile metadata: 1832-2088 m.
-Study sites represented in the prepared package are Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
+Bounding box (WGS84, EPSG:4326), all seasons: west -117.7304, south 51.2274, east -117.4670, north 51.3311.
+Elevation range represented by GPS and snow-profile metadata: 1822-2125 m (2024-2025: 1832-2088 m).
+Study sites, 2024-2025 season: Fidelity, Jim Bay Corner, Hermit, Round Hill, and Christiana Ridge.
+Study sites, 2025-2026 season: Round Hill, Fidelity, Rogers Pass, Jim Bay Corner, Gopher Butte, and Hermit Meadows.
+2025-2026 extent is a draft from the raw files, to be verified at data exploration. ⚠️ [placeholder — to be filled at Step 6]
 
 5. Information about funding sources that supported the collection of the data:
 Fonds de recherche du Quebec - Nature et technologie (FRQNT). Fonds des nouvelles initiatives de recherche et de sauvetage.
+2025-2026 season funding: ⚠️ [placeholder — to be filled at Step 6]
 
 ---------------------------
 SHARING/ACCESS INFORMATION
@@ -126,8 +131,9 @@ DATA & FILE OVERVIEW
 - HEIC field notebook photos were excluded.
 - Administrative material such as logistics spreadsheets, planning documents, and travel files was excluded.
 - A blank `StratiTemplate.xlsx` workbook and an `IRIS_20250301.TXT.docx` companion file were excluded because they do not add unique observed data to the deposit.
+- 2025-2026 season: the same classes are excluded (morning hazard and risk assessment PDFs, field notebook photos in HEIC/JPG, administrative and logistics material, blank templates). ⚠️ [placeholder — to be filled at Step 6]
 
-4. Are there multiple versions of the dataset? No
+4. Are there multiple versions of the dataset? Yes. Version 1 (2024-2025 season): https://doi.org/10.20383/103.01634. Version 2 adds the 2025-2026 season. ⚠️ [placeholder — to be filled at Step 6]
 
 -----------------------
 READING AND USING DATA
