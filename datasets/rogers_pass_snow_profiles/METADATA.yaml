@@ -26,7 +26,9 @@ keywords:
 - Glacier National Park
 - mountain hazard
 field_of_research: RDF10508  # Candidate from research.md; confirm with researcher
-authors:  # As published in v1 (10.20383/103.01634)
+authors:  # As published in v1 (10.20383/103.01634). v2 authors and order: researcher decision
+  # (flag at Step 6). Candidate new authors from the 2025-2026 field team, to be completed by the
+  # PR reviewer: Nicolas Allet, Marie-Clara Delage, Megan Cramb, Nicolas Marchand.
 - last_name: Madore
   first_name: Jean-Benoit
   affiliations: [Université de Sherbrooke]
@@ -73,10 +75,10 @@ contact:
 license: CC BY-NC 4.0
 time_period:
   start: '2025-03-01'
-  end: '2025-03-06'
-collection_period:
+  end: '2026-03-10'
+collection_period:  # 2025-03-01..06 and 2026-03-03..10 (no data 2026-03-07/08)
   start: '2025-03-01'
-  end: '2025-03-06'
+  end: '2026-03-10'
 funding: null
 contributors:
 - name: Parks Canada — Avalanche Control Program, Glacier National Park
@@ -93,9 +95,9 @@ geographic_coverage:
   bounding_box:
     west: -117.7304
     east: -117.4670
-    north: 51.3284
+    north: 51.33108  # 2025-2026 GNSS extent, draft until Explore Data
     south: 51.2274
-  elevation_range: 1832-2088 m
+  elevation_range: 1822-2125 m  # 2024-2025: 1832-2088 m; 2025-2026 draft until Explore Data
 versions:
 - version: 1
   doi: '10.20383/103.01634'
@@ -107,10 +109,11 @@ versions:
 extension:
   target_version: 2
   new_period: '2025-2026'
-  raw_data_source: 'OneDrive: Documents/UdS/Data-terrain/Avalanche/Rogers Pass March 2025-2026'
+  raw_data_source: 'OneDrive: Documents/UdS/Data-terrain/Avalanche/Rogers Pass March 2025-2026/Field days'
+  researcher_reviewers: [Jean-Benoit Madore, Benjamin Imbach]  # emails in README Author Information
 workflow:  # Reset for version 2 (see steps/extension.md)
   baseline: done
-  scope_definition: null
+  scope_definition: done
   research: null
   explore_data: null
   quality_control: null
