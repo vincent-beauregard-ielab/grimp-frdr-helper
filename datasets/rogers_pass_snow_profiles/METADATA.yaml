@@ -95,9 +95,9 @@ geographic_coverage:
   bounding_box:
     west: -117.7304
     east: -117.4670
-    north: 51.33108  # 2025-2026 GNSS extent, draft until Explore Data
+    north: 51.33108  # Hermit Meadows GNSS, 2025-2026
     south: 51.2274
-  elevation_range: 1822-2125 m  # 2024-2025: 1832-2088 m; 2025-2026 draft until Explore Data
+  elevation_range: 1303-2125 m  # 2024-2025: 1832-2088 m; 2025-2026: ~1303 (Rogers Pass) - 2125 m
 versions:
 - version: 1
   doi: '10.20383/103.01634'
@@ -114,8 +114,8 @@ extension:
 workflow:  # Reset for version 2 (see steps/extension.md)
   baseline: done
   scope_definition: done
-  research: null
-  explore_data: null
+  research: done
+  explore_data: done
   quality_control: null
   data_preparation: null
   draft_readme: null
