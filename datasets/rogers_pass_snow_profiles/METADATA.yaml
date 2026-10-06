@@ -1,55 +1,84 @@
 id: rogers_pass_snow_profiles
 title: Snow profile observation datasets, Rogers Pass, Glacier National Park, British Columbia, Canada
-doi: ''
-doi_url: ''
-frdr_url: ''
+doi: '10.20383/103.01634'
+doi_url: 'https://doi.org/10.20383/103.01634'
+frdr_url: 'https://www.frdr-dfdr.ca/repo/dataset/24132191-533a-4cf9-abbf-b372f5746842'
 description: >-
   Multi-instrument snow profile observations from a six-day field campaign
-  (2025-03-01 to 2025-03-06) at Rogers Pass, Glacier National Park, British
-  Columbia, Canada. The dataset includes StratiTemplate snow stratigraphy
-  workbooks, IRIS TXT observations, SnowMicroPenetrometer (.pnt) profiles,
-  SnowScope CSV profiles, 24 GHz FMCW radar transects, and supporting spatial
-  linkage tables and RTK GPS/shapefile exports collected across Fidelity, Jim
-  Bay Corner, Hermit, Round Hill, and Christiana Ridge in collaboration with
-  Parks Canada's Avalanche Control Program. Files are primarily raw or direct
-  instrument-export field data.
+  (March 1-6, 2025) at Rogers Pass, Glacier National Park, British Columbia,
+  Canada. Includes manual snow stratigraphy profiles (StratiTemplate Excel),
+  InfraRed Integrating Sphere (IRIS) specific surface area measurements,
+  SnowMicroPenetrometer (SMP) high-resolution hardness profiles, and compact
+  K-band (24 GHz) FMCW radar transects for snow depth and snow water equivalent
+  retrieval. Observations were collected at five study sites (Fidelity, Jim Bay
+  Corner, Hermit, Round Hill, Christiana Ridge) in collaboration with Parks
+  Canada's Avalanche Control Program. Data are raw as collected.
 keywords:
 - snow profile
+- avalanche hazard assessment
+- snow water equivalent
+- specific surface area
 - snow stratigraphy
 - SnowMicroPenetrometer
-- SnowScope
-- IRIS
 - FMCW radar
-- specific surface area
-- snow water equivalent
+- IRIS
 - Rogers Pass
 - Glacier National Park
-- avalanche research
+- mountain hazard
 field_of_research: RDF10508  # Candidate from research.md; confirm with researcher
-authors:
+authors:  # As published in v1 (10.20383/103.01634). v2 authors and order: researcher decision
+  # (flag at Step 6). Candidate new authors from the 2025-2026 field team, to be completed by the
+  # PR reviewer: Nicolas Allet, Marie-Clara Delage, Megan Cramb, Nicolas Marchand.
 - last_name: Madore
   first_name: Jean-Benoit
-  affiliations:
-  - Université de Sherbrooke, Dept. géomatique appliquée
-  - Centre d'études nordiques
+  affiliations: [Université de Sherbrooke]
   orcid: 0000-0002-2292-1519
 - last_name: Langlois
   first_name: Alexandre
-  affiliations:
-  - Université de Sherbrooke, Dept. géomatique appliquée
-  - Groupe de Recherche Interdisciplinaire sur les Milieux Polaires (GRIMP)
-  - Centre d'études nordiques
-  orcid: 
+  affiliations: [Université de Sherbrooke]
+  orcid: 0000-0002-9966-205X
+- last_name: Imbach
+  first_name: Benjamin
+  affiliations: [Université du Québec à Rimouski]
+  orcid: 0009-0009-1002-9900
+- last_name: Gauthier
+  first_name: Francis
+  affiliations: [Université du Québec à Rimouski]
+  orcid: ''
+- last_name: Meloche
+  first_name: Francis
+  affiliations: [Université du Québec à Rimouski]
+  orcid: 0009-0001-5884-5597
+- last_name: Paquette
+  first_name: Violaine
+  affiliations: [Université de Sherbrooke]
+  orcid: ''
+- last_name: Hale
+  first_name: Kate
+  affiliations: [University of British Columbia]
+  orcid: 0000-0003-1899-0287
+- last_name: Marshall
+  first_name: Hans-Peter
+  affiliations: [Boise State University]
+  orcid: 0000-0002-4852-5637
+- last_name: Meyer
+  first_name: Joachim
+  affiliations: [Boise State University]
+  orcid: 0000-0002-1358-2244
+- last_name: Meloche
+  first_name: Julien
+  affiliations: [Environment and Climate Change Canada]
+  orcid: ''
 contact:
   name: Jean-Benoit Madore
   email: jean-benoit.madore@usherbrooke.ca
 license: CC BY-NC 4.0
 time_period:
   start: '2025-03-01'
-  end: '2025-03-06'
-collection_period:
+  end: '2026-03-10'
+collection_period:  # 2025-03-01..06 and 2026-03-03..10 (no data 2026-03-07/08)
   start: '2025-03-01'
-  end: '2025-03-06'
+  end: '2026-03-10'
 funding: null
 contributors:
 - name: Parks Canada — Avalanche Control Program, Glacier National Park
@@ -64,24 +93,31 @@ geographic_coverage:
     latitude: 51.278857
     longitude: -117.622348
   bounding_box:
-    west: -117.713247
-    east: -117.53145
-    north: 51.323627
-    south: 51.234087
-  elevation_range: 1838-2088 m
-workflow:
+    west: -117.7304
+    east: -117.4670
+    north: 51.33108  # Hermit Meadows GNSS, 2025-2026
+    south: 51.2274
+  elevation_range: 1303-2125 m  # 2024-2025: 1832-2088 m; 2025-2026: ~1303 (Rogers Pass) - 2125 m
+versions:
+- version: 1
+  doi: '10.20383/103.01634'
+  published: '2026-05-07'
+  periods: ['2024-2025']
+  layout: flat  # files at the top level of submitted_data/, no period subfolders
+  prepared_file_count: 595
+  excluded_file_count: 38
+extension:
+  target_version: 2
+  new_period: '2025-2026'
+  raw_data_source: 'OneDrive: Documents/UdS/Data-terrain/Avalanche/Rogers Pass March 2025-2026/Field days'
+  researcher_reviewers: [Jean-Benoit Madore, Benjamin Imbach]  # emails in README Author Information
+workflow:  # Reset for version 2 (see steps/extension.md)
+  baseline: done
   scope_definition: done
   research: done
   explore_data: done
-  quality_control: done
-  data_preparation: done
-  draft_readme: done
+  quality_control: in_review
+  data_preparation: null
+  draft_readme: null
   preflight_validation: null
   deposit: null
-raw_data_source: datasets/rogers_pass_snow_profiles/raw_data/Rogers Pass March 2024-2025/
-prepared_package:
-  frdr_data_path: datasets/rogers_pass_snow_profiles/frdr_data/
-  prepared_file_count: 595
-  excluded_file_count: 38
-  documentation_language_note: Converted field notes remain in French.
-  readme_validation_issues: []
