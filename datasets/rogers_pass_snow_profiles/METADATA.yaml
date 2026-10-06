@@ -116,7 +116,7 @@ workflow:  # Reset for version 2 (see steps/extension.md)
   scope_definition: done
   research: done
   explore_data: done
-  quality_control: null
+  quality_control: in_review
   data_preparation: null
   draft_readme: null
   preflight_validation: null

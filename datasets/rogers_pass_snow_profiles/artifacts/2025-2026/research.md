@@ -128,7 +128,7 @@ Carried over from v1 (unchanged): Montpetit et al. (2012) IRIS; Schneebeli & Joh
 | Term | Tag | Detail |
 |---|---|---|
 | Dual Ku (`dku`) | instrument | IMST sR13-12VHe / sR17-12VHe FMCW sensors, 12.5–14.5 and 16.5–18.5 GHz, 2 GHz bandwidth (~7.5 cm range resolution per manufacturer), H/V capable, V used in 2026. Multi-angle 0–50°. |
-| BHG | instrument | Blade Hardness Gauge, thin-blade penetrometer (Borstad & McClung, 2011); force readings per layer, three insertions. |
+| BHG | instrument | Blade Hardness Gauge (Fraser Instruments), stainless-steel blade 0.6 mm thick, 10 cm wide; displays peak penetration force in newtons, range 0–50 N, precision 0.05 N; insertion ~10 cm/s (Borstad & McClung, 2011; Barsevskis, TRU thesis). Readings per layer, sometimes as triplets or ranges. *(QC reconciliation patch)* |
 | Emlid Flow | instrument | Emlid field app controlling an RTK base/rover pair; base coordinates entered manually. |
 | Upper-snowpack stability profile | technique | Surface pit (< 1.5 m) with stability tests (CT, ECT) focused on slab conditions; 2026 student project. |
 | Federal Sampler | instrument | Snow tube sampler for SWE; used briefly at Jim Bay Corner in 2026, tool broke. |
@@ -162,6 +162,12 @@ Still valid without change: dataset context and objectives; GRIMP and Parks Cana
 Not applicable to 2025-2026: Christiana Ridge (no 2026 visit).
 
 ---
+
+## QC reconciliation patch (Step 4)
+
+- BHG units and specifications added to the glossary (newtons, 0–50 N, 0.05 N): https://www.tru.ca/__shared/assets/Barsevskis58249.pdf, https://egusphere.copernicus.org/preprints/2024/egusphere-2024-759/.
+- Dual-Ku header fields (`Ramp Init/Time/Reset`, `Radar Cube`, `Processing`, `Range Window Function`, `Trigger Threshold`, `Min/Max Range Bin`) have no public documentation found; definitions requested from the researcher.
+- `HS` (spatial workbooks) = total snow height, values 282–344 at Jim Bay Corner, consistent with cm; `RADAR HEIGHT` (dual-Ku sheet) = sensor height above the snow, unit to confirm; `SWE (mm)` appears in the Hermit SurfacePit2 Density sheet.
 
 ## README updates
 
