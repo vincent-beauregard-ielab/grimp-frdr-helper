@@ -53,7 +53,12 @@ Artifacts produced before the dataset was extended (flat `artifacts/research.md`
 
    The JSON holds the published title, creators, keywords, license, file list, and under `source` the Globus endpoint ID and `submitted_data` path.
 
-2. **Download the published files** into `published/v{N}/` (requires `GLOBUS_CLIENT_ID` in `.env` and Globus Connect Personal running; see `utils/globus_transfer.py`):
+2. **Download the published files** into `published/v{N}/`. One-time prerequisites, done by the human:
+   - `GLOBUS_CLIENT_ID` set in `.env`;
+   - Globus Connect Personal installed and running, with the repository's `datasets/` folder added as an accessible and **writable** folder (GCP Options → Access). Otherwise the transfer fails with `PERMISSION_DENIED … 500 Path not allowed`;
+   - one interactive login (any `utils.globus_transfer` command, e.g. `ls`), which asks for a code pasted from the browser. The agent cannot do this step.
+
+   Then (see `utils/globus_transfer.py`):
 
    ```bash
    MSYS_NO_PATHCONV=1 uv run python -m utils.globus_transfer download \
@@ -61,6 +66,8 @@ Artifacts produced before the dataset was extended (flat `artifacts/research.md`
        --source-path <source.globus_submitted_data_path> \
        --dest-dir datasets/{id}/published/v{N}/ --wait
    ```
+
+   The transfer creates a `submitted_data/` folder inside the destination; move its contents up one level so the files sit directly in `published/v{N}/`. The transfer runs for several minutes: run it in the background.
 
    Never edit files in `published/`. Verify the download against `frdr-dfdr-checksums.txt` before going further. FRDR generates this file at each publication; it is not part of the submitted dataset, so it is used only for verification and never carried into `frdr_data/`.
 
@@ -113,15 +120,16 @@ Artifacts produced before the dataset was extended (flat `artifacts/research.md`
 - QC the new period as usual, into `artifacts/{period}/qc_report.md`. The documentation-coverage reconciliation uses the new research and exploration artifacts plus the carried-over research entries.
 - Add a **Cross-period consistency** section: differences from Step 3 that would confuse a user combining periods (units, site names, column order, codes). For each, recommend harmonizing the new period, documenting the difference, or (rarely) an erratum to the previous period.
 - An issue found in the previous published files is reported as an **erratum candidate**, never fixed silently.
+- **Project `DATA_PREPARATION.md`** (end of step, as in the normal Step 4): add a section `## Period {period} — Projected` above the earlier periods, with the projected banner. The first extension also restructures the file (see the Step 5 delta).
 
 ### 5. Data Preparation
 
 - **Previous version:** copy `published/v{N}/` into `frdr_data/` unchanged. If the layout is flat, a separate notebook `notebooks/restructure_v{N}.ipynb` moves the period files into `frdr_data/{previous period}/` and keeps shared files (`README.txt`, `LICENSE.txt`, `CITATION.txt`) at the top level. Skip FRDR's generated `frdr-dfdr-checksums.txt`; FRDR regenerates it for each version. The notebook asserts that every published file is present and byte-identical (checksum) after the move, except approved errata.
 - **New period:** `notebooks/data_preparation_{period}.ipynb`, following the normal notebook structure, writing only into `frdr_data/{period}/`. Reuse the previous period's naming conventions unless the researcher decided otherwise.
-- **`DATA_PREPARATION.md`:** add a section `## Version {N+1} — {period}` with the usual content (scope, tree, change summary, transformation log, exclusions, unresolved issues), plus:
+- **`DATA_PREPARATION.md`:** one section per period, newest first, each with a status (see the template). Step 4 created the new period's section as **Projected**; Step 5 completes it (status **Prepared**) with the usual content (scope, tree, change summary, transformation log, exclusions, unresolved issues), plus:
   - a **path mapping table** (published path → new path) if the layout changed;
   - an **errata** list (empty if none).
-  Earlier version sections are kept as they are.
+  Earlier periods' sections are kept as they are. In the first extension the existing content is moved, unchanged, under `## Period {first period} — Published (v{N}, DOI)`; the period heading and status line are the only edits. The file header names the dataset version being prepared.
 
 ### 6. Documentation Preparation
 
@@ -139,6 +147,7 @@ Preflight adds these checks:
 - The README version history and `DATA_PREPARATION.md` path mapping agree.
 - The public summary of changes is ≤ 2,000 characters and mentions every path change and erratum.
 - `METADATA.yaml` has the `IsNewVersionOf` relation and extended extents.
+- `DATA_PREPARATION.md` has one section per period; previous periods are marked Published and the new period is Final.
 
 ### 8. Deposit
 

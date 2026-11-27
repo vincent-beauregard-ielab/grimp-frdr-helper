@@ -49,7 +49,7 @@ File names should be logical, descriptive, and brief. Include project, content, 
 
 A mandatory deliverable that the researcher reviews before approving Data Preparation. This is the Level 2 review gate. The report owns the complete picture of the prepared package — deposit scope, file inventory, transformations, and exclusions.
 
-Generate the report from `docs/FRDR-template_DATA_PREPARATION.md`. The report must include:
+`DATA_PREPARATION.md` already exists at this point: Step 4 created the period section as a **Projected** plan. Step 5 turns it into the actual record: replace projected values with real ones (tree, counts, transformation log, exclusions), reflect the researcher's answers to the 🚩 items, remove the projected banner and set the period status to **Prepared**. Record any deviation from the projection explicitly. Other periods' sections are not modified. The document is organized in one section per campaign period, newest first (see `docs/FRDR-template_DATA_PREPARATION.md`). Each period section must include:
 
 - **Review instructions block** — ⚠️ preamble (see template) explaining the legend, companion README reference, and what to ignore
 - **Proposed deposit scope** — Include/exclude decision for each material class, with rationale. Mark contested items with 🚩 for researcher decision.
@@ -61,7 +61,7 @@ Generate the report from `docs/FRDR-template_DATA_PREPARATION.md`. The report mu
 
 Use the `## Synthesis for Report` section of the notebook as the primary source. Do not duplicate the full file inventory from the notebook — reference the tree rendered in the report table rendering section.
 
-Save the report to `datasets/{id}/DATA_PREPARATION.md` (not `artifacts/`). This file is a researcher-facing review document.
+Update the report in `datasets/{id}/DATA_PREPARATION.md` (not `artifacts/`). This file is a researcher-facing review document.
 
 ## Outputs
 

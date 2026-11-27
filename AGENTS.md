@@ -98,7 +98,7 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 1 | Scope Definition | 2 | [`steps/1_scope_definition.md`](steps/1_scope_definition.md) | `README.txt` (identity sections), `METADATA.yaml` |
 | 2 | Research | 3 | [`steps/2_research.md`](steps/2_research.md) | `artifacts/research.md` |
 | 3 | Explore Data | 3 | [`steps/3_explore_data.md`](steps/3_explore_data.md) | `artifacts/data_exploration.md`, notebook |
-| 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md` |
+| 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md`, `DATA_PREPARATION.md` (projected plan) |
 | 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `DATA_PREPARATION.md`, notebook |
 | 6 | Documentation Preparation | 2 | [`steps/6_documentation_preparation.md`](steps/6_documentation_preparation.md) | `README.txt` (complete), `METADATA.yaml` (final), `artifacts/preflight.md` (first run) |
 | 7 | Review | 2 | [`steps/7_review.md`](steps/7_review.md) | Resolved `README.txt` and `DATA_PREPARATION.md`, final preflight PASS |
@@ -170,6 +170,22 @@ Because Research draws from literature and Explore Data draws from files, neithe
 
 When a gap is found, QC sends a targeted research request back to the Research step (covering only the missing instruments or variables) before proceeding. This is a lightweight patch, not a full re-run of Research.
 
+## DATA_PREPARATION.md is a living document
+
+`DATA_PREPARATION.md` is shared by the agent, the people developing the workflow, and the dataset reviewers. It is updated at several steps, not written once:
+
+| Step | Update | Period status |
+|------|--------|---------------|
+| 4 Quality Control | Create the period section as a **projected** plan for Step 5: scope, planned transformations, projected tree and counts, 🚩 decisions | Projected |
+| 5 Data Preparation | Replace the projection with what was actually done; note deviations | Prepared |
+| 7 Review | Resolve 🚩 items; strip projected markers | Final |
+
+Rules:
+- One section per campaign period (field season), newest first. Earlier periods are not rewritten; a published period is marked `Published (vN, DOI)`.
+- A projected section carries a visible **PROJECTED** banner and nothing in it may read as already done. The reviewer must be able to tell, at a glance, what is planned and what is real.
+- The layout and banner text come from `docs/FRDR-template_DATA_PREPARATION.md`.
+- A review PR must contain `DATA_PREPARATION.md` in its diff. If it does not, draft it first.
+
 ## Templates
 
 ### README.txt review preamble
@@ -186,25 +202,46 @@ Notebooks and artifacts/ are reference material — you do not need to review th
 ----------------------------------------------------------------
 ```
 
-### PR description — revision instructions
+### PR description — review round
 
-Used as the PR description when opening a review round in Step 7.
+Used as the PR description whenever a PR asks the researcher to review (Step 4 for the projected plan, Step 7 for the final documents). The reviewer does this work only occasionally: write for someone who has never opened a PR, keep sections short, and fill every placeholder.
 
 ```
-## Dataset review — [dataset title]
+## Dataset review — [dataset title] ([period / version])
 
-Please review the two documents below and leave comments on any 🚩 items.
+### 1. Where we stand
 
-**Your review documents:**
-- `README.txt` — public-facing dataset description for FRDR deposit
-- `DATA_PREPARATION.md` — deposit package scope, file inventory, and transformation record
+Curation pipeline (✅ done, 👉 this review, ⬜ upcoming):
 
-**How to review:**
-- 🚩 marks items requiring your decision — please comment directly on these lines
-- ⚠️ marks critical context for your understanding — no action required
-- Notebooks and `artifacts/` are reference material — you do not need to review them
+✅ 1 Scope · ✅ 2 Research · ✅ 3 Explore data · ✅ 4 Quality control · 👉 **Review of the projected data preparation** · ⬜ 5 Data preparation · ⬜ 6 Documentation · ⬜ 7 Final review · ⬜ 8 Deposit
 
-**What happens next:**
-After your comments, the agent operator will apply fixes, run a preflight check, and either
-send another round or proceed to deposit.
+[Two or three sentences: what has been done so far, and the status of each review file (e.g. "DATA_PREPARATION.md is *projected*: it describes what we plan to do, no deposit files have been prepared yet").]
+
+### 2. What comes next
+
+[What the agent operator does once your answers are in (the next step, in plain words), what the following review round will contain, and what remains before deposit.]
+
+### 3. Review these files (in this order)
+
+| Priority | File | What to check | State |
+|---|---|---|---|
+| Critical | `datasets/{id}/DATA_PREPARATION.md` — section for [period] | Proposed deposit scope, planned transformations, 🚩 decisions | [Projected / Prepared / Final] |
+| Critical | `datasets/{id}/README.txt` | Public description: people, sites, instruments, methods | [Draft / Final] |
+| Critical | `datasets/{id}/METADATA.yaml` | Authors, dates, coverage, keywords (feeds the FRDR form) | [Draft / Final] |
+| Optional | `datasets/{id}/artifacts/`, notebooks | Agent workpapers, only if you want the evidence behind a question | n/a |
+
+Everything else in the diff (code, utilities, instructions) is tooling: you can skip it.
+
+### 4. Open questions for you
+
+Numbered, answerable in one line each. Name the file and section, and say what we will do for each answer.
+
+1. **[Topic]** — [question]. (`file`, section) If A: [consequence]. If B: [consequence].
+
+### 5. How to review
+
+- Open the **Files changed** tab and use the file list on the left to jump to the critical files above.
+- Click the **+** next to a line to comment on it, or answer in the PR conversation by question number. Short answers are fine ("1: B").
+- 🚩 marks items needing your decision. ⚠️ marks context to read, no action required.
+- You do not need to approve code or understand the notebooks.
 ```

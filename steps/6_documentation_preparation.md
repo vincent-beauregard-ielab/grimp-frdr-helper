@@ -139,6 +139,7 @@ After validation, run the preflight checks and save results to `datasets/{id}/ar
 - README completeness (no empty sections, no leftover template text, no stubs)
 - Review preamble present
 - `frdr_data/` file counts match `DATA_PREPARATION.md`
+- `DATA_PREPARATION.md` period status is Prepared (not Projected)
 - `METADATA.yaml` fields complete (title at minimum; flag any missing recommended fields)
 - All 🚩 items are present and documented (they are expected — not a failure)
 - No 🚩 items are already resolved (that happens in Review)

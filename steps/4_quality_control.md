@@ -16,6 +16,8 @@ Explore data files and validate integrity. QC **flags issues and recommends acti
 
 **Requires:** Research and Explore Data both complete.
 
+**Researcher visibility:** this step ends with a review round. `DATA_PREPARATION.md` (projected) is the key file the researcher reviews; see the PR template in `AGENTS.md`.
+
 ## Checks
 
 - Consistent column names and data types across files
@@ -40,5 +42,7 @@ For each issue found, the QC report should specify:
 ## Outputs
 
 - `datasets/{id}/artifacts/qc_report.md` — Issue list only. Does not include deposit scope summaries, file inventories, or README checks (those belong in `DATA_PREPARATION.md` and preflight).
+
+- `datasets/{id}/DATA_PREPARATION.md` — **updated at the end of this step as a projected plan for Step 5.** Create (or add, for an extension) the period section from `docs/FRDR-template_DATA_PREPARATION.md` with status **Projected** and the projected banner. Fill what QC lets you know: scope, proposed deposit scope (include/exclude per material class, 🚩 on contested items), projected file tree and counts, planned transformations (each tied to a QC issue), projected exclusions, and an unresolved-issues table with every QC item that needs a researcher answer. Nothing in it may read as already done.
 
 **`qc_report.md` is frozen after this step.** It is never edited again. All resolution tracking belongs to `DATA_PREPARATION.md`. The researcher may consult it as reference but does not act on it directly.
