@@ -14,7 +14,7 @@ Step 6 complete (README + first preflight)
     ▼
 Operator opens PR (optional) or sends documents directly
     │   PR includes: README.txt + DATA_PREPARATION.md
-    │   PR description uses the revision instructions boilerplate (see AGENTS.md)
+    │   PR description uses the "PR description — review round" template (see AGENTS.md)
     ▼
 Researcher comments on 🚩 items (inline PR comments or direct feedback)
     │
@@ -61,6 +61,7 @@ Preflight checks each run:
 - All 🚩 resolved (required for final PASS)
 - `frdr_data/` file counts match `DATA_PREPARATION.md`
 - `METADATA.yaml` fields complete
+- `DATA_PREPARATION.md`: every period section has status Prepared (during review) or Final (final run), and no "PROJECTED" banner remains
 - Review preamble **present** (pre-final runs) or **absent** (final run only)
 
 ## Final preflight — deposit gate
@@ -68,7 +69,8 @@ Preflight checks each run:
 The step is complete when:
 1. All 🚩 items are resolved in both `README.txt` and `DATA_PREPARATION.md`
 2. No 🚩 remain
-3. Preflight returns PASS
+3. Every period section of `DATA_PREPARATION.md` has status Final or Published, and `grep -c "PROJECTED" DATA_PREPARATION.md` is 0
+4. Preflight returns PASS
 
 Before the final PASS, strip the review preamble from `README.txt`:
 

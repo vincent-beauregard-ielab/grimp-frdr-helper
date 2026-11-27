@@ -322,6 +322,10 @@ def extract_metadata(about: dict[str, str]) -> dict[str, Any]:
     metadata["source"] = {
         "frdr_landing_page": landing_page_url,
     }
+    if config:
+        # Inputs for `utils.globus_transfer download --source-endpoint ... --source-path ...`
+        metadata["source"]["globus_endpoint_id"] = config.endpoint_id
+        metadata["source"]["globus_submitted_data_path"] = f"{config.base_path.rstrip('/')}/submitted_data"
     return metadata
 
 

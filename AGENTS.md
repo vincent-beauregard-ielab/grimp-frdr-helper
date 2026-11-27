@@ -18,7 +18,7 @@ Agents assist GRIMP researchers in archiving and documenting research datasets f
   notebooks or scripts in the repository-level `notebooks/` or `scripts/` directories —
   the latter is reserved for project-wide tooling that is not tied to any single dataset.
 
-  `datasets/example/` is a reference template based on the published Rogers Pass snow profile dataset (DOI: 10.20383/103.01523).
+  `datasets/example/` is a reference template based on the published Glacier National Park (Rogers Pass area) CAAML snow profile dataset (DOI: 10.20383/103.01523). It is a different FRDR record from `datasets/rogers_pass_snow_profiles/` (DOI: 10.20383/103.01634).
 
   `METADATA.yaml` mirrors FRDR required and recommended fields (title, authors, license, dates, geographic coverage, funding, related identifiers, etc.) plus workflow state. It is populated incrementally: Scope fills identity and extents, Research fills people and context, later steps update as needed. The Deposit step reads it to fill the FRDR submission form. See `datasets/example/METADATA.yaml` for the full schema.
 
@@ -98,11 +98,13 @@ Each dataset follows this pipeline. Detailed instructions for each step are in `
 | 1 | Scope Definition | 2 | [`steps/1_scope_definition.md`](steps/1_scope_definition.md) | `README.txt` (identity sections), `METADATA.yaml` |
 | 2 | Research | 3 | [`steps/2_research.md`](steps/2_research.md) | `artifacts/research.md` |
 | 3 | Explore Data | 3 | [`steps/3_explore_data.md`](steps/3_explore_data.md) | `artifacts/data_exploration.md`, notebook |
-| 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md` |
+| 4 | Quality Control | 2 | [`steps/4_quality_control.md`](steps/4_quality_control.md) | `artifacts/qc_report.md`, `DATA_PREPARATION.md` (projected plan) |
 | 5 | Data Preparation | 2 | [`steps/5_data_preparation.md`](steps/5_data_preparation.md) | `frdr_data/`, `DATA_PREPARATION.md`, notebook |
 | 6 | Documentation Preparation | 2 | [`steps/6_documentation_preparation.md`](steps/6_documentation_preparation.md) | `README.txt` (complete), `METADATA.yaml` (final), `artifacts/preflight.md` (first run) |
 | 7 | Review | 2 | [`steps/7_review.md`](steps/7_review.md) | Resolved `README.txt` and `DATA_PREPARATION.md`, final preflight PASS |
 | 8 | Deposit | 1 | [`steps/8_deposit.md`](steps/8_deposit.md) | Published dataset with DOI |
+
+When adding a new period (e.g. a new field season) to a dataset already published on FRDR, also follow [`steps/extension.md`](steps/extension.md): it adds a Baseline step (Step 0) and lists what changes in each step above.
 
 ## New dataset intake
 
@@ -126,6 +128,16 @@ The first response should:
 7. Keep the tone practical and companionable. Avoid a terse checklist-only answer when the user is starting a workflow.
 
 Do not create or move files until the user provides enough information to identify the dataset and raw data location.
+
+## Extending a published dataset
+
+When the user wants to add new data (typically a new field season) to a dataset already published on FRDR, this is an extension, not a new dataset. The result is a new FRDR version of the same record, with a new DOI. Work in the existing `datasets/{id}/` folder and follow [`steps/extension.md`](steps/extension.md).
+
+The first response should briefly explain that the agent will first download the published version as a read-only baseline, then run Steps 1–8 on the new period only, keeping previously published files unchanged. Ask for:
+
+- the DOI of the latest published version (or find it in `METADATA.yaml` and confirm it),
+- the period name (e.g. `2025-2026`) and where its raw files are located,
+- what changed since the last version (new sites, instruments, people, protocol).
 
 ## Step dependencies
 
@@ -158,6 +170,22 @@ Because Research draws from literature and Explore Data draws from files, neithe
 
 When a gap is found, QC sends a targeted research request back to the Research step (covering only the missing instruments or variables) before proceeding. This is a lightweight patch, not a full re-run of Research.
 
+## DATA_PREPARATION.md is a living document
+
+`DATA_PREPARATION.md` is shared by the agent, the people developing the workflow, and the dataset reviewers. It is updated at several steps, not written once:
+
+| Step | Update | Period status |
+|------|--------|---------------|
+| 4 Quality Control | Create the period section as a **projected** plan for Step 5: scope, planned transformations, projected tree and counts, 🚩 decisions | Projected |
+| 5 Data Preparation | Replace the projection with what was actually done; note deviations | Prepared |
+| 7 Review | Resolve 🚩 items; strip projected markers | Final |
+
+Rules:
+- One section per campaign period (field season), newest first. Earlier periods are not rewritten; a published period is marked `Published (vN, DOI)`.
+- A projected section carries a visible **PROJECTED** banner and nothing in it may read as already done. The reviewer must be able to tell, at a glance, what is planned and what is real.
+- The layout and banner text come from `docs/FRDR-template_DATA_PREPARATION.md`.
+- A review PR must contain `DATA_PREPARATION.md` in its diff. If it does not, draft it first.
+
 ## Templates
 
 ### README.txt review preamble
@@ -174,25 +202,57 @@ Notebooks and artifacts/ are reference material — you do not need to review th
 ----------------------------------------------------------------
 ```
 
-### PR description — revision instructions
+### PR description — review round
 
-Used as the PR description when opening a review round in Step 7.
+Used as the PR description whenever a PR asks the researcher to review (Step 4 for the projected plan, Step 7 for the final documents). The reviewer does this work only occasionally: write for someone who has never opened a PR, keep sections short, and fill every placeholder.
+
+**Review files and questions must match the current step.** Use the table below to decide which files the reviewer must act on and what they confirm at this step. Ask only questions the reviewer can answer now: never ask them to complete or confirm content that belongs to a later step (for example authors and participants, which are confirmed at Step 6). If a fact is needed later, say so in "What comes next" instead of asking it now. Before opening the PR, check every question against this table.
+
+| File | Step 4 review (projected plan) | Step 7 review (final documents) | Confirmed at |
+|------|------------------|------------------|--------------|
+| `DATA_PREPARATION.md` | **Critical.** Status Projected. Reviewer answers deposit-scope and QC questions | **Critical.** Status Prepared, then Final | Step 4 (scope and QC decisions), Step 7 (final) |
+| `README.txt` | Not under review. Status Draft | **Critical.** Status Final | Step 7 (content and people prepared at Step 6) |
+| `METADATA.yaml` | Not under review. Status Draft | **Critical.** Status Final | Step 7 (authors and fields prepared at Step 6) |
+| `artifacts/`, notebooks | Optional evidence | Optional evidence | not reviewed |
 
 ```
-## Dataset review — [dataset title]
+## Dataset review — [dataset title] ([period / version])
 
-Please review the two documents below and leave comments on any 🚩 items.
+### 1. Where we stand
 
-**Your review documents:**
-- `README.txt` — public-facing dataset description for FRDR deposit
-- `DATA_PREPARATION.md` — deposit package scope, file inventory, and transformation record
+Curation pipeline (✅ done, 👉 this review, ⬜ upcoming):
 
-**How to review:**
-- 🚩 marks items requiring your decision — please comment directly on these lines
-- ⚠️ marks critical context for your understanding — no action required
-- Notebooks and `artifacts/` are reference material — you do not need to review them
+✅ 1 Scope · ✅ 2 Research · ✅ 3 Explore data · ✅ 4 Quality control · 👉 **Review of the projected data preparation** · ⬜ 5 Data preparation · ⬜ 6 Documentation · ⬜ 7 Final review · ⬜ 8 Deposit
 
-**What happens next:**
-After your comments, the agent operator will apply fixes, run a preflight check, and either
-send another round or proceed to deposit.
+[Two or three sentences: what has been done so far, and the status of each review file (e.g. "DATA_PREPARATION.md is *projected*: it describes what we plan to do, no deposit files have been prepared yet").]
+
+### 2. What comes next
+
+[What the agent operator does once your answers are in (the next step, in plain words), what the following review round will contain, and what remains before deposit.]
+
+### 3. Review these files (in this order)
+
+[Fill from the step table above. Only list as Critical the files the reviewer must act on at this step. For every file give its status and the step at which it is confirmed.]
+
+| Priority | File | What to check now | Status | Confirmed at |
+|---|---|---|---|---|
+| Critical | `datasets/{id}/DATA_PREPARATION.md`, section [period] | [Step 4: proposed deposit scope, planned transformations, 🚩 decisions] | [Projected / Prepared / Final] | [Step 4 / Step 7] |
+| Not yet | `datasets/{id}/README.txt` | Nothing at this step [or, at Step 7: public description, people, sites, instruments, methods] | [Draft / Final] | [Step 7] |
+| Not yet | `datasets/{id}/METADATA.yaml` | Nothing at this step [or, at Step 7: authors, dates, coverage, keywords] | [Draft / Final] | [Step 7] |
+| Optional | `datasets/{id}/artifacts/`, notebooks | Agent workpapers, only if you want the evidence behind a question | n/a | n/a |
+
+Everything else in the diff (code, utilities, instructions) is tooling: you can skip it.
+
+### 4. Open questions for you
+
+Numbered, answerable in one line each. Name the file and section, and say what we will do for each answer. Every question must be answerable at the current step (see the step table above).
+
+1. **[Topic]** — [question]. (`file`, section) If A: [consequence]. If B: [consequence].
+
+### 5. How to review
+
+- Open the **Files changed** tab and use the file list on the left to jump to the critical files above.
+- Click the **+** next to a line to comment on it, or answer in the PR conversation by question number. Short answers are fine ("1: B").
+- 🚩 marks items needing your decision. ⚠️ marks context to read, no action required.
+- You do not need to approve code or understand the notebooks.
 ```
