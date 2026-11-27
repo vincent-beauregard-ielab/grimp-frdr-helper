@@ -30,8 +30,8 @@ Created at the end of Step 4 (status Projected); completed at Step 5 (Prepared);
 
 ## Period [PERIOD, e.g. 2025-2026] — [Projected | Prepared | Final | Published (vN, DOI)]
 
-> ⚠️ **PROJECTED — remove this banner when the status changes to Prepared.**
-> This section describes what Step 5 *will* do, based on the Quality Control findings. No files have been prepared yet. Tables marked "projected" contain expected values and will be replaced by actual results.
+<!-- AGENT: remove this comment and the banner below at the end of Step 5, and set the period status to Prepared. -->
+> ⚠️ **PROJECTED PLAN.** This section describes what Step 5 *will* do, based on the Quality Control findings. No files have been prepared yet. Tables marked "projected" contain expected values and will be replaced by actual results.
 
 ### Scope
 
