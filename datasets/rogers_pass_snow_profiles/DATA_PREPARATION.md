@@ -27,8 +27,8 @@ Notebooks and artifacts/ are reference material — you do not need to review th
 
 ## Period 2025-2026 — Projected
 
-> ⚠️ **PROJECTED — remove this banner when the status changes to Prepared.**
-> This section describes what Step 5 *will* do, based on the Quality Control findings. No files have been prepared yet. Tables marked "projected" contain expected values and will be replaced by actual results.
+<!-- AGENT: remove this comment and the banner below at the end of Step 5, and set the period status to Prepared. -->
+> ⚠️ **PROJECTED PLAN.** This section describes what Step 5 *will* do, based on the Quality Control findings. No files have been prepared yet. Tables marked "projected" contain expected values and will be replaced by actual results.
 
 Sources: `artifacts/2025-2026/data_exploration.md`, `artifacts/2025-2026/research.md`, `artifacts/2025-2026/qc_report.md`. Issue references (A1, B7, …) point to the QC report.
 
