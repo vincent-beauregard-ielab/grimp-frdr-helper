@@ -16,7 +16,7 @@ Explore data files and validate integrity. QC **flags issues and recommends acti
 
 **Requires:** Research and Explore Data both complete.
 
-**Researcher visibility:** this step ends with a review round. `DATA_PREPARATION.md` (projected) is the key file the researcher reviews; see the PR template in `AGENTS.md`.
+**Researcher visibility:** this step ends with a review round. `DATA_PREPARATION.md` (projected) is the only file the researcher must act on at this step. `README.txt` and `METADATA.yaml` stay drafts and are reviewed at Step 7, so do not ask the researcher to confirm their content now. The PR questions must all be answerable at this step; see the PR template in `AGENTS.md`.
 
 ## Checks
 

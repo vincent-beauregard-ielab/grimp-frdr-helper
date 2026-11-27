@@ -206,6 +206,15 @@ Notebooks and artifacts/ are reference material — you do not need to review th
 
 Used as the PR description whenever a PR asks the researcher to review (Step 4 for the projected plan, Step 7 for the final documents). The reviewer does this work only occasionally: write for someone who has never opened a PR, keep sections short, and fill every placeholder.
 
+**Review files and questions must match the current step.** Use the table below to decide which files the reviewer must act on and what they confirm at this step. Ask only questions the reviewer can answer now: never ask them to complete or confirm content that belongs to a later step (for example authors and participants, which are confirmed at Step 6). If a fact is needed later, say so in "What comes next" instead of asking it now. Before opening the PR, check every question against this table.
+
+| File | Step 4 review (projected plan) | Step 7 review (final documents) | Confirmed at |
+|------|------------------|------------------|--------------|
+| `DATA_PREPARATION.md` | **Critical.** Status Projected. Reviewer answers deposit-scope and QC questions | **Critical.** Status Prepared, then Final | Step 4 (scope and QC decisions), Step 7 (final) |
+| `README.txt` | Not under review. Status Draft | **Critical.** Status Final | Step 7 (content and people prepared at Step 6) |
+| `METADATA.yaml` | Not under review. Status Draft | **Critical.** Status Final | Step 7 (authors and fields prepared at Step 6) |
+| `artifacts/`, notebooks | Optional evidence | Optional evidence | not reviewed |
+
 ```
 ## Dataset review — [dataset title] ([period / version])
 
@@ -223,18 +232,20 @@ Curation pipeline (✅ done, 👉 this review, ⬜ upcoming):
 
 ### 3. Review these files (in this order)
 
-| Priority | File | What to check | State |
-|---|---|---|---|
-| Critical | `datasets/{id}/DATA_PREPARATION.md` — section for [period] | Proposed deposit scope, planned transformations, 🚩 decisions | [Projected / Prepared / Final] |
-| Critical | `datasets/{id}/README.txt` | Public description: people, sites, instruments, methods | [Draft / Final] |
-| Critical | `datasets/{id}/METADATA.yaml` | Authors, dates, coverage, keywords (feeds the FRDR form) | [Draft / Final] |
-| Optional | `datasets/{id}/artifacts/`, notebooks | Agent workpapers, only if you want the evidence behind a question | n/a |
+[Fill from the step table above. Only list as Critical the files the reviewer must act on at this step. For every file give its status and the step at which it is confirmed.]
+
+| Priority | File | What to check now | Status | Confirmed at |
+|---|---|---|---|---|
+| Critical | `datasets/{id}/DATA_PREPARATION.md`, section [period] | [Step 4: proposed deposit scope, planned transformations, 🚩 decisions] | [Projected / Prepared / Final] | [Step 4 / Step 7] |
+| Not yet | `datasets/{id}/README.txt` | Nothing at this step [or, at Step 7: public description, people, sites, instruments, methods] | [Draft / Final] | [Step 7] |
+| Not yet | `datasets/{id}/METADATA.yaml` | Nothing at this step [or, at Step 7: authors, dates, coverage, keywords] | [Draft / Final] | [Step 7] |
+| Optional | `datasets/{id}/artifacts/`, notebooks | Agent workpapers, only if you want the evidence behind a question | n/a | n/a |
 
 Everything else in the diff (code, utilities, instructions) is tooling: you can skip it.
 
 ### 4. Open questions for you
 
-Numbered, answerable in one line each. Name the file and section, and say what we will do for each answer.
+Numbered, answerable in one line each. Name the file and section, and say what we will do for each answer. Every question must be answerable at the current step (see the step table above).
 
 1. **[Topic]** — [question]. (`file`, section) If A: [consequence]. If B: [consequence].
 
