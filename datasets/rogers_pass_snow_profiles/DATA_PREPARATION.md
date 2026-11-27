@@ -150,7 +150,7 @@ Questions 1–10 come from the QC report. Questions 11–15 are deposit-scope de
 | 5 | 🚩 Better copies of the 7 empty files? (A5) | Pending researcher decision | Fidelity tower dual-Ku would otherwise keep only counter 830 and half of 832 |
 | 6 | 🚩 Confirm: date of `RoundHill_bottom.xlsx` (B1), location of `GopherButte_upperSnowpack.xlsx` (B3), SWE-only Hermit surface pit 2 (B4) | Pending researcher decision | Raw values documented; corrections only in prepared copies, if you agree |
 | 7 | 🚩 Swapped `Down` / fracture-character columns (C2); BHG value `75-60-48` outside 0–50 N (C5) | Pending researcher decision | Documented as found unless you correct |
-| 8 | 🚩 Who are observers "MS" and "NaA"? (D3) | Pending researcher decision | Needed for the participants list in the README |
+| 8 | 🚩 Who are observers "MS" and "NaA"? (D3) | Pending researcher decision | Appear in one workbook and are not in the team list. The participants list itself is completed at Step 6 |
 | 9 | 🚩 Dual-Ku header fields and `RADAR HEIGHT` unit: documentation or reader script to cite? | Pending researcher decision | No public documentation found |
 | 10 | 🚩 Emlid CSV exports for days other than 2026-03-09? (B10) | Pending researcher decision | Only KML/KMZ exist for the other days |
 | 11 | 🚩 Dual-Ku folder name | Pending researcher decision | Proposed `radar_FMCW_dual_Ku` |
